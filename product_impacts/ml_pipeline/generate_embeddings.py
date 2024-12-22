@@ -16,7 +16,9 @@ def get_products(data_dir):
     
     products = pd.read_csv(f'{data_dir}openfoodfacts_lang.csv', low_memory=False)
     products = products.fillna('')
-    products = products[(products['ingredients_text_language']=='und') & (products['product_name_language']=='en')]
+    products = products[(products['ingredients_text_language']!='en') 
+                        & (products['product_name_language']!='en')
+                        & (products['ingredients_text']!='')]
     
     return products
 
@@ -25,8 +27,8 @@ if __name__ == '__main__':
     products = get_products(data_dir)
     products['text'] = products['product_name_en'].str.lower() + ' - ' + products['ingredients_text_en'].str.lower()
     model = SentenceTransformer('all-mpnet-base-v2')
-    prefix = 'eng' ### enter this if splitting embeddings into folders, else blank string
-    i = 41 ### enter this if starting subscript needs to be higher, else 0 
+    prefix = 'non_eng/' ### enter this if splitting embeddings into folders, else blank string
+    i = 0 ### enter this if starting subscript needs to be higher, else 0 
     N = math.ceil(len(products)/10000)
     
     for chunk in np.array_split(products, N):

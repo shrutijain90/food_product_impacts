@@ -18,7 +18,7 @@ def get_pred_data(data_dir, prefix):
     pred = pd.read_csv(f'{data_dir}openfoodfacts_lang.csv', low_memory=False)
     pred = pred.fillna('')
     
-    num_files = len([name for name in os.listdir(f'{data_dir}embeddings/eng')if 'ids' in name])
+    num_files = len([name for name in os.listdir(f'{data_dir}embeddings/{prefix}')if 'ids' in name])
     pred_df_list = []
     
     for i in range(num_files):
@@ -81,8 +81,8 @@ def lev_2_model(train, pred, X_cols, model_type, category):
 
 if __name__ == '__main__':
     
-    model_type = 'nn' ### enter model type here
-    prefix = 'eng/' ### enter this if embeddings are split into folders, else blank string
+    model_type = 'rf' ### enter model type here
+    prefix = 'non_eng/' ### enter this if embeddings are split into folders, else blank string
     
     train, X_cols = get_labels()
     pred = get_pred_data(data_dir, prefix)
@@ -108,8 +108,8 @@ if __name__ == '__main__':
         df_list.append(pred_df)
         
     pred = pd.concat(df_list, axis=0, ignore_index=True)
-    pred = pred.drop([col for col in pred.columns.to_list() if isinstance(col, int)], axis=1)
-    pred.to_csv(f'{data_dir}predictions/{prefix}predictions_{model_type}.csv', index=False)
+    # pred = pred.drop([col for col in pred.columns.to_list() if isinstance(col, int)], axis=1)
+    pred[['product_id', 'product_name', 'ingredients_text', 'parentcategory', 'mainfoodgroup', 'subfoodgroup', 'parentcategory_prob', 'subfoodgroup_prob']].to_csv(f'{data_dir}predictions/{prefix}predictions_{model_type}.csv', index=False)
         
         
     
