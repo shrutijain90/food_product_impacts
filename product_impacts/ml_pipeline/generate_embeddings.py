@@ -9,7 +9,7 @@ from sklearn.decomposition import PCA
 from sklearn.manifold import TSNE
 
 ### enter path here
-data_dir = '../../future_of_food/openfoodfacts/all/'
+data_dir = '../../SFS/openfoodfacts/all/'
 
 ### edit this function to filter
 def get_products(data_dir):

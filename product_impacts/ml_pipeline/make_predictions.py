@@ -11,7 +11,7 @@ import tensorflow as tf
 from product_impacts.ml_pipeline.train_models import get_labels
 
 ### enter path here
-data_dir = '../../future_of_food/openfoodfacts/all/'
+data_dir = '../../SFS/openfoodfacts/all/'
 
 def get_pred_data(data_dir, prefix):
     
@@ -53,7 +53,7 @@ def get_predictions(stored_model, X, model_type):
 
 def lev_0_model(pred, X_cols, model_type):
 
-    stored_model = joblib.load(f'../../future_of_food/NDNS UK/trained_models/{model_type}_lev0.joblib')
+    stored_model = joblib.load(f'../../SFS/NDNS UK/trained_models/{model_type}_lev0.joblib')
     X_pred = pred[X_cols].to_numpy()
     
     y_pred, y_pred_probabilities = get_predictions(stored_model, X_pred, model_type)
@@ -65,7 +65,7 @@ def lev_0_model(pred, X_cols, model_type):
 
 def lev_2_model(train, pred, X_cols, model_type, category):
 
-    stored_model = joblib.load(f'../../future_of_food/NDNS UK/trained_models/{model_type}_{category}.joblib')
+    stored_model = joblib.load(f'../../SFS/NDNS UK/trained_models/{model_type}_{category}.joblib')
     X_pred = pred[X_cols].to_numpy()
     
     y_pred2, y_pred2_probabilities = get_predictions(stored_model, X_pred, model_type)

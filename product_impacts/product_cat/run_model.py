@@ -61,15 +61,15 @@ def get_ndns_cats(fname):
     
     return ndns
 
-def get_products(fname):
+def get_products():
     
-    products1 = pd.read_csv('../../future_of_food/all_fooddb_data_extracts/Extract_2019/foodDB_Raw/products.csv', usecols= [
+    products1 = pd.read_csv('../../SFS/all_fooddb_data_extracts/Extract_2019/foodDB_Raw/products.csv', usecols= [
         'product_id', 'product_list_name', 'product_name', 'ingredients_text', 'url', 'energy_per_100'])
     products1['extract_year'] = 2019
-    products2 = pd.read_csv('../../future_of_food/all_fooddb_data_extracts/Extract_2021/foodDB_dat/products.csv', usecols= [
+    products2 = pd.read_csv('../../SFS/all_fooddb_data_extracts/Extract_2021/foodDB_dat/products.csv', usecols= [
         'product_id', 'product_list_name', 'product_name', 'ingredients_text', 'url', 'energy_per_100'])
     products2['extract_year'] = 2021
-    products3 = pd.read_csv('../../future_of_food/all_fooddb_data_extracts/Extract_2022/May_2022_Extract/products.csv',  usecols= [
+    products3 = pd.read_csv('../../SFS/all_fooddb_data_extracts/Extract_2022/May_2022_Extract/products.csv',  usecols= [
         'foodDB_product_id', 'product_list_name', 'product_name', 'ingredients_list', 'product_url', 'Energy']).rename(columns={
         'foodDB_product_id': 'product_id',
         'ingredients_list': 'ingredients_text',
@@ -94,7 +94,7 @@ def get_products(fname):
 def get_ndns_matches(ndns, products, pred_fname=None):
     
     # original categories from Mike
-    ndns_matches = pd.read_csv('../../future_of_food/NDNS UK/labels/matches.10.05.22.csv')
+    ndns_matches = pd.read_csv('../../SFS/NDNS UK/labels/matches.10.05.22.csv')
     
     # to match perfectly with matches data
     ndns_matches.loc[ndns_matches['subfoodgroupcode']=='61R', 'mainfoodgroupcode'] = 45
@@ -127,7 +127,7 @@ def get_ndns_matches(ndns, products, pred_fname=None):
     
     ###################
     # some corrections done after first round of predictions
-    corr = pd.read_csv('../../future_of_food/NDNS UK/labels/predictions_corr_manual_Shruti.csv')
+    corr = pd.read_csv('../../SFS/NDNS UK/labels/predictions_corr_manual_Shruti.csv')
     remap_dict = {
         'OTHER FRUIT NOT CANNED': 'Other fruit not canned', 
         'CITRUS FRUIT NOT CANNED': 'Citrus fruit not canned',
@@ -167,9 +167,9 @@ def get_ndns_matches(ndns, products, pred_fname=None):
     
     ###################
     # categories from labelling exercise
-    fnames = ['../../future_of_food/NDNS UK/labels/Copy of sample_7_EH.xlsx',
-              '../../future_of_food/NDNS UK/labels/sample_2_SJ.xlsx',
-              '../../future_of_food/NDNS UK/labels/WorkForShruti.xlsx']
+    fnames = ['../../SFS/NDNS UK/labels/Copy of sample_7_EH.xlsx',
+              '../../SFS/NDNS UK/labels/sample_2_SJ.xlsx',
+              '../../SFS/NDNS UK/labels/WorkForShruti.xlsx']
     
     for fname in fnames:
         df = pd.read_excel(fname)
@@ -219,7 +219,7 @@ def get_ndns_matches(ndns, products, pred_fname=None):
     
     ###################
     # intake 24 categorizations
-    with open('../../future_of_food/intake24/mapping_GPT_FM_string_duplication.json') as f:
+    with open('../../SFS/NDNS UK/labels/intake24/mapping_GPT_FM_string_duplication.json') as f:
         intake24 = json.load(f)
     df = pd.json_normalize(intake24)
     df = df.melt(ignore_index=False).reset_index(drop=True)
@@ -230,7 +230,7 @@ def get_ndns_matches(ndns, products, pred_fname=None):
     intake24 = intake24[intake24['value'].notnull()]
     intake24 = intake24[['value', 'NDB_category']].rename(columns={'value': 'product_list_name'})
     
-    intake_mapping = pd.read_excel('../../future_of_food/intake24/NDNS_food_code_mapping.xlsx')
+    intake_mapping = pd.read_excel('../../SFS/NDNS UK/labels/intake24/NDNS_food_code_mapping.xlsx')
     intake_mapping = intake_mapping.rename(columns={'Unnamed: 0': 'NDB_category'})
     intake24 = intake24.merge(intake_mapping[['NDB_category', 'NDB food code', 'MainFoodGroupCode', 
                                               'MainFoodGroupDesc', 'SubFoodGroupCode', 'SubFoodGroupDesc']])
@@ -246,8 +246,8 @@ def get_ndns_matches(ndns, products, pred_fname=None):
     
     ###################
     # categories from Savka
-    folder_cats = '../../future_of_food/NDNS UK/labels/Savka NDNS Categorisation'
-    for cat_fname in os.listdir('../../future_of_food/NDNS UK/labels/Savka NDNS Categorisation'):
+    folder_cats = '../../SFS/NDNS UK/labels/Savka NDNS Categorisation'
+    for cat_fname in os.listdir('../../SFS/NDNS UK/labels/Savka NDNS Categorisation'):
         df = pd.read_csv(f"{folder_cats}/{cat_fname}")
         if len(df['NDNS_Code'].values[0].split(','))==1:
             df = df[['NDNS_Code', 'id']].merge(ndns.drop(['detaileddesc'], axis=1), 
@@ -485,15 +485,15 @@ def get_dist_scores(predicted_data, ndns, X_cols):
 
 if __name__ == '__main__':
     
-    ndns = get_ndns_cats('../../future_of_food/NDNS UK/ndns_edited.csv')
-    products = get_products('../../future_of_food/foodDB_23June/products.csv')
+    ndns = get_ndns_cats('../../SFS/NDNS UK/ndns_edited.csv')
+    products = get_products()
     labelled_data, non_food_products = get_ndns_matches(
         ndns, products, 
-        # pred_fname='../../future_of_food/NDNS UK/predictions/predictions_all_LDA_v1.csv'
+        # pred_fname='../../SFS/NDNS UK/predictions/predictions_all_LDA_v1.csv'
     )
-    query_embeddings = np.load('../../future_of_food/bert/all_embeddings_all3.npy')
-    tsne_results = get_tsne(query_embeddings, '../../future_of_food/bert/tsne_results_all3.npy')
-    product_ids = np.load('../../future_of_food/bert/all_ids_all3.npy')
+    query_embeddings = np.load('../../SFS/bert/all_embeddings_all3.npy')
+    tsne_results = get_tsne(query_embeddings, '../../SFS/bert/tsne_results_all3.npy')
+    product_ids = np.load('../../SFS/bert/all_ids_all3.npy')
     
     features = pd.DataFrame(data=query_embeddings)
     id_col = 'product_id'
@@ -523,5 +523,5 @@ if __name__ == '__main__':
     
     predicted_data = get_dist_scores(predicted_data, ndns, X_cols)
 
-    predicted_data[cols].to_csv('../../future_of_food/NDNS UK/predictions/predictions_all_LDA_HI12_v1.csv', index=False)
+    predicted_data[cols].to_csv('../../SFS/NDNS UK/predictions/predictions_all_LDA_HI12_v1.csv', index=False)
     

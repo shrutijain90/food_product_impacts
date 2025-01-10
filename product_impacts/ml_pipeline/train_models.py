@@ -9,7 +9,7 @@ import joblib
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score, balanced_accuracy_score
+from sklearn.metrics import accuracy_score, balanced_accuracy_score, precision_score, recall_score, f1_score, matthews_corrcoef
 from sklearn.preprocessing import LabelEncoder
 from sklearn.utils import class_weight
 import tensorflow as tf
@@ -25,7 +25,7 @@ from keras.utils import to_categorical
 
 def get_labels():
     
-    food_db = pd.read_csv('../../future_of_food/NDNS UK/predictions/all_predictions_15Oct2024.csv')
+    food_db = pd.read_csv('../../SFS/NDNS UK/predictions/all_predictions_15Oct2024.csv')
     food_db = food_db.drop(['parentcategory_lab', 'mainfoodgroup_lab', 'subfoodgroup_lab'], axis=1).rename(
         columns={'parentcategory_pred': 'parentcategory',
                  'mainfoodgroup_pred': 'mainfoodgroup',
@@ -35,8 +35,8 @@ def get_labels():
     food_db = food_db.drop_duplicates(subset=['product_list_name_lower', 'ingredients_text_lower']).reset_index(drop=True)
     food_db = food_db.drop(['product_list_name_lower', 'ingredients_text_lower'], axis=1)
     
-    food_db_emb = np.load('../../future_of_food/bert/all_embeddings_all3.npy')
-    food_db_product_ids = np.load('../../future_of_food/bert/all_ids_all3.npy')
+    food_db_emb = np.load('../../SFS/bert/all_embeddings_all3.npy')
+    food_db_product_ids = np.load('../../SFS/bert/all_ids_all3.npy')
     
     food_db_features = pd.DataFrame(data=food_db_emb)
     X_cols = food_db_features.columns.tolist()
@@ -114,8 +114,31 @@ class NN_Pipeline(object):
                             batch_size=batch_size,
                             class_weight=self.class_weights,
                             verbose=verbose)
+        
+        # getting other performance metrics to add to history
+        res = {}
+        y_train_pred = model.predict(X_train)
+        y_train = np.argmax(y_train, axis=1)
+        y_train_pred = np.argmax(y_train_pred, axis=1)
+        res['accuracy'] = [accuracy_score(y_train, y_train_pred)]
+        res['balanced_accuracy'] = [balanced_accuracy_score(y_train, y_train_pred)]
+        res['precision'] = [precision_score(y_train, y_train_pred, average='weighted')]
+        res['recall'] = [recall_score(y_train, y_train_pred, average='weighted')]
+        res['f1'] = [f1_score(y_train, y_train_pred, average='weighted')]
+        res['mcc'] = [matthews_corrcoef(y_train, y_train_pred)]
 
-        return model, history
+        if X_val is not None:
+            y_val_pred = model.predict(X_val)
+            y_val = np.argmax(y_val, axis=1)
+            y_val_pred = np.argmax(y_val_pred, axis=1)
+            res['val_accuracy'] = [accuracy_score(y_val, y_val_pred)]
+            res['val_balanced_accuracy'] = [balanced_accuracy_score(y_val, y_val_pred)]
+            res['val_precision'] = [precision_score(y_val, y_val_pred, average='weighted')]
+            res['val_recall'] = [recall_score(y_val, y_val_pred, average='weighted')]
+            res['val_f1'] = [f1_score(y_val, y_val_pred, average='weighted')]
+            res['val_mcc'] = [matthews_corrcoef(y_val, y_val_pred)]
+
+        return model, history, res
         
     def tune_hyperparam(self, res_fname, p=None):
         
@@ -135,7 +158,7 @@ class NN_Pipeline(object):
 
         for params in param_combinations:
             print(f'{i} of {len(param_combinations)}')
-            model, history = self.nn_model(X_train, y_train, params, X_val, y_val)
+            model, history, _ = self.nn_model(X_train, y_train, params, X_val, y_val)
             df_res = pd.DataFrame(history.history)
             df_res['epoch'] = df_res.index + 1
             df_res = df_res[df_res['epoch']==df_res['epoch'].max()].reset_index(drop=True)
@@ -191,7 +214,7 @@ class NN_Pipeline(object):
         if X_train is None:
             X_train, y_train = self.X, self.y
                 
-        model, history = self.nn_model(X_train, y_train, p, X_val=X_val, y_val=y_val)
+        model, history, _ = self.nn_model(X_train, y_train, p, X_val=X_val, y_val=y_val)
         return model, history
 
 
@@ -230,11 +253,19 @@ class RF_Pipeline(object):
         y_train_pred = model.predict(X_train)
         res['accuracy'] = [accuracy_score(y_train, y_train_pred)]
         res['balanced_accuracy'] = [balanced_accuracy_score(y_train, y_train_pred)]
+        res['precision'] = [precision_score(y_train, y_train_pred, average='weighted')]
+        res['recall'] = [recall_score(y_train, y_train_pred, average='weighted')]
+        res['f1'] = [f1_score(y_train, y_train_pred, average='weighted')]
+        res['mcc'] = [matthews_corrcoef(y_train, y_train_pred)]
 
         if X_val is not None:
             y_val_pred = model.predict(X_val)
             res['val_accuracy'] = [accuracy_score(y_val, y_val_pred)]
             res['val_balanced_accuracy'] = [balanced_accuracy_score(y_val, y_val_pred)]
+            res['val_precision'] = [precision_score(y_val, y_val_pred, average='weighted')]
+            res['val_recall'] = [recall_score(y_val, y_val_pred, average='weighted')]
+            res['val_f1'] = [f1_score(y_val, y_val_pred, average='weighted')]
+            res['val_mcc'] = [matthews_corrcoef(y_val, y_val_pred)]
 
         return model, res
         
@@ -306,7 +337,7 @@ class RF_Pipeline(object):
         if X_train is None:
             X_train, y_train = self.X, self.y
         
-        model, res = self.nn_model(X_train, y_train, p, X_val=X_val, y_val=y_val)
+        model, res = self.rf_model(X_train, y_train, p, X_val=X_val, y_val=y_val)
         return model, res
             
 
@@ -324,17 +355,19 @@ def train_nn(train, X_cols, ycol, nn_params, fname):
     nnpip = NN_Pipeline(X, y, class_weights)
 
     X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=42)
-    _, history = nnpip.nn_model(X_train, y_train, nn_params, X_val, y_val)
+    _, history, res = nnpip.nn_model(X_train, y_train, nn_params, X_val, y_val)
     df_res = pd.DataFrame(history.history)
     df_res['epoch'] = df_res.index + 1
     df_res = df_res[df_res['epoch']==df_res['epoch'].max()].reset_index(drop=True)
-    df_res = df_res.drop('epoch', axis=1)
+    df_res = df_res.drop('epoch', axis=1).rename(columns={'accuracy': 'accuracy_last_epoch', 'val_accuracy': 'val_accuracy_last_epoch'})
+    for key in res.keys():
+        df_res[key] = res[key]
     for key in nn_params.keys():
         df_res[key] = nn_params[key]
 
-    model, _ = nnpip.nn_model(X, y, nn_params)
-    model_dict = {'model': model, 'label_encoder': label_encoder}
-    joblib.dump(model_dict, fname) 
+    # model, _, _ = nnpip.nn_model(X, y, nn_params)
+    # model_dict = {'model': model, 'label_encoder': label_encoder}
+    # joblib.dump(model_dict, fname) 
 
     return df_res
 
@@ -351,8 +384,8 @@ def train_rf(train, X_cols, ycol, rf_params, fname):
     for key in rf_params.keys():
         df_res[key] = rf_params[key]
 
-    model, _ = rfpip.rf_model(X, y, rf_params)
-    joblib.dump(model, fname) 
+    # model, _ = rfpip.rf_model(X, y, rf_params)
+    # joblib.dump(model, fname) 
 
     return df_res
     
@@ -381,11 +414,11 @@ if __name__ == '__main__':
     }
 
     print('NN for level 0')
-    df_res = train_nn(train, X_cols, 'parentcategory', nn_params, '../../future_of_food/NDNS UK/trained_models/nn_lev0.joblib') 
+    df_res = train_nn(train, X_cols, 'parentcategory', nn_params, '../../SFS/NDNS UK/trained_models/nn_lev0.joblib') 
     df_res['category'] = 'lev 0'
     nn_res.append(df_res)
     print('RF for level 0\n')
-    df_res = train_rf(train, X_cols, 'parentcategory', rf_params, '../../future_of_food/NDNS UK/trained_models/rf_lev0.joblib')
+    df_res = train_rf(train, X_cols, 'parentcategory', rf_params, '../../SFS/NDNS UK/trained_models/rf_lev0.joblib')
     df_res['category'] = 'lev 0'
     rf_res.append(df_res)
     
@@ -450,17 +483,17 @@ if __name__ == '__main__':
                 }
 
             print('NN')
-            df_res = train_nn(train_df, X_cols, 'subfoodgroup', nn_params, f'../../future_of_food/NDNS UK/trained_models/nn_{category}.joblib')
+            df_res = train_nn(train_df, X_cols, 'subfoodgroup', nn_params, f'../../SFS/NDNS UK/trained_models/nn_{category}.joblib')
             df_res['category'] = category
             nn_res.append(df_res)
             print('RF\n')
-            df_res = train_rf(train_df, X_cols, 'subfoodgroup', rf_params, f'../../future_of_food/NDNS UK/trained_models/rf_{category}.joblib')
+            df_res = train_rf(train_df, X_cols, 'subfoodgroup', rf_params, f'../../SFS/NDNS UK/trained_models/rf_{category}.joblib')
             df_res['category'] = category
             rf_res.append(df_res)
 
 
     nn_res = pd.concat(nn_res, axis=0, ignore_index=True)
     rf_res = pd.concat(rf_res, axis=0, ignore_index=True)
-    nn_res.to_csv('../../future_of_food/NDNS UK/trained_models/NN_performance.csv', index=False)
-    rf_res.to_csv('../../future_of_food/NDNS UK/trained_models/RF_performance.csv', index=False)
+    nn_res.to_csv('../../SFS/NDNS UK/trained_models/NN_performance.csv', index=False)
+    rf_res.to_csv('../../SFS/NDNS UK/trained_models/RF_performance.csv', index=False)
         
