@@ -1,6 +1,5 @@
 # Usage: python -m product_impacts.impacts_pipe_io.get_trade_data
 
-import geopandas as gpd
 import pandas as pd
 import numpy as np
 
@@ -163,21 +162,19 @@ def get_trade_matrix(mat, prod, item, year, FAO_area_codes, trade_items, trade_f
     
     trade_mat = trade_mat.merge(FAO_area_codes, left_on='Country A Code', right_on='M49 Code', how='right')
     trade_mat = trade_mat.drop(['Country A', 'Country A Code'], axis=1)
-    trade_mat = trade_mat.rename(columns={'M49 Code': 'Country A M49', 'iso3': 'Country A iso3',
-                                          'iso3': 'Country A iso3'})
+    trade_mat = trade_mat.rename(columns={'M49 Code': 'Country A M49', 'iso3': 'Country A iso3'})
     trade_mat = trade_mat.sort_values(by='Country A iso3')
     
     def _add_all_countries(m):
         m = m.merge(FAO_area_codes, left_on='Country B Code', right_on='M49 Code', how='right')
-        m = m.drop(['Country B', 'Country B Code', 'Country A iso3', 'Country A M49', 'Country A iso3'], axis=1)
-        m = m.rename(columns={'M49 Code': 'Country B M49', 'iso3': 'Country B iso3',
-                                              'iso3': 'Country B iso3'})
+        m = m.drop(['Country B', 'Country B Code', 'Country A iso3', 'Country A M49'], axis=1)
+        m = m.rename(columns={'M49 Code': 'Country B M49', 'iso3': 'Country B iso3'})
         m = m.sort_values(by='Country B iso3')
         return m
 
-    trade_mat = trade_mat.groupby(['Country A iso3', 'Country A M49', 'Country A iso3']).apply(lambda g: _add_all_countries(g)).reset_index()
+    trade_mat = trade_mat.groupby(['Country A iso3', 'Country A M49']).apply(lambda g: _add_all_countries(g)).reset_index()
 
-    trade_mat = trade_mat.drop('level_3', axis=1)
+    trade_mat = trade_mat.drop('level_2', axis=1)
     trade_mat = trade_mat.fillna(0)
     trade_mat.loc[trade_mat['Country A iso3']==trade_mat['Country B iso3'], 'From B to A'] = 0
     trade_mat = trade_mat[['Country A iso3', 'Country B iso3', 'From B to A']].groupby(['Country A iso3', 'Country B iso3']).sum().reset_index()
