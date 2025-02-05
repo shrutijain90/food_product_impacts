@@ -32,6 +32,26 @@ def get_prod_matrix(prod, item, year, FAO_area_codes, processing_factors):
     
     return P
 
+def get_fish_prod_matrix(prod, item, year, FAO_area_codes):
+    
+    # preparing production matrix
+    prod = prod[['Area Code (M49)', 'Area', 'Item', 'Element', 'Year', 'Unit', 'Value']]
+    prod = prod[(prod['Year']==year) & (prod['Item'].isin(item)) & (prod['Element']=='Production')].reset_index(drop=True)
+    prod = prod.rename(columns={'Value': 'Production'})
+    prod = prod.drop('Element', axis=1)
+    
+    prod['Area Code (M49)'] = prod.apply(lambda row: int(row['Area Code (M49)'][1:]), axis=1)
+    prod = prod.rename(columns={'Area Code (M49)': 'M49 Code'})
+    prod = prod.groupby(['M49 Code', 'Area'])[['Production']].sum().reset_index()
+    prod = prod.merge(FAO_area_codes, how='right')
+    prod = prod[['iso3', 'M49 Code', 'Production']]
+    prod = prod.fillna(0)
+    prod = prod.groupby('iso3').sum()[['Production']].reset_index().sort_values(by='iso3')
+    
+    P = prod[['Production']].to_numpy()
+    
+    return P
+
 def get_trade_matrix(mat, prod, item, year, FAO_area_codes, trade_items, trade_factors, processing_factors):
     
     # special function to split refined and row sugars into sugar cane and sugar beet categories 
@@ -182,6 +202,44 @@ def get_trade_matrix(mat, prod, item, year, FAO_area_codes, trade_items, trade_f
     E = trade_mat.drop(['Country B iso3'], axis=1).to_numpy()
     return E
 
+def get_fish_trade_matrix(mat, year, FAO_area_codes, category):
+    
+    # to map this data on to categories of interest and on to our area codes
+    item_codes = pd.read_csv('../../data/FI_Trade_Partners_2024.1.0/CL_FI_COMMODITY_ISSCFC.csv')
+    country_codes = pd.read_csv('../../data/FI_Trade_Partners_2024.1.0/CL_FI_COUNTRY_GROUPS.csv')
+    
+    mat = mat.merge(item_codes, left_on='COMMODITY.FAO_CODE', right_on='Code')
+    mat = mat[mat['SITCv4']<38] # removing all misc categrories like feed
+    mat['Item'] = 'fish'
+    mat.loc[(mat['SITCv4']<37) & (mat['SITCv4']>=36), 'Item'] = 'crustaceans'
+    
+    mat = mat[(mat['PERIOD']==year) & (mat['Item']==category) 
+             & (mat['TRADE_FLOW.ALPHA_CODE']=='I')] # considering the imports as the data has both exports and re-exports separately
+                                                    # re-export algorithm will take care of the allocation later
+    mat = mat[['COUNTRY_REPORTER.UN_CODE', 'COUNTRY_PARTNER.UN_CODE', 'VALUE']]
+    mat = mat.groupby(['COUNTRY_REPORTER.UN_CODE', 'COUNTRY_PARTNER.UN_CODE']).sum().reset_index()
+    mat = mat.merge(country_codes[['UN_Code', 'ISO3_Code']], left_on='COUNTRY_REPORTER.UN_CODE', right_on='UN_Code').drop(
+        ['COUNTRY_REPORTER.UN_CODE', 'UN_Code'], axis=1).rename(columns={'ISO3_Code': 'Country A iso3', 'VALUE': 'From B to A'})
+    mat = mat.merge(country_codes[['UN_Code', 'ISO3_Code']], left_on='COUNTRY_PARTNER.UN_CODE', right_on='UN_Code').drop(
+        ['COUNTRY_PARTNER.UN_CODE', 'UN_Code'], axis=1).rename(columns={'ISO3_Code': 'Country B iso3'})
+    
+    trade_mat = mat.merge(FAO_area_codes, left_on='Country A iso3', right_on='iso3', how='right')
+    trade_mat = trade_mat.drop(['M49 Code', 'Country A iso3'], axis=1).rename(columns={'iso3': 'Country A iso3'})
+    trade_mat = trade_mat.sort_values(by='Country A iso3')
+    
+    def _add_all_countries(m):
+        m = m.merge(FAO_area_codes, left_on='Country B iso3', right_on='iso3', how='right')
+        m = m.drop(['M49 Code', 'Country A iso3', 'Country B iso3'], axis=1).rename(columns={'iso3': 'Country B iso3'})
+        m = m.sort_values(by='Country B iso3')
+        return m
+    
+    trade_mat = trade_mat.groupby(['Country A iso3']).apply(lambda g: _add_all_countries(g)).reset_index()
+    trade_mat = trade_mat.fillna(0)
+    trade_mat.loc[trade_mat['Country A iso3']==trade_mat['Country B iso3'], 'From B to A'] = 0
+    trade_mat = trade_mat[['Country A iso3', 'Country B iso3', 'From B to A']].groupby(['Country A iso3', 'Country B iso3']).sum().reset_index()
+    trade_mat = pd.pivot(trade_mat, index=['Country B iso3'], columns = 'Country A iso3',values = 'From B to A').reset_index()
+    E = trade_mat.drop(['Country B iso3'], axis=1).to_numpy()
+    return E
 
 def re_export_algo(P, E):
     # Implements the trade matrix re-export algorithm as given in Croft et al., 2018 (https://www.sciencedirect.com/science/article/pii/S0959652618326180#appsec2)
@@ -250,6 +308,7 @@ def split_flows(sua, item, year, FAO_area_codes, proc):
         sua.loc[sua['Domestic supply quantity'].isna(), 'Domestic supply quantity'] = 0
         sua['Processing'] = sua['Processing'] - sua['Domestic supply quantity']
         sua = sua[['Area Code (M49)', 'Processing']].merge(sua1[['Area Code (M49)', 'Domestic supply quantity']], how='left')
+        
     elif item=='Coconuts, in shell':
         sua1 = sua[sua['Item']=='Coconuts, in shell']
         sua2 = sua[sua['Item']=='Coconuts, desiccated']
@@ -257,6 +316,7 @@ def split_flows(sua, item, year, FAO_area_codes, proc):
         sua.loc[sua['Domestic supply quantity'].isna(), 'Domestic supply quantity'] = 0
         sua['Processing'] = sua['Processing'] - sua['Domestic supply quantity']
         sua = sua[['Area Code (M49)', 'Processing']].merge(sua1[['Area Code (M49)', 'Domestic supply quantity']], how='left')
+        
     elif item=='Groundnuts, excluding shelled':
         sua1 = sua[sua['Item']=='Groundnuts, excluding shelled']
         sua2 = sua[sua['Item'].isin(['Groundnuts, shelled', 'Prepared groundnuts'])]
@@ -265,6 +325,34 @@ def split_flows(sua, item, year, FAO_area_codes, proc):
         sua.loc[sua['Domestic supply quantity'].isna(), 'Domestic supply quantity'] = 0
         sua['Processing'] = sua['Processing'] - sua['Domestic supply quantity']
         sua = sua[['Area Code (M49)', 'Processing']].merge(sua1[['Area Code (M49)', 'Domestic supply quantity']], how='left')
+        
+    elif item=='Soya beans':
+        sua1 = sua[sua['Item']=='Soya beans']
+        sua2 = sua[sua['Item'].isin(['Soya paste', 'Soya sauce', 'Soya curd'])]
+        sua2 = sua2.groupby('Area Code (M49)')[['Domestic supply quantity']].sum().reset_index()
+        sua = sua1[['Area Code (M49)', 'Processing']].merge(sua2[['Area Code (M49)', 'Domestic supply quantity']], how='left')
+        sua.loc[sua['Domestic supply quantity'].isna(), 'Domestic supply quantity'] = 0
+        sua['Processing'] = sua['Processing'] - sua['Domestic supply quantity']
+        sua = sua[['Area Code (M49)', 'Processing']].merge(sua1[['Area Code (M49)', 'Domestic supply quantity']], how='left')
+        
+    elif item=='Milk, Total':
+        sua1 = sua[sua['Item'].isin(['Raw milk of buffalo', 'Raw milk of camel', 'Raw milk of cattle',
+                                     'Raw milk of goats', 'Raw milk of sheep'])]
+        sua1 = sua1.groupby('Area Code (M49)')[['Processing', 'Domestic supply quantity']].sum().reset_index()
+        sua2 = sua[sua['Item'].isin(['Butter and ghee of sheep milk', 'Butter of cow milk', 
+                                     'Butter of goat milk', 'Buttermilk, curdled and acidified milk', 
+                                     'Buttermilk, dry', 'Cream, fresh', 'Dairy products n.e.c.', 'Ghee from buffalo milk',
+                                     'Ghee from cow milk', 'Ice cream and other edible ice', 
+                                     'Skim milk of cows', 'Skim milk, condensed', 'Skim milk, evaporated', 
+                                     'Whole milk powder', 'Whole milk, condensed', 'Whole milk, evaporated', 'Yoghurt', 
+                                     'Yoghurt, with additives'])]
+        sua2 = sua2.groupby('Area Code (M49)')[['Domestic supply quantity']].sum().reset_index()
+        sua = sua1[['Area Code (M49)', 'Processing']].merge(sua2[['Area Code (M49)', 'Domestic supply quantity']], how='left')
+        sua = sua.fillna(0)
+        sua['Processing'] = sua['Processing'] - sua['Domestic supply quantity']
+        sua = sua[['Area Code (M49)', 'Processing']].merge(sua1[['Area Code (M49)', 'Domestic supply quantity']], how='left')
+        sua = sua.fillna(0)
+        
     else:
         sua = sua[sua['Item']==item][['Area Code (M49)', 'Processing', 'Domestic supply quantity']]
 
@@ -391,7 +479,7 @@ if __name__ == '__main__':
                   'Peas, dry': ['Peas, dry'], 
                   'Pigeon peas, dry': ['Pigeon peas, dry'], 
                   'Vetches': [], 
-                  'Soya beans': ['Cake of soya beans', 'Soya beans', 'Soya paste', 'Soya sauce', 'Soya bean oil'], 
+                  'Soya beans': ['Cake of soya beans', 'Soya beans', 'Soya curd', 'Soya paste', 'Soya sauce', 'Soya bean oil'], 
                   'Almonds, in shell': ['Almonds, in shell', 'Almonds, shelled'], 
                   'Brazil nuts, in shell': ['Brazil nuts, in shell', 'Brazil nuts, shelled'], 
                   'Cashew nuts, in shell': ['Cashew nuts, in shell', 'Cashew nuts, shelled'], 
@@ -415,17 +503,19 @@ if __name__ == '__main__':
                   'Oil palm fruit': ['Palm oil'], # oil to be converted to oil crop
                   'Sugar beet': ['Sugar beet', 'Refined sugar', 'Raw cane or beet sugar (centrifugal only)'], # trade of sugar to be split, sugar to be converted to sugar crop
                   'Sugar cane': ['Sugar cane', 'Refined sugar', 'Raw cane or beet sugar (centrifugal only)'], # trade of sugar to be split, sugar to be converted to sugar crop
-                  'Milk, Total': ['Butter and Ghee', 'Buttermilk, curdled and acidified milk',
-                                  'Buttermilk, dry', 'Cheese from whole cow milk', 'Cream, fresh',
-                                  'Evaporated & Condensed Milk', 'Ghee from cow milk',
-                                  'Processed cheese', 'Raw milk of cattle',
-                                  'Skim Milk & Buttermilk, Dry', 'Skim milk and whey powder',
-                                  'Skim milk of cows', 'Whey, fresh and dry (milk equivalent)',
-                                  'Whole milk powder', 'Whole milk, evaporated',
-                                  'Butter of cow milk', 'Cheese from skimmed cow milk',
-                                  'Skim milk, condensed', 'Whey cheese', 'Whole milk, condensed',
-                                  'Cheese from milk of sheep, fresh or processed',
-                                  'Skim milk, evaporated'], ##### assuming that processing factors and by products take care of each other
+                  'Milk, Total': ['Butter and ghee of sheep milk',
+                                  'Butter of cow milk', 'Butter of goat milk', 'Buttermilk, curdled and acidified milk', 
+                                  'Buttermilk, dry', 'Casein', 'Cheese from milk of goats, fresh or processed',
+                                  'Cheese from milk of buffalo, fresh or processed', 
+                                  'Cheese from milk of sheep, fresh or processed', 'Cheese from skimmed cow milk', 
+                                  'Cheese from whole cow milk', 'Cream, fresh', 'Dairy products n.e.c.', 'Ghee from buffalo milk',
+                                  'Ghee from cow milk', 
+                                  'Ice cream and other edible ice', 'Processed cheese', 'Raw milk of cattle', 
+                                  'Raw milk of sheep', 'Reconstituted milk', 'Skim milk and whey powder',
+                                  'Skim milk of cows', 'Skim milk, condensed', 'Skim milk, evaporated', 'Standardized milk', 
+                                  'Whey cheese', 'Whey, condensed', 'Whey, dry', 'Whey, fresh', 'Whole milk powder', 
+                                  'Whole milk, condensed', 'Whole milk, evaporated', 'Yoghurt', 
+                                  'Yoghurt, with additives'], ##### assuming that processing factors and by products take care of each other
                   'Beef and Buffalo Meat, primary': ['Bovine meat, salted, dried or smoked', 'Meat of buffalo, fresh or chilled',
                                                      'Meat of cattle boneless, fresh or chilled', 'Meat of cattle with the bone, fresh or chilled',
                                                      'Sausages and similar products of meat, offal or blood of beef and veal'],
@@ -443,7 +533,8 @@ if __name__ == '__main__':
                                                                   'Sausages and similar products of meat, offal or blood of pig'],
                   'Coffee, green': ['Coffee, green', 'Coffee husks and skins', 'Coffee, decaffeinated or roasted'], ##### not including coffee extracts as it includes other things in the weight
                   'Tea leaves': ['Tea leaves'],
-                  'Cocoa beans': ['Cocoa beans'] ##### not including processed items as they include weight of other ingredients
+                  'Cocoa beans': ['Cocoa beans'], ##### not including processed items as they include weight of other ingredients
+                  'Wine': ['Wine']
     }
 
     # based on lca data categories 
@@ -451,131 +542,142 @@ if __name__ == '__main__':
     # because the lca ratios for processed products are also applied to the primary crop lca estimates for a given region  
     items_dict = {
                   # wheat
-                  'wheat': ['Wheat'],
+                  # 'wheat': ['Wheat'],
                   
                   # rice
-                  'rice': ['Rice'],
+                  # 'rice': ['Rice'],
                   
                   # maize
-                  'maize': ['Maize (corn)'],
+                  # 'maize': ['Maize (corn)'],
                   
                   # othr_grains
-                  'barley': ['Barley'],
-                  'oats': ['Oats'],
-                  'rye': ['Rye'],
-                  'millet': ['Millet'], 
-                  'sorghum': ['Sorghum'], 
-                  'other_cereals': ['Buckwheat', 'Quinoa', 'Canary seed', 'Fonio', 'Mixed grain', 'Triticale', 'Cereals n.e.c.'], 
+                  # 'barley': ['Barley'],
+                  # 'oats': ['Oats'],
+                  # 'rye': ['Rye'],
+                  # 'millet': ['Millet'], 
+                  # 'sorghum': ['Sorghum'], 
+                  # 'other_cereals': ['Buckwheat', 'Quinoa', 'Canary seed', 'Fonio', 'Mixed grain', 'Triticale', 'Cereals n.e.c.'], 
                   
                   # roots
-                  'cassava': ['Cassava, fresh'], 
-                  'potatoes': ['Potatoes'], 
-                  'sweet_potatoes_yams': ['Sweet potatoes', 'Yams'],
-                  'other_tubers': ['Taro', 'Edible roots and tubers with high starch or inulin content, n.e.c., fresh'],
+                  # 'cassava': ['Cassava, fresh'], 
+                  # 'potatoes': ['Potatoes'], 
+                  # 'sweet_potatoes_yams': ['Sweet potatoes', 'Yams'],
+                  # 'other_tubers': ['Taro', 'Edible roots and tubers with high starch or inulin content, n.e.c., fresh'],
                   
                   # vegetables
-                  'peas': ['Peas, green'],
-                  'onions': ['Onions and shallots, green', 'Onions and shallots, dry (excluding dehydrated)'],
-                  'leeks': ['Leeks and other alliaceous vegetables'],
-                  'tomatoes': ['Tomatoes'],
-                  'carrots': ['Carrots and turnips'],
-                  'cabbage': ['Cabbages'],
-                  'broc_cauli': ['Cauliflowers and broccoli'],
-                  'cucumber': ['Cucumbers and gherkins'],
-                  'squash': ['Pumpkins, squash and gourds'],
-                  'artichokes': ['Artichokes'],
-                  'lettuce_chicory': ['Lettuce and chicory'],
-                  'green_beans': ['Broad beans and horse beans, green', 'Other beans, green', 'String beans'],
-                  'other_veg': ['Asparagus', 'Chillies and peppers, green (Capsicum spp. and Pimenta spp.)', 'Eggplants (aubergines)', 'Green corn (maize)',
-                                'Green garlic', 'Mushrooms and truffles', 'Okra', 'Other vegetables, fresh n.e.c.', 'Spinach'],
+                  # 'peas': ['Peas, green'],
+                  # 'onions': ['Onions and shallots, green', 'Onions and shallots, dry (excluding dehydrated)'],
+                  # 'leeks': ['Leeks and other alliaceous vegetables'],
+                  # 'tomatoes': ['Tomatoes'],
+                  # 'carrots': ['Carrots and turnips'],
+                  # 'cabbage': ['Cabbages'],
+                  # 'broc_cauli': ['Cauliflowers and broccoli'],
+                  # 'cucumber': ['Cucumbers and gherkins'],
+                  # 'squash': ['Pumpkins, squash and gourds'],
+                  # 'artichokes': ['Artichokes'],
+                  # 'lettuce_chicory': ['Lettuce and chicory'],
+                  # 'green_beans': ['Broad beans and horse beans, green', 'Other beans, green', 'String beans'],
+                  # 'other_veg': ['Asparagus', 'Chillies and peppers, green (Capsicum spp. and Pimenta spp.)', 'Eggplants (aubergines)', 'Green corn (maize)',
+                  #               'Green garlic', 'Mushrooms and truffles', 'Okra', 'Other vegetables, fresh n.e.c.', 'Spinach'],
                   
                   # fruits
-                  'bananas': ['Bananas', 'Plantains and cooking bananas'], 
-                  'oranges': ['Oranges'],
-                  'lemons': ['Lemons and limes'],
-                  'other_citrue': ['Tangerines, mandarins, clementines', 'Pomelos and grapefruits', 'Other citrus fruit, n.e.c.'],
-                  'apples': ['Apples'],
-                  'strawberries': ['Strawberries'],
-                  'raspberries': ['Raspberries'],
-                  'pears': ['Pears'],
-                  'peach': ['Peaches and nectarines', 'Plums and sloes', 'Apricots'],
-                  'avacado': ['Avocados'],
-                  'melon': ['Watermelons', 'Cantaloupes and other melons'],
-                  'kiwi': ['Kiwi fruit'],
-                  'other_fruit': ['Cashewapple', 'Dates', 'Figs', 'Locust beans (carobs)', 'Mangoes, guavas and mangosteens',
-                                  'Other fruits, n.e.c.', 'Other tropical fruits, n.e.c.', 'Papayas', 'Pineapples',   
-                                  'Coconuts, in shell', 'Grapes', 'Blueberries', 'Cherries', 'Cranberries', 'Currants', 'Gooseberries', 
-                                  'Other berries and fruits of the genus vaccinium n.e.c.', 'Other pome fruits', 'Other stone fruits', 
-                                  'Persimmons', 'Quinces', 'Sour cherries'], 
-                  'olives': [ 'Olives'],
+                  # 'bananas': ['Bananas', 'Plantains and cooking bananas'], 
+                  # 'oranges': ['Oranges'],
+                  # 'lemons': ['Lemons and limes'],
+                  # 'other_citrus': ['Tangerines, mandarins, clementines', 'Pomelos and grapefruits', 'Other citrus fruit, n.e.c.'],
+                  # 'apples': ['Apples'],
+                  # 'strawberries': ['Strawberries'],
+                  # 'raspberries': ['Raspberries'],
+                  # 'pears': ['Pears'],
+                  # 'peach': ['Peaches and nectarines', 'Plums and sloes', 'Apricots'],
+                  # 'avacado': ['Avocados'],
+                  # 'melon': ['Watermelons', 'Cantaloupes and other melons'],
+                  # 'kiwi': ['Kiwi fruit'],
+                  # 'grapes': ['Grapes'],
+                  # 'other_fruit': ['Cashewapple', 'Dates', 'Figs', 'Locust beans (carobs)', 'Mangoes, guavas and mangosteens',
+                  #                 'Other fruits, n.e.c.', 'Other tropical fruits, n.e.c.', 'Papayas', 'Pineapples',   
+                  #                 'Coconuts, in shell', 'Blueberries', 'Cherries', 'Cranberries', 'Currants', 'Gooseberries', 
+                  #                 'Other berries and fruits of the genus vaccinium n.e.c.', 'Other pome fruits', 'Other stone fruits', 
+                  #                 'Persimmons', 'Quinces', 'Sour cherries'], 
+                  # 'olives': [ 'Olives'],
                   
                   # legumes
-                  'beans': ['Bambara beans, dry', 'Beans, dry', 'Broad beans and horse beans, dry'], 
-                  'lentils': ['Lentils, dry', 'Other pulses n.e.c.', 'Chick peas, dry', 'Cow peas, dry', 'Pigeon peas, dry', 'Peas, dry'], 
-                  'lupins': ['Lupins'],  
+                  # 'beans': ['Bambara beans, dry', 'Beans, dry', 'Broad beans and horse beans, dry'], 
+                  # 'lentils': ['Lentils, dry', 'Other pulses n.e.c.', 'Chick peas, dry', 'Cow peas, dry', 'Pigeon peas, dry', 'Peas, dry'], 
+                  # 'lupins': ['Lupins'],  
                   
                   # soybeans
-                  'jsoyb': ['Soya beans'],
+                  # 'jsoyb': ['Soya beans'],
+                  # 'soyb_oil': ['Soya beans'],
                   
                   # nuts_seeds
-                  'jgrnd': ['Groundnuts, excluding shelled'], 
-                  'almonds': ['Almonds, in shell'],
-                  'cashews': ['Cashew nuts, in shell'],
-                  'hazelnuts': ['Hazelnuts, in shell'],
-                  'chestnuts': ['Chestnuts, in shell'],
-                  'walnuts': ['Walnuts, in shell'],
-                  'snfl_seed': ['Sunflower seed'],
-                  'othr_nuts': ['Brazil nuts, in shell',
-                            'Other nuts (excluding wild edible nuts and groundnuts), in shell, n.e.c.', 'Pistachios, in shell', 
-                            'Linseed', 'Hempseed', 'Safflower seed', 'Poppy seed', 'Sesame seed'],
+                  # 'jgrnd': ['Groundnuts, excluding shelled'], 
+                  # 'almonds': ['Almonds, in shell'],
+                  # 'cashews': ['Cashew nuts, in shell'],
+                  # 'hazelnuts': ['Hazelnuts, in shell'],
+                  # 'chestnuts': ['Chestnuts, in shell'],
+                  # 'walnuts': ['Walnuts, in shell'],
+                  # 'snfl_seed': ['Sunflower seed'],
+                  # 'othr_nuts': ['Brazil nuts, in shell',
+                  #           'Other nuts (excluding wild edible nuts and groundnuts), in shell, n.e.c.', 'Pistachios, in shell', 
+                  #           'Linseed', 'Hempseed', 'Safflower seed', 'Poppy seed', 'Sesame seed'],
                   
                   
                   # oil_veg
-                  'jrpsd': ['Rape or colza seed'], 
-                  'snfl_seed_oil': ['Sunflower seed'],
-                  'olive_oil': ['Olives'], 
-                  'other_oilcrops': ['Groundnuts, excluding shelled', 'Linseed', 'Hempseed', 'Safflower seed', 'Sesame seed',
-                                     'Castor oil seeds', 'Cotton seed', 'Coconuts, in shell', 'Mustard seed'], 
+                  # 'jrpsd': ['Rape or colza seed'], 
+                  # 'snfl_seed_oil': ['Sunflower seed'],
+                  # 'olive_oil': ['Olives'], 
+                  # 'other_oilcrops': ['Groundnuts, excluding shelled', 'Linseed', 'Hempseed', 'Safflower seed', 'Sesame seed',
+                  #                    'Castor oil seeds', 'Cotton seed', 'Coconuts, in shell', 'Mustard seed'], 
                   
                   # oil_palm
-                  'palm_oil': ['Oil palm fruit'], 
+                  # 'palm_oil': ['Oil palm fruit'], 
                   
                   # sugar
-                  'beet_sugar': ['Sugar beet'], 
-                  'cane_sugar': ['Sugar cane'],   
+                  # 'beet_sugar': ['Sugar beet'], 
+                  # 'cane_sugar': ['Sugar cane'],   
 
                   # meat, eggs, dairy
-                  'milk': ['Milk, Total'],
-                  'beef': ['Beef and Buffalo Meat, primary'],
-                  'eggs': ['Eggs Primary'],
-                  'chicken': ['Meat of chickens, fresh or chilled'],
-                  'turkey': ['Meat of turkeys, fresh or chilled'],
-                  'other_poultry': ['Meat of ducks, fresh or chilled', 'Meat of geese, fresh or chilled', 'Meat of pigeons and other birds n.e.c., fresh, chilled or frozen'],
-                  'lamb': ['Sheep and Goat Meat'],
-                  'pork': ['Meat of pig with the bone, fresh or chilled'],
-                  #### ANIMAL FATS??? maybe can make assumptions based on trade of all animal products?
-
-                  # other - chocolate, coffee, tea 
-                  'coffee': ['Coffee, green'], 
-                  'tea': ['Tea leaves'],
-                  'chocolate': ['Cocoa beans']
+                  # 'milk': ['Milk, Total'],
+                  # 'cheese': ['Milk, Total'],
+                  # 'beef': ['Beef and Buffalo Meat, primary'],
+                  # 'eggs': ['Eggs Primary'],
+                  # 'chicken': ['Meat of chickens, fresh or chilled'],
+                  # 'turkey': ['Meat of turkeys, fresh or chilled'],
+                  # 'other_poultry': ['Meat of ducks, fresh or chilled', 'Meat of geese, fresh or chilled', 'Meat of pigeons and other birds n.e.c., fresh, chilled or frozen'],
+                  # 'lamb': ['Sheep and Goat Meat'],
+                  # 'pork': ['Meat of pig with the bone, fresh or chilled'],
+                  
+                  # other - chocolate, coffee, tea, wine 
+                  # 'coffee': ['Coffee, green'], 
+                  # 'tea': ['Tea leaves'],
+                  # 'chocolate': ['Cocoa beans'],
+                  # 'wine': ['Wine'],
+                  'fish': [['Freshwater Fish', 'Demersal Fish', 'Pelagic Fish', 'Marine Fish, Other']],
+                  'crustaceans': [['Crustaceans', 'Cephalopods', 'Molluscs, Other']]
     }
 
-    prod = pd.read_csv('../../data/FAOSTAT_A-S_E/Production_Crops_Livestock_E_All_Data_(Normalized)/Production_Crops_Livestock_E_All_Data_(Normalized).csv',
-                       encoding='latin1')
-    mat = pd.read_csv('../../data/FAOSTAT_T-Z_E/Trade_DetailedTradeMatrix_E_All_Data_(Normalized)/Trade_DetailedTradeMatrix_E_All_Data_(Normalized).csv',
-                      encoding='latin1')
-    sua = pd.read_csv('../../data/FAOSTAT_A-S_E/SUA_Crops_Livestock_E_All_Data_(Normalized)/SUA_Crops_Livestock_E_All_Data_(Normalized).csv',
-                          encoding='latin1', low_memory=False)
-    trade_factors = pd.read_csv('../../OPSIS/Data/FAOSTAT/trade_factors.csv') # for things like cassava starch etc
-    processing_factors = pd.read_csv('../../OPSIS/Data/FAOSTAT/processing_factors.csv') # for oil and sugar crops
-    
-    years = [2017, 2018, 2019, 2020, 2021] # 2022 has some information missing (e.g. production for coconut oil), so considering 2017-2021
-    
+    # prod = pd.read_csv('../../data/FAOSTAT_A-S_E/Production_Crops_Livestock_E_All_Data_(Normalized)/Production_Crops_Livestock_E_All_Data_(Normalized).csv',
+    #                    encoding='latin1')
+    # mat = pd.read_csv('../../data/FAOSTAT_T-Z_E/Trade_DetailedTradeMatrix_E_All_Data_(Normalized)/Trade_DetailedTradeMatrix_E_All_Data_(Normalized).csv',
+    #                   encoding='latin1')
+    # sua = pd.read_csv('../../data/FAOSTAT_A-S_E/SUA_Crops_Livestock_E_All_Data_(Normalized)/SUA_Crops_Livestock_E_All_Data_(Normalized).csv',
+    #                       encoding='latin1', low_memory=False)
+    # trade_factors = pd.read_csv('../../OPSIS/Data/FAOSTAT/trade_factors.csv') # for things like cassava starch etc
+    # processing_factors = pd.read_csv('../../OPSIS/Data/FAOSTAT/processing_factors.csv') # for oil and sugar crops
     FAO_area_codes = pd.read_csv('../../SFS/FAOSTAT/area_codes.csv')
+    
+    fish_prod = pd.read_csv('../../data/FAOSTAT_A-S_E/FoodBalanceSheets_E_All_Data_(Normalized)/FoodBalanceSheets_E_All_Data_(Normalized).csv',
+                 encoding='latin1')
+    fish_prod['Value'] = fish_prod['Value'] * 1000 # as FBS reports production in 1000t units
+    fish_mat = pd.read_csv('../../data/FI_Trade_Partners_2024.1.0/TRADE_PARTNERS_QUANTITY.csv')
     
     for category in items_dict.keys():
         print(category)
+        if category in ['fish', 'crustaceans']:
+            years = [2019, 2020, 2021, 2022] # years available for fish data
+        else:
+            years = [2017, 2018, 2019, 2020, 2021] # 2022 has some information missing (e.g. production for coconut oil), so considering 2017-2021 
         items = items_dict[category]
 
         df_P_list = []
@@ -592,13 +694,18 @@ if __name__ == '__main__':
             
             for item in items:
                 print(item)
-                P = get_prod_matrix(prod, item, year, FAO_area_codes, processing_factors)
-                E = get_trade_matrix(mat, prod, item, year, FAO_area_codes, trade_dict[item], trade_factors, processing_factors)
+                
+                if category in ['fish', 'crustaceans']:
+                    P = get_fish_prod_matrix(fish_prod, item, year, FAO_area_codes)
+                    E = get_fish_trade_matrix(fish_mat, year, FAO_area_codes, category)
+                else:
+                    P = get_prod_matrix(prod, item, year, FAO_area_codes, processing_factors)
+                    E = get_trade_matrix(mat, prod, item, year, FAO_area_codes, trade_dict[item], trade_factors, processing_factors)
                 D = re_export_algo(P, E)
 
                 # adjustments due to duplication across categories
-                if item in ['Olives', 'Coconuts, in shell', 'Groundnuts, excluding shelled', 'Linseed', 'Hempseed', 'Sunflower seed', 'Safflower seed', 'Sesame seed']:
-                    if category in ['snfl_seed_oil', 'olive_oil', 'other_oilcrops']:
+                if item in ['Olives', 'Coconuts, in shell', 'Groundnuts, excluding shelled', 'Linseed', 'Hempseed', 'Sunflower seed', 'Safflower seed', 'Sesame seed', 'Soya beans', 'Milk, Total']:
+                    if category in ['snfl_seed_oil', 'olive_oil', 'other_oilcrops', 'soyb_oil', 'cheese']:
                         proc_prop = split_flows(sua, item, year, FAO_area_codes, proc=1)
                     else:
                         proc_prop = split_flows(sua, item, year, FAO_area_codes, proc=0)
@@ -638,5 +745,3 @@ if __name__ == '__main__':
         df_category_E.to_csv(f'../../SFS/FAOSTAT/FAO_bal_trade_mat/trade_matrix_{category}_{years[0]}_{years[-1]}.csv', index=False)
         df_category_D = pd.concat(df_D_list).groupby('iso3').mean().reset_index()
         df_category_D.to_csv(f'../../SFS/FAOSTAT/FAO_re_export/supply_matrix_{category}_{years[0]}_{years[-1]}.csv', index=False)
-
-
