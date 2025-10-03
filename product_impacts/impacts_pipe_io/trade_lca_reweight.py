@@ -12,6 +12,14 @@ def scale_weights(g):
     return g
 
 def reweight_lca(lca, country_groups, category, fao_cats, iso3):
+
+    # default values
+    supplying_countries = 0
+    supplying_intermediate_regions = 0
+    supplying_sub_regions = 0
+    supplying_regions = 0
+    supplying_global = 0
+    using_global_avg = 0
     
     lca = lca.merge(country_groups[['Country', 'iso3']])
     
@@ -42,6 +50,8 @@ def reweight_lca(lca, country_groups, category, fao_cats, iso3):
                                   'Intermediate Region Name', 'Sub-region Name', 
                                   'Region Name', 'weight_true'], axis=1)
     logging.info(f'{df_lca_sub["Weight"].sum()}% from supplying countries')
+    supplying_countries = df_lca_sub["Weight"].sum()
+    
     
     # for missing countries, assume supply from intermediate region (if not null), then sub-region, then region, then global
     if len(df_D)>0:
@@ -53,6 +63,7 @@ def reweight_lca(lca, country_groups, category, fao_cats, iso3):
         add = add.drop(['iso3_x','M49 Code', 'Intermediate Region Name', 
                         'Sub-region Name','Region Name', 'iso3_y', 'weight_true'], axis=1)
         logging.info(f'{add["Weight"].sum()}% from supplying intermediate regions')
+        supplying_intermediate_regions = add["Weight"].sum()
         df_lca_sub = pd.concat([df_lca_sub, add], axis=0, ignore_index=True)
         
         if len(df_D)>0:
@@ -64,6 +75,7 @@ def reweight_lca(lca, country_groups, category, fao_cats, iso3):
             add = add.drop(['iso3_x','M49 Code', 'Intermediate Region Name', 
                             'Sub-region Name','Region Name', 'iso3_y', 'weight_true'], axis=1)
             logging.info(f'{add["Weight"].sum()}% from supplying sub-regions')
+            supplying_sub_regions = add["Weight"].sum()
             df_lca_sub = pd.concat([df_lca_sub, add], axis=0, ignore_index=True)
             
             if len(df_D)>0:
@@ -75,6 +87,7 @@ def reweight_lca(lca, country_groups, category, fao_cats, iso3):
                 add = add.drop(['iso3_x','M49 Code', 'Intermediate Region Name', 
                                 'Sub-region Name','Region Name', 'iso3_y', 'weight_true'], axis=1)
                 logging.info(f'{add["Weight"].sum()}% from supplying regions')
+                supplying_regions = add["Weight"].sum()
                 df_lca_sub = pd.concat([df_lca_sub, add], axis=0, ignore_index=True)
                 
                 if len(df_D)>0:
@@ -84,6 +97,7 @@ def reweight_lca(lca, country_groups, category, fao_cats, iso3):
                     add = add.drop(['iso3', 'M49 Code', 'Intermediate Region Name', 
                                     'Sub-region Name','Region Name', 'weight_true'], axis=1)
                     logging.info(f'{add["Weight"].sum()}% from global')
+                    supplying_global = add["Weight"].sum()
                     df_lca_sub = pd.concat([df_lca_sub, add], axis=0, ignore_index=True)
                     
     df_lca_sub = df_lca_sub.groupby([c for c in df_lca_sub.columns if c!='Weight'])[['Weight']].sum().reset_index()
@@ -92,13 +106,22 @@ def reweight_lca(lca, country_groups, category, fao_cats, iso3):
     if len(df_lca_sub)<5:
         if len(df_lca) > len(df_lca_sub):
             logging.info(f'{category} has {len(df_lca_sub)} rows remaining, so considering all {len(df_lca)} rows with global weights')
+            using_global_avg = 1
             df_lca_sub = df_lca
             df_lca_sub['weight_true'] = 100
             df_lca_sub = scale_weights(df_lca_sub)
             df_lca_sub = df_lca_sub.drop(['iso3', 'M49 Code', 'Intermediate Region Name', 
                                           'Sub-region Name','Region Name', 'weight_true'], axis=1)
         
-    return df_lca_sub
+    df_log = pd.DataFrame({'iso3': [iso3], 
+                           'Food_Category': [category], 
+                           'supplying_countries': [supplying_countries], 
+                           'supplying_intermediate_regions': [supplying_intermediate_regions],
+                           'supplying_sub-regions': [supplying_sub_regions], 
+                           'supplying_regions': [supplying_regions], 
+                           'global': [supplying_global],
+                           'using_global_avg': [using_global_avg]})
+    return df_lca_sub, df_log
 
 if __name__ == '__main__':
     
@@ -150,9 +173,9 @@ if __name__ == '__main__':
         'Citrus Fruit': ['oranges', 'lemons', 'other_citrus'], 
         'Bananas': ['bananas'],
         'Apples': ['apples'], 
-        'Berries & Grapes': ['strawberries', 'raspberries', 'grapes'], 
+        'Berries & Grapes': ['strawberries', 'raspberries', 'other_berries', 'grapes'], #### added other_berries (which was earlier included in other_fruit 
         'Wine': ['wine'], 
-        'Other Fruit': ['pears', 'peach', 'avacado', 'melon', 'kiwi', 'other_fruit', 'olives'], 
+        'Other Fruit': ['pears', 'peach', 'avacado', 'melon', 'kiwi', 'other_fruit', 'olives'], #####
         'Coffee': ['coffee'],
         'Dark Chocolate': ['chocolate'], 
         'Bovine Meat (beef herd)': ['beef'],
@@ -161,17 +184,18 @@ if __name__ == '__main__':
         'Pig Meat': ['pork'],
         'Poultry Meat': ['chicken', 'turkey', 'other_poultry'], 
         'Milk': ['milk'], 
-        'Cheese': ['milk'],
+        'Cheese': ['cheese'], ### changed, it was milk earlier
         'Eggs': ['eggs'], 
         'Fish (farmed)': ['fish'],
         'Crustaceans (farmed)': ['crustaceans']
     }
+    df_list = []
     
     # countries with products 
     for iso3 in ['ARE', 'ARG', 'AUS', 'AUT', 'BEL', 'BGR', 'BOL', 'BRA', 'CAN',
                 'CHE', 'CHL', 'COL', 'CRI', 'CUB', 'CYP', 'CZE', 'DEU', 'DNK',
                 'DZA', 'ECU', 'EGY', 'ESP', 'EST', 'FIN', 'FRA', 'GBR', 'GLP',
-                'GRC', 'HKG', 'HRV', 'HUN', 'IDN', 'IND', 'IRL', 'IRQ', 'ISR',
+                'GRC', 'HKG', 'HRV', 'HUN', 'IDN', 'IND', 'IRL', 'IRQ', 'ISR', 
                 'ITA', 'JPN', 'KOR', 'KWT', 'LBN', 'LTU', 'LUX', 'LVA', 'MAR',
                 'MEX', 'MTQ', 'MYS', 'NCL', 'NLD', 'NOR', 'NZL', 'PAN', 'PER',
                 'PHL', 'POL', 'PRI', 'PRT', 'PYF', 'QAT', 'REU', 'ROU', 'RUS',
@@ -182,8 +206,12 @@ if __name__ == '__main__':
         for category in categories_dict.keys():
             logging.info(category)
             fao_cats = categories_dict[category]
-            df_lca_sub = reweight_lca(lca, country_groups, category, fao_cats, iso3)
+            df_lca_sub, df_log = reweight_lca(lca, country_groups, category, fao_cats, iso3)
             lca_list.append(df_lca_sub)
+            df_list.append(df_log)
 
         lca_country = pd.concat(lca_list, axis=0, ignore_index=True)
         lca_country.to_csv(f'../../SFS/environmental_impacts/Data Inputs/LCA_data_by_country/jp_lca_dat_{iso3}.csv', index=False)
+
+    trade_info = pd.concat(df_list, axis=0, ignore_index=True)
+    trade_info.to_csv(f'../../SFS/environmental_impacts/Data Inputs/LCA_data_by_country/trade_info.csv', index=False)

@@ -3,9 +3,6 @@
 import os
 import os.path
 import pandas as pd
-from skimpy import skim
-import requests
-from bs4 import BeautifulSoup
 from sentence_transformers import SentenceTransformer, util
 from sklearn.decomposition import PCA
 from sklearn.manifold import TSNE
@@ -19,7 +16,7 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.metrics import accuracy_score, matthews_corrcoef, f1_score, mean_squared_error, r2_score, roc_auc_score, balanced_accuracy_score
+from sklearn.metrics import accuracy_score, balanced_accuracy_score, precision_score, recall_score, f1_score, matthews_corrcoef
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn import preprocessing
 from sklearn.feature_selection import mutual_info_classif
@@ -483,14 +480,51 @@ def get_dist_scores(predicted_data, ndns, X_cols):
     return predicted_data    
 
 
+def train_single_mod(mod, lab, X_cols, y_col):
+    
+    train, test = train_test_split(lab, test_size=0.2, random_state=5)
+    
+    X_train = train[X_cols]
+    y_train = train[y_col]
+    X_val = test[X_cols]
+    y_val = test[y_col]
+
+    clf = mod
+    clf.fit(X_train, y_train)
+    y_train_pred = clf.predict(X_train)
+    y_val_pred = clf.predict(X_val)
+
+    res = {}
+    res['accuracy'] = [accuracy_score(y_train, y_train_pred)]
+    res['balanced_accuracy'] = [balanced_accuracy_score(y_train, y_train_pred)]
+    res['precision'] = [precision_score(y_train, y_train_pred, average='weighted')]
+    res['recall'] = [recall_score(y_train, y_train_pred, average='weighted')]
+    res['f1'] = [f1_score(y_train, y_train_pred, average='weighted')]
+    res['mcc'] = [matthews_corrcoef(y_train, y_train_pred)]
+
+    res['val_accuracy'] = [accuracy_score(y_val, y_val_pred)]
+    res['val_balanced_accuracy'] = [balanced_accuracy_score(y_val, y_val_pred)]
+    res['val_precision'] = [precision_score(y_val, y_val_pred, average='weighted')]
+    res['val_recall'] = [recall_score(y_val, y_val_pred, average='weighted')]
+    res['val_f1'] = [f1_score(y_val, y_val_pred, average='weighted')]
+    res['val_mcc'] = [matthews_corrcoef(y_val, y_val_pred)]
+    
+    return clf, res
+
+
 if __name__ == '__main__':
     
     ndns = get_ndns_cats('../../SFS/NDNS UK/ndns_edited.csv')
     products = get_products()
     labelled_data, non_food_products = get_ndns_matches(
-        ndns, products, 
-        # pred_fname='../../SFS/NDNS UK/predictions/predictions_all_LDA_v1.csv'
+        ndns, products
     )
+    # removing duplicated product names + ingredients (basically products with same exact feature vectors)
+    labelled_data['product_list_name_lower'] = labelled_data['product_list_name'].str.lower()
+    labelled_data['ingredients_text_lower'] = labelled_data['ingredients_text'].str.lower()
+    labelled_data = labelled_data.drop_duplicates(
+        subset=['product_list_name_lower', 'ingredients_text_lower']).reset_index(drop=True)
+    
     query_embeddings = np.load('../../SFS/bert/all_embeddings_all3.npy')
     tsne_results = get_tsne(query_embeddings, '../../SFS/bert/tsne_results_all3.npy')
     product_ids = np.load('../../SFS/bert/all_ids_all3.npy')
@@ -502,26 +536,68 @@ if __name__ == '__main__':
     
     features['product_id'] = pd.Series(product_ids, index=features.index)
     features[['tsne_0', 'tsne_1']] = tsne_results
-    # features = features[~features['product_id'].isin(non_food_products)].reset_index(drop=True)
     labelled_data = labelled_data.merge(features)
-    
-    # predicted_data = hi_model(labelled_data, features, X_cols, y_cols)
-    predicted_data = non_hi_model(labelled_data, features, X_cols, y_cols)
-    cols = ['product_id', 'product_name', 'product_list_name', 'store', 
-            'parentcategory_lab', 'mainfoodgroup_lab', 'subfoodgroup_lab',
-            'parentcategory_pred', 
-            'mainfoodgroup_pred', 'subfoodgroup_pred',
-            'parentcategory_proba', 'maincategory_proba', 'subcategory_proba',
-            'tsne_0', 'tsne_1', 'cos_sim_pred', 'cos_sim_lab']
-    
-    predicted_data = predicted_data.merge(products[['product_id', 'product_name', 'product_list_name', 'store']], how='left')
-    predicted_data = predicted_data.merge(labelled_data[['product_id', 'product_name', 'product_list_name', 'store', 
-                                                         'parentcategory', 'mainfoodgroupdesc', 'subfoodgroupdesc']], how='left')
-    predicted_data = predicted_data.rename(columns={'parentcategory': 'parentcategory_lab', 
-                                                    'mainfoodgroupdesc': 'mainfoodgroup_lab', 
-                                                    'subfoodgroupdesc': 'subfoodgroup_lab'})
-    
-    predicted_data = get_dist_scores(predicted_data, ndns, X_cols)
 
-    predicted_data[cols].to_csv('../../SFS/NDNS UK/predictions/predictions_all_LDA_HI12_v1.csv', index=False)
+    res_all = []
+
+    for model_name in ['RF', 'LDA', 'KNN', 'Histgrad']:
+        print(model_name)
+        if model_name=='RF':
+            mod = RandomForestClassifier(n_estimators=200, 
+                                         min_samples_leaf=5,
+                                         class_weight='balanced')
+        elif model_name=='LDA':
+            mod = LinearDiscriminantAnalysis()
+        elif model_name=='KNN':
+            mod = KNeighborsClassifier()
+        else:
+            mod = HistGradientBoostingClassifier(max_iter=200,
+                                         min_samples_leaf=5,
+                                         class_weight='balanced')
+        
+        print('level 0')
+    
+        _, res = train_single_mod(mod, labelled_data, X_cols, 'parentcategory')
+        df_res = pd.DataFrame(res)
+        df_res['category'] = 'lev 0'
+        df_res['model'] = model_name
+        res_all.append(df_res)
+        
+        for category in labelled_data['parentcategory'].unique().tolist():
+            
+            print(category)
+            
+            lab = labelled_data[(labelled_data['parentcategory']==category) & (labelled_data['subfoodgroupdesc'].notnull())]
+            
+            if category not in ['Savoury Snacks', 'Alcoholic Beverages', 'Nuts and Seeds', 'Not Food', 'Dietary Supplements', 
+                            'Artificial Sweeteners', 'Commercial Toddlers Foods and Drinks']:
+    
+                _, res = train_single_mod(mod, lab, X_cols, 'subfoodgroupdesc')
+                df_res = pd.DataFrame(res)
+                df_res['category'] = category
+                df_res['model'] = model_name
+                res_all.append(df_res)
+
+    res_all = pd.concat(res_all, axis=0, ignore_index=True)
+    res_all.to_csv('../../SFS/NDNS UK/model_performance_comparison_on_labels.csv', index=False)
+    
+    # # predicted_data = hi_model(labelled_data, features, X_cols, y_cols)
+    # predicted_data = non_hi_model(labelled_data, features, X_cols, y_cols)
+    # cols = ['product_id', 'product_name', 'product_list_name', 'store', 
+    #         'parentcategory_lab', 'mainfoodgroup_lab', 'subfoodgroup_lab',
+    #         'parentcategory_pred', 
+    #         'mainfoodgroup_pred', 'subfoodgroup_pred',
+    #         'parentcategory_proba', 'maincategory_proba', 'subcategory_proba',
+    #         'tsne_0', 'tsne_1', 'cos_sim_pred', 'cos_sim_lab']
+    
+    # predicted_data = predicted_data.merge(products[['product_id', 'product_name', 'product_list_name', 'store']], how='left')
+    # predicted_data = predicted_data.merge(labelled_data[['product_id', 'product_name', 'product_list_name', 'store', 
+    #                                                      'parentcategory', 'mainfoodgroupdesc', 'subfoodgroupdesc']], how='left')
+    # predicted_data = predicted_data.rename(columns={'parentcategory': 'parentcategory_lab', 
+    #                                                 'mainfoodgroupdesc': 'mainfoodgroup_lab', 
+    #                                                 'subfoodgroupdesc': 'subfoodgroup_lab'})
+    
+    # predicted_data = get_dist_scores(predicted_data, ndns, X_cols)
+
+    # predicted_data[cols].to_csv('../../SFS/NDNS UK/predictions/predictions_all_LDA_HI12_v1.csv', index=False)
     

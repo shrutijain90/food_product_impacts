@@ -588,17 +588,18 @@ if __name__ == '__main__':
                   # 'apples': ['Apples'],
                   # 'strawberries': ['Strawberries'],
                   # 'raspberries': ['Raspberries'],
+                  'other_berries': ['Blueberries', 'Gooseberries', 'Cranberries', 'Other berries and fruits of the genus vaccinium n.e.c.'], 
                   # 'pears': ['Pears'],
                   # 'peach': ['Peaches and nectarines', 'Plums and sloes', 'Apricots'],
                   # 'avacado': ['Avocados'],
                   # 'melon': ['Watermelons', 'Cantaloupes and other melons'],
                   # 'kiwi': ['Kiwi fruit'],
                   # 'grapes': ['Grapes'],
-                  # 'other_fruit': ['Cashewapple', 'Dates', 'Figs', 'Locust beans (carobs)', 'Mangoes, guavas and mangosteens',
-                  #                 'Other fruits, n.e.c.', 'Other tropical fruits, n.e.c.', 'Papayas', 'Pineapples',   
-                  #                 'Coconuts, in shell', 'Blueberries', 'Cherries', 'Cranberries', 'Currants', 'Gooseberries', 
-                  #                 'Other berries and fruits of the genus vaccinium n.e.c.', 'Other pome fruits', 'Other stone fruits', 
-                  #                 'Persimmons', 'Quinces', 'Sour cherries'], 
+                  'other_fruit': ['Cashewapple', 'Dates', 'Figs', 'Locust beans (carobs)', 'Mangoes, guavas and mangosteens',
+                                  'Other fruits, n.e.c.', 'Other tropical fruits, n.e.c.', 'Papayas', 'Pineapples',   
+                                  'Coconuts, in shell', 'Cherries', 'Currants',  
+                                  'Other pome fruits', 'Other stone fruits', 
+                                  'Persimmons', 'Quinces', 'Sour cherries'], 
                   # 'olives': [ 'Olives'],
                   
                   # legumes
@@ -653,18 +654,18 @@ if __name__ == '__main__':
                   # 'tea': ['Tea leaves'],
                   # 'chocolate': ['Cocoa beans'],
                   # 'wine': ['Wine'],
-                  'fish': [['Freshwater Fish', 'Demersal Fish', 'Pelagic Fish', 'Marine Fish, Other']],
-                  'crustaceans': [['Crustaceans', 'Cephalopods', 'Molluscs, Other']]
+                  # 'fish': [['Freshwater Fish', 'Demersal Fish', 'Pelagic Fish', 'Marine Fish, Other']],
+                  # 'crustaceans': [['Crustaceans', 'Cephalopods', 'Molluscs, Other']]
     }
 
-    # prod = pd.read_csv('../../data/FAOSTAT_A-S_E/Production_Crops_Livestock_E_All_Data_(Normalized)/Production_Crops_Livestock_E_All_Data_(Normalized).csv',
-    #                    encoding='latin1')
-    # mat = pd.read_csv('../../data/FAOSTAT_T-Z_E/Trade_DetailedTradeMatrix_E_All_Data_(Normalized)/Trade_DetailedTradeMatrix_E_All_Data_(Normalized).csv',
-    #                   encoding='latin1')
-    # sua = pd.read_csv('../../data/FAOSTAT_A-S_E/SUA_Crops_Livestock_E_All_Data_(Normalized)/SUA_Crops_Livestock_E_All_Data_(Normalized).csv',
-    #                       encoding='latin1', low_memory=False)
-    # trade_factors = pd.read_csv('../../OPSIS/Data/FAOSTAT/trade_factors.csv') # for things like cassava starch etc
-    # processing_factors = pd.read_csv('../../OPSIS/Data/FAOSTAT/processing_factors.csv') # for oil and sugar crops
+    prod = pd.read_csv('../../data/FAOSTAT_A-S_E/Production_Crops_Livestock_E_All_Data_(Normalized)/Production_Crops_Livestock_E_All_Data_(Normalized).csv',
+                       encoding='latin1')
+    mat = pd.read_csv('../../data/FAOSTAT_T-Z_E/Trade_DetailedTradeMatrix_E_All_Data_(Normalized)/Trade_DetailedTradeMatrix_E_All_Data_(Normalized).csv',
+                      encoding='latin1')
+    sua = pd.read_csv('../../data/FAOSTAT_A-S_E/SUA_Crops_Livestock_E_All_Data_(Normalized)/SUA_Crops_Livestock_E_All_Data_(Normalized).csv',
+                          encoding='latin1', low_memory=False)
+    trade_factors = pd.read_csv('../../OPSIS/Data/FAOSTAT/trade_factors.csv') # for things like cassava starch etc
+    processing_factors = pd.read_csv('../../OPSIS/Data/FAOSTAT/processing_factors.csv') # for oil and sugar crops
     FAO_area_codes = pd.read_csv('../../SFS/FAOSTAT/area_codes.csv')
     
     fish_prod = pd.read_csv('../../data/FAOSTAT_A-S_E/FoodBalanceSheets_E_All_Data_(Normalized)/FoodBalanceSheets_E_All_Data_(Normalized).csv',
