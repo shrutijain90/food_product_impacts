@@ -24,6 +24,7 @@ This repository contains the code used to estimate the environmental impacts (gr
 - `matplotlib` 3.10.0, `seaborn` 0.13.2
 - `tensorflow` 2.14.0, `sentence-transformers` 3.3.0
 - `jupyter` 1.1.1, `jupyterlab` 4.3.4 
+
 **R 4.4.2** (composition estimation and impact calculation):
 - `ggplot2`, `plotly`, `cowplot`, `tidyr`, `plyr`, `dplyr`, `readr`, `ggrepel`, `stringr`, `stringi`, `reshape2`, `matrixStats`, `dismo`, `parallel`
 
@@ -51,7 +52,7 @@ conda activate prod_imp
 # Install dependencies
 conda install pandas=2.2.3 numpy=1.26.4 scipy=1.15.1 scikit-learn=1.6.1 joblib=1.4.2 matplotlib=3.10.0 seaborn=0.13.2 jupyterlab=4.3.4
 
-# Install pip-only packages
+# Install pip packages
 pip install tensorflow==2.14.0 sentence-transformers==3.3.0
 ```
 
