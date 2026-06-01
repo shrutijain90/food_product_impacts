@@ -11,7 +11,7 @@ from sklearn.manifold import TSNE
 ### enter path here
 data_dir = '../../SFS/openfoodfacts/all/'
 
-### edit this function to filter
+### edit this function to filter or if using a different dataset
 def get_products(data_dir):
     
     products = pd.read_csv(f'{data_dir}openfoodfacts_lang.csv', low_memory=False)
@@ -25,7 +25,9 @@ def get_products(data_dir):
 if __name__ == '__main__':
     
     products = get_products(data_dir)
+    # change if column names are different
     products['text'] = products['product_name_en'].str.lower() + ' - ' + products['ingredients_text_en'].str.lower()
+    
     model = SentenceTransformer('all-mpnet-base-v2')
     prefix = 'non_eng/' ### enter this if splitting embeddings into folders, else blank string
     i = 0 ### enter this if starting subscript needs to be higher, else 0 

@@ -268,140 +268,140 @@ prods.negs <-
 # This is in case info for one of the nutrients is not available from back-of-package information
 # Or alternatively, if back-of-package information clearly isn't correct (i.e. >100g fat / 100g product)
 
-# Importing nutritional data from GeNUS
-nut.info =
-  read.csv(paste0(getwd(),"/Data Inputs/Nutrient Info By LCA Category 24April2020.csv"),
-           stringsAsFactors = FALSE)
+# # Importing nutritional data from GeNUS
+# nut.info =
+#   read.csv(paste0(getwd(),"/Data Inputs/Nutrient Info By LCA Category 24April2020.csv"),
+#            stringsAsFactors = FALSE)
 
-# Calculating nutrient info by product
-# This is average for that product across all retail outlets, departments, etc
-# This takes a while. I'm not sure why.
-dat <-
-  left_join(stacked.dat,
-            nut.info %>% dplyr::select(Food_Category = food.group,
-                                       Calories, Protein, Fat, SaturatedFat = Saturated.FA,
-                                       Fiber = Dietary.Fiber, Sodium, Carbohydrates)) %>%
-  mutate(Calories = Calories * percent/100, # Calculating composition
-         Protein = Protein * percent/100,
-         Fat = Fat * percent/100,
-         SaturatedFat = SaturatedFat * percent/100,
-         Fiber = Fiber * percent/100,
-         Carbohydrates = Carbohydrates * percent/100,
-         Sodium = Sodium * percent/100)
+# # Calculating nutrient info by product
+# # This is average for that product across all retail outlets, departments, etc
+# # This takes a while. I'm not sure why.
+# dat <-
+#   left_join(stacked.dat,
+#             nut.info %>% dplyr::select(Food_Category = food.group,
+#                                        Calories, Protein, Fat, SaturatedFat = Saturated.FA,
+#                                        Fiber = Dietary.Fiber, Sodium, Carbohydrates)) %>%
+#   mutate(Calories = Calories * percent/100, # Calculating composition
+#          Protein = Protein * percent/100,
+#          Fat = Fat * percent/100,
+#          SaturatedFat = SaturatedFat * percent/100,
+#          Fiber = Fiber * percent/100,
+#          Carbohydrates = Carbohydrates * percent/100,
+#          Sodium = Sodium * percent/100)
 
-# Adding salt
-# This is much much faster than using ifelse in dplyr
-dat$Salt[dat$Food_Category %in% 'Salt'] <- 
-  dat$percent[dat$Food_Category %in% 'Salt'] / 2.5 * 1000
+# # Adding salt
+# # This is much much faster than using ifelse in dplyr
+# dat$Salt[dat$Food_Category %in% 'Salt'] <- 
+#   dat$percent[dat$Food_Category %in% 'Salt'] / 2.5 * 1000
 
-dat$Sodium[dat$Food_Category %in% 'Salt'] <- 
-  dat$percent[dat$Food_Category %in% 'Salt'] / 2.5 * 1000
+# dat$Sodium[dat$Food_Category %in% 'Salt'] <- 
+#   dat$percent[dat$Food_Category %in% 'Salt'] / 2.5 * 1000
 
-# and summarising by product name
-dat <- 
-  dat %>%
-  group_by(id, product_name, Retailer, country, Department, Aisle, Shelf) %>% # Summing by product name and id
-  summarise(Calories = sum(Calories, na.rm = TRUE),
-            Protein = sum(Protein, na.rm = TRUE),
-            Fat = sum(Fat, na.rm = TRUE),
-            SaturatedFat = sum(SaturatedFat, na.rm = TRUE),
-            Fiber = sum(Fiber, na.rm = TRUE),
-            Sodium = sum(Sodium, na.rm = TRUE),
-            Carbohydrates = sum(Carbohydrates, na.rm = TRUE),
-            Salt = sum(Salt, na.rm = TRUE)) %>% 
-  unique(.) %>% as.data.frame(.) %>%
-  mutate(id.drop = paste0(id,product_name,Retailer,country,Department,Aisle,Shelf)) %>%
-  filter(!(id.drop %in% prods.negs$id.drop)) %>% # Getting rid of products with negative compositional values
-  filter(id.drop %in% filter.prods$id.drop) # Keeping products with > 75% composition identified
+# # and summarising by product name
+# dat <- 
+#   dat %>%
+#   group_by(id, product_name, Retailer, country, Department, Aisle, Shelf) %>% # Summing by product name and id
+#   summarise(Calories = sum(Calories, na.rm = TRUE),
+#             Protein = sum(Protein, na.rm = TRUE),
+#             Fat = sum(Fat, na.rm = TRUE),
+#             SaturatedFat = sum(SaturatedFat, na.rm = TRUE),
+#             Fiber = sum(Fiber, na.rm = TRUE),
+#             Sodium = sum(Sodium, na.rm = TRUE),
+#             Carbohydrates = sum(Carbohydrates, na.rm = TRUE),
+#             Salt = sum(Salt, na.rm = TRUE)) %>% 
+#   unique(.) %>% as.data.frame(.) %>%
+#   mutate(id.drop = paste0(id,product_name,Retailer,country,Department,Aisle,Shelf)) %>%
+#   filter(!(id.drop %in% prods.negs$id.drop)) %>% # Getting rid of products with negative compositional values
+#   filter(id.drop %in% filter.prods$id.drop) # Keeping products with > 75% composition identified
 
-# Joining in fnvo and sugar data
-dat <-
-  left_join(dat,
-            fvno.sugar %>% dplyr::select(id, product_name, Retailer, country, Department, Aisle, Shelf, FVNO, Sugar))
+# # Joining in fnvo and sugar data
+# dat <-
+#   left_join(dat,
+#             fvno.sugar %>% dplyr::select(id, product_name, Retailer, country, Department, Aisle, Shelf, FVNO, Sugar))
 
-# Correcting back of package information ----
-# Using listed back of package info if available
-# Assuming none of the info for a product is incorrect
-# If it is incorrect, then using the estimated information
+# # Correcting back of package information ----
+# # Using listed back of package info if available
+# # Assuming none of the info for a product is incorrect
+# # If it is incorrect, then using the estimated information
 
-# Importing back of package information
-dat.nutrition <- 
-  read.csv(paste0(getwd(),"/Products_dat/products_categories.csv")) %>% #Importing data
-  dplyr::select(id = product_id, product_name, # Limiting to select columns
-                Sugar_pack = sugar_per_100_value, # Needed to calculate NutriScore
-                Fat_pack = fat_per_100_value,
-                SatFat_pack = saturates_per_100_value,
-                Salt_pack = salt_per_100_value,
-                Protein_pack = protein_per_100_value,
-                Fibre_pack = fibre_per_100_value,
-                Carbs_pack = carbohydrate_per_100_value,
-                Energy_pack = energy_per_100_value,
-                serving = serving_size, serving_data = serving_size, serving_value = serving_size_value, serving_unit = serving_size_unit)
-
-# already done this in Python
-# # Getting col indices of nutrients needed for NutriScore
-# nutrient.list <-
-#   names(raw.dat)[which(names(raw.dat) %in% 'Sugar_pack') : which(names(raw.dat) %in% 'Energy_pack')]
-# 
-# # Identifying and adjusting units for each nutrient
-# # This makes sure i.e. units are g/mg
-# # And the numeric value for the nutrient is correct
+# # Importing back of package information
 # dat.nutrition <- 
-#   nutrition.adjust.function(dat = raw.dat,
-#                             nutrient.list = nutrient.list)
+#   read.csv(paste0(getwd(),"/Products_dat/products_categories.csv")) %>% #Importing data
+#   dplyr::select(id = product_id, product_name, # Limiting to select columns
+#                 Sugar_pack = sugar_per_100_value, # Needed to calculate NutriScore
+#                 Fat_pack = fat_per_100_value,
+#                 SatFat_pack = saturates_per_100_value,
+#                 Salt_pack = salt_per_100_value,
+#                 Protein_pack = protein_per_100_value,
+#                 Fibre_pack = fibre_per_100_value,
+#                 Carbs_pack = carbohydrate_per_100_value,
+#                 Energy_pack = energy_per_100_value,
+#                 serving = serving_size, serving_data = serving_size, serving_value = serving_size_value, serving_unit = serving_size_unit)
 
-# Converting 'NaNs' to 'NA's
-dat.nutrition[which(dat.nutrition[,'Sugar_pack'] %in% 'NaN'),'Sugar_pack'] <- NA
-dat.nutrition[which(dat.nutrition[,'Fat_pack'] %in% 'NaN'),'Fat_pack'] <- NA
-dat.nutrition[which(dat.nutrition[,'SatFat_pack'] %in% 'NaN'),'SatFat_pack'] <- NA
-dat.nutrition[which(dat.nutrition[,'Salt_pack'] %in% 'NaN'),'Salt_pack'] <- NA
-dat.nutrition[which(dat.nutrition[,'Protein_pack'] %in% 'NaN'),'Protein_pack'] <- NA
-dat.nutrition[which(dat.nutrition[,'Fibre_pack'] %in% 'NaN'),'Fibre_pack'] <- NA
-dat.nutrition[which(dat.nutrition[,'Carbs_pack'] %in% 'NaN'),'Carbs_pack'] <- NA
+# # already done this in Python
+# # # Getting col indices of nutrients needed for NutriScore
+# # nutrient.list <-
+# #   names(raw.dat)[which(names(raw.dat) %in% 'Sugar_pack') : which(names(raw.dat) %in% 'Energy_pack')]
+# # 
+# # # Identifying and adjusting units for each nutrient
+# # # This makes sure i.e. units are g/mg
+# # # And the numeric value for the nutrient is correct
+# # dat.nutrition <- 
+# #   nutrition.adjust.function(dat = raw.dat,
+# #                             nutrient.list = nutrient.list)
 
-# Summarising nutrition by product
-# And performing logic checks to make sure a product doesn't e.g. have >100g fat per 100g product
-# It's impossible to tell what is correct
-# But very easy to tell what is incorrect
-dat.nutrition <-
-  dat.nutrition %>%
-  group_by(product_name) %>%
-  summarise(Sugar_pack_value = mean(Sugar_pack, na.rm = TRUE),
-            Fat_pack_value = mean(Fat_pack, na.rm = TRUE),
-            SatFat_pack_value = mean(SatFat_pack, na.rm = TRUE),
-            Salt_pack_value = mean(Salt_pack, na.rm = TRUE),
-            Protein_pack_value = mean(Protein_pack, na.rm = TRUE),
-            Fibre_pack_value = mean(Fibre_pack, na.rm = TRUE),
-            Carbs_pack_value = mean(Carbs_pack, na.rm = TRUE),
-            Energy_pack_value = mean(Energy_pack, na.rm = TRUE)) %>%
-  mutate(check_pack = ifelse(Sugar_pack_value > 100 & !is.na(Sugar_pack_value), 1, # Logical checks
-                             ifelse(Fat_pack_value > 100  & !is.na(Fat_pack_value), 1, 
-                                    ifelse(SatFat_pack_value > 100  & !is.na(SatFat_pack_value), 1,
-                                           ifelse(SatFat_pack_value > (Fat_pack_value + 5)  & !is.na(SatFat_pack_value) & !is.na(Fat_pack_value), 1,
-                                                  ifelse(Salt_pack_value > 100  & !is.na(Salt_pack_value), 1,
-                                                         ifelse(Protein_pack_value > 100  & !is.na(Protein_pack_value), 1,
-                                                                ifelse(Salt_pack_value > 100  & !is.na(Salt_pack_value), 1,
-                                                                       ifelse(Carbs_pack_value > 100  & !is.na(Carbs_pack_value), 1,
-                                                                              ifelse(Fibre_pack_value > 100  & !is.na(Fibre_pack_value), 1, 0)))))))))) %>%
-  mutate(Calories_pack_value = Fat_pack_value * 8.84 + Carbs_pack_value * 4 + Protein_pack_value * 4) %>%
-  as.data.frame(.)
+# # Converting 'NaNs' to 'NA's
+# dat.nutrition[which(dat.nutrition[,'Sugar_pack'] %in% 'NaN'),'Sugar_pack'] <- NA
+# dat.nutrition[which(dat.nutrition[,'Fat_pack'] %in% 'NaN'),'Fat_pack'] <- NA
+# dat.nutrition[which(dat.nutrition[,'SatFat_pack'] %in% 'NaN'),'SatFat_pack'] <- NA
+# dat.nutrition[which(dat.nutrition[,'Salt_pack'] %in% 'NaN'),'Salt_pack'] <- NA
+# dat.nutrition[which(dat.nutrition[,'Protein_pack'] %in% 'NaN'),'Protein_pack'] <- NA
+# dat.nutrition[which(dat.nutrition[,'Fibre_pack'] %in% 'NaN'),'Fibre_pack'] <- NA
+# dat.nutrition[which(dat.nutrition[,'Carbs_pack'] %in% 'NaN'),'Carbs_pack'] <- NA
 
-# Merging in estimated nutritional value
-# ANd using estimated values in cases where back of package info is clearly incorrect
-dat <- 
-  left_join(dat %>% unique(.), # Merging
-            dat.nutrition %>% unique(.)) %>%
-  mutate(Sugar = ifelse(!is.na(Sugar_pack_value) & !(check_pack %in% 1), Sugar_pack_value, Sugar), # Logic checks
-         Fat = ifelse(!is.na(Fat_pack_value) & !(check_pack %in% 1), Fat_pack_value, Fat), # Basically, if back of package info is crap
-         SaturatedFat = ifelse(!is.na(SatFat_pack_value) & !(check_pack %in% 1), SatFat_pack_value, SaturatedFat), # Then estimating based on our estimates
-         Salt = ifelse(!is.na(Salt_pack_value) & !(check_pack %in% 1), Salt_pack_value * 1000 / 2.5, Sodium),
-         Protein = ifelse(!is.na(Protein_pack_value) & !(check_pack %in% 1), Protein_pack_value, Protein),
-         Fiber = ifelse(!is.na(Fibre_pack_value) & !(check_pack %in% 1), Fibre_pack_value, Fiber),
-         Carbs = ifelse(!is.na(Carbs_pack_value) & !(check_pack %in% 1), Carbs_pack_value, Carbohydrates),
-         Calories = ifelse(!is.na(Energy_pack_value) & !(check_pack %in% 1), Energy_pack_value, Calories)) %>%
-  mutate(Sodium = Salt) %>%
-  unique(.) %>%
-  mutate(Calories = Fat * 8.84 + Carbs * 4 + Protein * 4)
+# # Summarising nutrition by product
+# # And performing logic checks to make sure a product doesn't e.g. have >100g fat per 100g product
+# # It's impossible to tell what is correct
+# # But very easy to tell what is incorrect
+# dat.nutrition <-
+#   dat.nutrition %>%
+#   group_by(product_name) %>%
+#   summarise(Sugar_pack_value = mean(Sugar_pack, na.rm = TRUE),
+#             Fat_pack_value = mean(Fat_pack, na.rm = TRUE),
+#             SatFat_pack_value = mean(SatFat_pack, na.rm = TRUE),
+#             Salt_pack_value = mean(Salt_pack, na.rm = TRUE),
+#             Protein_pack_value = mean(Protein_pack, na.rm = TRUE),
+#             Fibre_pack_value = mean(Fibre_pack, na.rm = TRUE),
+#             Carbs_pack_value = mean(Carbs_pack, na.rm = TRUE),
+#             Energy_pack_value = mean(Energy_pack, na.rm = TRUE)) %>%
+#   mutate(check_pack = ifelse(Sugar_pack_value > 100 & !is.na(Sugar_pack_value), 1, # Logical checks
+#                              ifelse(Fat_pack_value > 100  & !is.na(Fat_pack_value), 1, 
+#                                     ifelse(SatFat_pack_value > 100  & !is.na(SatFat_pack_value), 1,
+#                                            ifelse(SatFat_pack_value > (Fat_pack_value + 5)  & !is.na(SatFat_pack_value) & !is.na(Fat_pack_value), 1,
+#                                                   ifelse(Salt_pack_value > 100  & !is.na(Salt_pack_value), 1,
+#                                                          ifelse(Protein_pack_value > 100  & !is.na(Protein_pack_value), 1,
+#                                                                 ifelse(Salt_pack_value > 100  & !is.na(Salt_pack_value), 1,
+#                                                                        ifelse(Carbs_pack_value > 100  & !is.na(Carbs_pack_value), 1,
+#                                                                               ifelse(Fibre_pack_value > 100  & !is.na(Fibre_pack_value), 1, 0)))))))))) %>%
+#   mutate(Calories_pack_value = Fat_pack_value * 8.84 + Carbs_pack_value * 4 + Protein_pack_value * 4) %>%
+#   as.data.frame(.)
+
+# # Merging in estimated nutritional value
+# # ANd using estimated values in cases where back of package info is clearly incorrect
+# dat <- 
+#   left_join(dat %>% unique(.), # Merging
+#             dat.nutrition %>% unique(.)) %>%
+#   mutate(Sugar = ifelse(!is.na(Sugar_pack_value) & !(check_pack %in% 1), Sugar_pack_value, Sugar), # Logic checks
+#          Fat = ifelse(!is.na(Fat_pack_value) & !(check_pack %in% 1), Fat_pack_value, Fat), # Basically, if back of package info is crap
+#          SaturatedFat = ifelse(!is.na(SatFat_pack_value) & !(check_pack %in% 1), SatFat_pack_value, SaturatedFat), # Then estimating based on our estimates
+#          Salt = ifelse(!is.na(Salt_pack_value) & !(check_pack %in% 1), Salt_pack_value * 1000 / 2.5, Sodium),
+#          Protein = ifelse(!is.na(Protein_pack_value) & !(check_pack %in% 1), Protein_pack_value, Protein),
+#          Fiber = ifelse(!is.na(Fibre_pack_value) & !(check_pack %in% 1), Fibre_pack_value, Fiber),
+#          Carbs = ifelse(!is.na(Carbs_pack_value) & !(check_pack %in% 1), Carbs_pack_value, Carbohydrates),
+#          Calories = ifelse(!is.na(Energy_pack_value) & !(check_pack %in% 1), Energy_pack_value, Calories)) %>%
+#   mutate(Sodium = Salt) %>%
+#   unique(.) %>%
+#   mutate(Calories = Fat * 8.84 + Carbs * 4 + Protein * 4)
 
 # Classifying products for nutriscore ----
 # Drinks
@@ -510,20 +510,20 @@ fats.oils <-
           unique(.)) %>%
   unique(.)
 
-# Updating classifications for these products in the big data set
-dat <-
-  dat %>%
-  mutate(cheese = ifelse(product_name %in% cheese$product_name,'Cheese','No'),
-         fat.oil = ifelse(product_name %in% fats.oils$product_name, 'Fat.Oil','No'),
-         alcohol = ifelse(product_name %in% drinks$product_name[drinks$drink %in% 'Alcohol'],'Alcohol','No'),
-         drinks = ifelse(product_name %in% drinks$product_name[drinks$drink %in% 'Drinks'],'Drinks','No'))
+# # Updating classifications for these products in the big data set
+# dat <-
+#   dat %>%
+#   mutate(cheese = ifelse(product_name %in% cheese$product_name,'Cheese','No'),
+#          fat.oil = ifelse(product_name %in% fats.oils$product_name, 'Fat.Oil','No'),
+#          alcohol = ifelse(product_name %in% drinks$product_name[drinks$drink %in% 'Alcohol'],'Alcohol','No'),
+#          drinks = ifelse(product_name %in% drinks$product_name[drinks$drink %in% 'Drinks'],'Drinks','No'))
 
-# Calculating nutriscore
-# And making sure we only have products we're keeping
-nutriscore = 
-  nutriscore.function(dat = dat) %>%
-  filter(!(id.drop %in% prods.negs$id.drop)) %>%
-  filter(id.drop %in% filter.prods$id.drop)
+# # Calculating nutriscore
+# # And making sure we only have products we're keeping
+# nutriscore = 
+#   nutriscore.function(dat = dat) %>%
+#   filter(!(id.drop %in% prods.negs$id.drop)) %>%
+#   filter(id.drop %in% filter.prods$id.drop)
 
 # Creating managed data folder if not already there
 if('Managed_Data' %in% list.files(getwd())) {
@@ -556,8 +556,7 @@ rep_length = 3000
 
 for(c in (countries)) {
   
-  if (!(c %in% c('Serbia', 'South Africa', 'Austria', 'Belgium', 'France'))) {
-  # if (c %in% c('France')) {
+  if (!(c %in% c('Serbia', 'South Africa'))) { # Not doing this for Serbia and South Africa because of insufficient data
     # Getting data limited to the country
     stacked.dat = stacked.dat.whole %>% filter(country %in% c)
     iso3 = country_groups[country_groups$Country == c, "iso3"]
@@ -567,16 +566,16 @@ for(c in (countries)) {
     # Managing lca dat
     
     # Global LCA data
-    lca.dat <-
-    read.csv(paste0(getwd(),"/Data Inputs/jp_lca_dat.csv"),
-             stringsAsFactors = FALSE) %>%
-    mutate(Weight = as.numeric(gsub("%","",Weight)))
+    # lca.dat <-
+    # read.csv(paste0(getwd(),"/Data Inputs/jp_lca_dat.csv"),
+    #          stringsAsFactors = FALSE) %>%
+    # mutate(Weight = as.numeric(gsub("%","",Weight)))
     
     # LCA data with sourcing incorporated 
-    # lca.dat <-
-    #   read.csv(paste0(getwd(),"/Data Inputs/LCA_data_by_country/jp_lca_dat_",iso3,".csv"),
-    #            stringsAsFactors = FALSE) %>%
-    #   mutate(Weight = as.numeric(gsub("%","",Weight)))
+    lca.dat <-
+      read.csv(paste0(getwd(),"/Data Inputs/LCA_data_by_country/jp_lca_dat_",iso3,".csv"),
+               stringsAsFactors = FALSE) %>%
+      mutate(Weight = as.numeric(gsub("%","",Weight)))
     
     # Adding translation for subcategories
     lca.subcats <- read.csv(paste0(getwd(),'/Data Inputs/Search words, second round, 2024.07.22.csv'))
@@ -751,7 +750,7 @@ for(c in (countries)) {
         chunk.file <- file.path(
           getwd(),
           'Managed_Data',
-          paste0('Total_Impacts_By_Product_global_', c,'_chunk_', k, '_of_',
+          paste0('Total_Impacts_By_Product_sourcing_', c,'_chunk_', k, '_of_',
                  length(product.chunks), '_', Sys.Date(), '.csv')
         )
         write.csv(chunk.df, chunk.file, row.names = FALSE)

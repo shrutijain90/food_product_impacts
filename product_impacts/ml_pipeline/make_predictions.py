@@ -81,7 +81,7 @@ def lev_2_model(train, pred, X_cols, model_type, category):
 
 if __name__ == '__main__':
     
-    model_type = 'rf' ### enter model type here
+    model_type = 'nn' ### enter model type here
     prefix = 'non_eng/' ### enter this if embeddings are split into folders, else blank string
     
     train, X_cols = get_labels()
