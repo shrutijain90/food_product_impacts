@@ -54,6 +54,9 @@ conda install pandas=2.2.3 numpy=1.26.4 scipy=1.15.1 scikit-learn=1.6.1 joblib=1
 
 # Install pip packages
 pip install tensorflow==2.14.0 sentence-transformers==6.1.0
+
+# Additional packages, only needed for the full pipeline (not the demo)
+pip install hiclass colorcet googletrans langdetect tqdm
 ```
 
 ### R environment
@@ -115,7 +118,8 @@ Before running, edit two lines in **each** script to point at the repository's `
 source("product_impacts/impacts_cal/1.0_Estimating_Composition_2025.07.27.R")
 source("product_impacts/impacts_cal/3.0_Calculating_Impacts_2025.08.08.R")
 ```
-Expected output: a CSV with estimated environmental impacts per 100 g (see `demo/products_impacts.csv` for reference). Expected run time: ~10 minutes.
+Expected output: a CSV with estimated environmental impacts per 100 g (see `demo/products_impacts.csv` for reference); expect close but not identical results. 
+Expected run time: ~10 minutes.
 
 ---
 
@@ -127,7 +131,7 @@ The full pipeline requires the following additional datasets (publicly available
 
 | Dataset | Description | Source |
 |---------|-------------|--------|
-| Open Food Facts | Product database with names and ingredients | [world.openfoodfacts.org/data](https://world.openfoodfacts.org/data) (CC BY-SA) |
+| Open Food Facts | Product database with names and ingredients (we used the CSV data export option for Food products, Accessed Nov 2024) | [world.openfoodfacts.org/data](https://world.openfoodfacts.org/data) (CC BY-SA) |
 | FAOSTAT production & trade | Crop production and trade matrices by country/year | [fao.org/faostat](https://www.fao.org/faostat/en/#data) (open access) |
 
 ### Running the full pipeline
