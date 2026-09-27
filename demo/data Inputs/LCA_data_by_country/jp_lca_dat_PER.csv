@@ -8,8 +8,8 @@ Product id,Data S2 Name,Group,id,Product_details,Country,Land Use (m2*year),Arab
 1,Wheat & Rye (Bread),starch_rich,199,Wheat,Poland,2.44,2.44,0.0,3.78,1.9,7.84,11.75,101.89,227.99,C,0.43902141441174436
 1,Wheat & Rye (Bread),starch_rich,200,Wheat,Poland,2.44,2.44,0.0,3.77,1.71,7.10,9.81,101.78,227.75,C,0.43902141441174436
 2,Maize (Meal),starch_rich,265,Maize,Argentina,1.81,1.81,0.0,12.2,1.29,9.33,2.18,507.92,10446.72,C,36.557372549573515
-2,Maize (Meal),starch_rich,270,Maize,Brazil,1.32,1.32,0.0,14.26,1.45,20.63,7.68,0.0,0.0,C,11.53112089761402
-2,Maize (Meal),starch_rich,271,Maize,Brazil,1.19,1.19,0.0,32.19,1.35,25.48,8.12,0.0,0.0,C,17.296681346421032
+2,Maize (Meal),starch_rich,270,Maize,Brazil,1.32,1.32,0.0,14.26,1.45,20.63,7.68,0.0,0.0,C,11.531120897614022
+2,Maize (Meal),starch_rich,271,Maize,Brazil,1.19,1.19,0.0,32.19,1.35,25.48,8.12,0.0,0.0,C,17.296681346421035
 2,Maize (Meal),starch_rich,391,Maize,United States,1.73,1.73,0.0,2.74,0.66,7.81,2.12,203.6,13005.74,C,0.39447094252297915
 2,Maize (Meal),starch_rich,392,Maize,United States,2.05,2.05,0.0,3.25,0.47,8.53,2.38,239.0,15267.38,C,0.14792660344611722
 2,Maize (Meal),starch_rich,394,Maize,United States,1.04,1.04,0.0,1.57,0.69,7.84,3.48,315.8,354.63,C,3.057149804553088
@@ -395,13 +395,13 @@ Product id,Data S2 Name,Group,id,Product_details,Country,Land Use (m2*year),Arab
 28,Apples,fruit,1750,Apples,United States,0.91,0.91,0.0,14.02,0.56,3.91,1.16,347.98,1794.65,O,0.025033811757879915
 28,Apples,fruit,1751,Apples,United States,0.31,0.31,0.0,18.57,0.35,3.12,0.68,256.87,18225.18,C,0.7259805409785174
 28,Apples,fruit,1752,Apples,United States,0.85,0.85,0.0,40.83,0.44,3.48,1.14,232.93,22115.68,O,0.025033811757879915
-29,Berries & Grapes,fruit,1758,Strawberries,"Iran, Islamic Republic of",6.86,6.86,0.0,154.59,1.6,6.83,0.79,403.46,12264.55,C,57.100000000000016
-29,Berries & Grapes,fruit,1759,Strawberries,"Iran, Islamic Republic of",0.23,0.23,0.0,5.12,1.69,6.70,0.97,765.52,23270.86,C,24.10000000000001
-29,Berries & Grapes,fruit,1763,Raspberries,Spain,1.59,1.59,0.0,66.92,8.3,11.64,5.69,108.93,8619.34,C,1.1000000000000005
-29,Berries & Grapes,fruit,1765,Strawberries,Spain,0.36,0.36,0.0,5.37,1.04,8.14,17.42,157.29,13440.59,C,14.100000000000003
-29,Berries & Grapes,fruit,1768,Strawberries,United Kingdom,0.73,0.73,0.0,1.0,1.79,2.84,0.56,172.04,792.75,C,0.8000000000000002
-29,Berries & Grapes,fruit,1769,Raspberries,United Kingdom,1.52,1.52,0.0,3.55,8.41,3.71,4.56,10.95,50.46,C,2.000000000000001
-29,Berries & Grapes,fruit,1770,Strawberries,United Kingdom,0.71,0.71,0.0,0.97,1.21,8.55,3.07,145.21,669.12,C,0.8000000000000002
+29,Berries & Grapes,fruit,1758,Strawberries,"Iran, Islamic Republic of",6.86,6.86,0.0,154.59,1.6,6.83,0.79,403.46,12264.55,C,57.10000000000001
+29,Berries & Grapes,fruit,1759,Strawberries,"Iran, Islamic Republic of",0.23,0.23,0.0,5.12,1.69,6.70,0.97,765.52,23270.86,C,24.100000000000005
+29,Berries & Grapes,fruit,1763,Raspberries,Spain,1.59,1.59,0.0,66.92,8.3,11.64,5.69,108.93,8619.34,C,1.1000000000000003
+29,Berries & Grapes,fruit,1765,Strawberries,Spain,0.36,0.36,0.0,5.37,1.04,8.14,17.42,157.29,13440.59,C,14.100000000000001
+29,Berries & Grapes,fruit,1768,Strawberries,United Kingdom,0.73,0.73,0.0,1.0,1.79,2.84,0.56,172.04,792.75,C,0.8
+29,Berries & Grapes,fruit,1769,Raspberries,United Kingdom,1.52,1.52,0.0,3.55,8.41,3.71,4.56,10.95,50.46,C,2.0000000000000004
+29,Berries & Grapes,fruit,1770,Strawberries,United Kingdom,0.71,0.71,0.0,0.97,1.21,8.55,3.07,145.21,669.12,C,0.8
 30,Wine,alcohols,1793,Wine,Canada,3.03,3.03,0.0,9.19,3.11,35.68,10.06,1.67,4.37,C,2.5898359464859
 30,Wine,alcohols,1794,Wine grapes,France,1.85,1.85,0.0,76.53,1.51,10.73,5.19,2.92,38.17,O,0.024167418809179272
 30,Wine,alcohols,1795,Wine grapes,France,2.41,2.41,0.0,6.94,1.99,14.40,5.77,4.97,7.23,O,0.012083709404589636

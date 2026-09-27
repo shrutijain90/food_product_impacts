@@ -36,7 +36,7 @@ Product id,Data S2 Name,Group,id,Product_details,Country,Land Use (m2*year),Arab
 1,Wheat & Rye (Bread),starch_rich,38,Wheat,Australia,3.82,3.82,0.0,33.22,0.95,17.58,6.15,2.19,55.88,C,0.17303707996568504
 1,Wheat & Rye (Bread),starch_rich,39,Wheat,Australia,3.56,3.56,0.0,30.9,0.75,10.78,4.66,2.19,55.88,C,0.17303707996568504
 1,Wheat & Rye (Bread),starch_rich,41,Wheat,Belgium,2.72,2.72,0.0,4.43,1.03,7.14,3.49,2.19,2.56,C,0.00026128321657736017
-1,Wheat & Rye (Bread),starch_rich,50,Wheat,Chile,3.87,3.87,0.0,78.7,1.31,18.09,4.91,2.2,86.39,C,15.400606541331891
+1,Wheat & Rye (Bread),starch_rich,50,Wheat,Chile,3.87,3.87,0.0,78.7,1.31,18.09,4.91,2.2,86.39,C,15.40060654133189
 1,Wheat & Rye (Bread),starch_rich,51,Wheat,Chile,9.75,9.75,0.0,198.23,1.09,4.71,0.58,2.2,86.39,O,2.5667677568886487
 1,Wheat & Rye (Bread),starch_rich,55,Winter wheat,China,0.73,0.73,0.0,2.93,1.17,16.02,5.5,1255.45,119559.54,C,1.3752024544685353
 1,Wheat & Rye (Bread),starch_rich,56,Winter wheat,China,0.78,0.78,0.0,3.1,2.01,23.52,5.08,800.71,76200.18,C,1.719003068085669
@@ -117,9 +117,9 @@ Product id,Data S2 Name,Group,id,Product_details,Country,Land Use (m2*year),Arab
 1,Wheat & Rye (Bread),starch_rich,162,Wheat,Italy,1.6,1.6,0.0,5.27,1.12,18.98,11.31,389.15,1156.31,O,0.014278512813322175
 1,Wheat & Rye (Bread),starch_rich,163,Wheat,Italy,1.36,1.36,0.0,4.47,1.09,6.30,1.0,2.19,38.96,C,0.02855702562664435
 1,Wheat & Rye (Bread),starch_rich,164,Wheat,Italy,1.74,1.74,0.0,5.72,1.12,5.79,4.63,2.19,38.96,C,0.04283553843996652
-1,Wheat & Rye (Bread),starch_rich,178,Wheat,Mexico,2.4,2.4,0.0,137.24,0.86,12.30,7.5,172.85,201.07,C,8.326837221842222
-1,Wheat & Rye (Bread),starch_rich,179,Wheat,Mexico,3.4,3.4,0.0,194.28,2.36,15.46,7.08,158.76,188.13,C,2.775612407280741
-1,Wheat & Rye (Bread),starch_rich,180,Wheat,Mexico,2.32,2.32,0.0,132.27,0.52,11.88,5.61,172.5,200.75,C,2.775612407280741
+1,Wheat & Rye (Bread),starch_rich,178,Wheat,Mexico,2.4,2.4,0.0,137.24,0.86,12.30,7.5,172.85,201.07,C,8.32683722184222
+1,Wheat & Rye (Bread),starch_rich,179,Wheat,Mexico,3.4,3.4,0.0,194.28,2.36,15.46,7.08,158.76,188.13,C,2.7756124072807404
+1,Wheat & Rye (Bread),starch_rich,180,Wheat,Mexico,2.32,2.32,0.0,132.27,0.52,11.88,5.61,172.5,200.75,C,2.7756124072807404
 1,Wheat & Rye (Bread),starch_rich,183,Wheat,Nepal,2.32,2.32,0.0,47.24,1.7,18.85,77.38,710.8,9832.47,C,0.2759343980810391
 1,Wheat & Rye (Bread),starch_rich,184,Wheat,Nepal,2.4,2.4,0.0,48.81,1.7,19.01,42.7,435.74,6030.85,C,0.02299453317341992
 1,Wheat & Rye (Bread),starch_rich,185,Wheat,Nepal,1.96,1.96,0.0,39.98,1.48,16.17,22.53,409.19,5663.79,C,0.02299453317341992
@@ -231,11 +231,11 @@ Product id,Data S2 Name,Group,id,Product_details,Country,Land Use (m2*year),Arab
 2,Maize (Meal),starch_rich,404,Maize,United States,2.24,2.24,0.0,3.22,0.84,8.20,1.49,174.92,1485.88,C,6.905999325282365
 2,Maize (Meal),starch_rich,405,Maize,United States,1.75,1.75,0.0,6.28,0.92,4.58,3.88,371.26,13546.37,C,1.225257944808162
 3,Barley (Beer),alcohols,415,Beer,Australia,1.13,1.13,0.0,31.96,1.53,6.48,2.06,8.93,226.05,C,2.7357537247697876
-3,Barley (Beer),alcohols,416,Beer (Vashon Brewing Company),United States,1.67,1.67,0.0,5.99,2.64,38.36,4.82,44.67,1620.87,C,0.10741433312251557
-3,Barley (Beer),alcohols,417,"Beer (Vortex IPA, Fort George Brewery)",United States,2.37,2.37,0.0,8.48,1.37,17.61,12.37,66.13,2391.44,C,0.10741433312251557
-3,Barley (Beer),alcohols,418,"Beer (Pinnacle Peak Pale Ale, Harmon Brewing Company)",United States,1.48,1.48,0.0,5.32,0.61,7.55,3.41,39.4,1413.33,C,0.10741433312251557
-3,Barley (Beer),alcohols,419,"Beer (HUB Lager, Hopworks Urban Brewery)",United States,0.88,0.88,0.0,3.16,0.78,11.21,2.56,26.7,914.87,C,0.10741433312251557
-3,Barley (Beer),alcohols,420,"Beer (Horn Blonde Ale, RAM Brewery)",United States,0.97,0.97,0.0,3.49,0.44,4.82,2.2,26.4,943.45,C,0.10741433312251557
+3,Barley (Beer),alcohols,416,Beer (Vashon Brewing Company),United States,1.67,1.67,0.0,5.99,2.64,38.36,4.82,44.67,1620.87,C,0.10741433312251555
+3,Barley (Beer),alcohols,417,"Beer (Vortex IPA, Fort George Brewery)",United States,2.37,2.37,0.0,8.48,1.37,17.61,12.37,66.13,2391.44,C,0.10741433312251555
+3,Barley (Beer),alcohols,418,"Beer (Pinnacle Peak Pale Ale, Harmon Brewing Company)",United States,1.48,1.48,0.0,5.32,0.61,7.55,3.41,39.4,1413.33,C,0.10741433312251555
+3,Barley (Beer),alcohols,419,"Beer (HUB Lager, Hopworks Urban Brewery)",United States,0.88,0.88,0.0,3.16,0.78,11.21,2.56,26.7,914.87,C,0.10741433312251555
+3,Barley (Beer),alcohols,420,"Beer (Horn Blonde Ale, RAM Brewery)",United States,0.97,0.97,0.0,3.49,0.44,4.82,2.2,26.4,943.45,C,0.10741433312251555
 3,Barley (Beer),alcohols,423,Barley,Australia,1.52,1.52,0.0,3.9,0.98,5.32,1.05,6.96,177.16,C,3.770903782790788
 3,Barley (Beer),alcohols,424,Barley,Australia,1.31,1.31,0.0,40.47,1.02,-,1.76,6.96,177.16,C,2.7357537247697876
 3,Barley (Beer),alcohols,425,Barley,Australia,1.22,1.22,0.0,10.56,1.02,5.34,1.2,6.96,177.16,C,0.14787857971728582
@@ -345,9 +345,9 @@ Product id,Data S2 Name,Group,id,Product_details,Country,Land Use (m2*year),Arab
 5,Rice,starch_rich,587,Jasmine rice,Thailand,8.09,8.09,0.0,136.82,14.39,88.87,172.1,6475.77,41808.19,C,2.5180632973903383
 5,Rice,starch_rich,588,Rice,United States,2.16,2.16,0.0,38.43,2.63,5.86,2.09,2711.87,192406.59,C,2.350614170267932
 5,Rice,starch_rich,589,Rice,Vietnam,1.0,1.0,0.0,29.4,4.2,11.21,3.45,707.58,4568.21,C,25.24937134933934
-6,Potatoes,starch_rich,591,Potatoes,Australia,0.31,0.31,0.0,3.06,0.46,4.00,1.84,163.5,340.71,C,1.5225155650215856
-6,Potatoes,starch_rich,592,Potatoes,Australia,0.44,0.44,0.0,1.91,0.38,3.37,1.02,228.94,20015.1,C,0.7612577825107928
-6,Potatoes,starch_rich,593,Potatoes,Australia,0.55,0.55,0.0,6.7,0.49,4.03,1.11,149.15,917.6,C,0.7612577825107928
+6,Potatoes,starch_rich,591,Potatoes,Australia,0.31,0.31,0.0,3.06,0.46,4.00,1.84,163.5,340.71,C,1.522515565021586
+6,Potatoes,starch_rich,592,Potatoes,Australia,0.44,0.44,0.0,1.91,0.38,3.37,1.02,228.94,20015.1,C,0.761257782510793
+6,Potatoes,starch_rich,593,Potatoes,Australia,0.55,0.55,0.0,6.7,0.49,4.03,1.11,149.15,917.6,C,0.761257782510793
 6,Potatoes,starch_rich,594,Potatoes,Chile,2.53,2.53,0.0,13.34,0.26,-,0.81,0.0,0.0,C,1.9846441147077414
 6,Potatoes,starch_rich,595,Potatoes,Chile,1.45,1.45,0.0,31.45,0.38,-,1.31,246.12,21307.65,C,1.9846441147077414
 6,Potatoes,starch_rich,596,Potatoes,Chile,1.52,1.52,0.0,33.02,0.46,-,1.73,328.09,28404.47,C,1.9846441147077414
@@ -390,7 +390,7 @@ Product id,Data S2 Name,Group,id,Product_details,Country,Land Use (m2*year),Arab
 6,Potatoes,starch_rich,641,Potatoes,Israel,0.39,0.39,0.0,8.58,0.56,8.71,2.41,131.25,10968.47,C,0.014385719440981538
 6,Potatoes,starch_rich,642,Potatoes,Israel,0.53,0.53,0.0,11.79,0.61,9.06,4.05,121.78,10174.72,C,0.014385719440981538
 6,Potatoes,starch_rich,644,Potatoes,Japan,0.42,0.42,0.0,1.16,0.34,3.14,2.25,0.0,0.0,C,1.9734009222605908
-6,Potatoes,starch_rich,645,Sweet potatoes,Japan,1.21,1.21,0.0,9.17,0.76,9.88,1.37,0.0,0.0,C,1.5787207378084729
+6,Potatoes,starch_rich,645,Sweet potatoes,Japan,1.21,1.21,0.0,9.17,0.76,9.88,1.37,0.0,0.0,C,1.5787207378084727
 6,Potatoes,starch_rich,647,Potatoes,Netherlands,0.4,0.4,0.0,0.74,0.6,4.73,4.18,12.34,18.62,C,2.0650251843881358
 6,Potatoes,starch_rich,652,Potatoes,Spain,0.47,0.47,0.0,1.26,0.33,3.62,2.19,120.91,10881.05,C,0.006616010692401168
 6,Potatoes,starch_rich,656,Potatoes,Poland,1.19,1.19,0.0,2.98,0.7,5.21,2.04,0.0,0.0,C,0.056603647034987756
@@ -409,8 +409,8 @@ Product id,Data S2 Name,Group,id,Product_details,Country,Land Use (m2*year),Arab
 6,Potatoes,starch_rich,673,Potatoes,United Kingdom,0.69,0.69,0.0,1.03,0.37,2.72,1.78,5.95,27.42,O,0.007428626165978216
 6,Potatoes,starch_rich,674,Potatoes,United Kingdom,1.36,1.36,0.0,2.02,0.38,2.65,3.09,42.35,195.17,O,0.007428626165978216
 6,Potatoes,starch_rich,675,Potatoes,United Kingdom,0.72,0.72,0.0,1.06,0.31,2.45,1.54,5.13,23.65,O,0.007428626165978216
-7,Cassava,starch_rich,723,Cassava,Thailand,0.97,0.97,0.0,27.01,0.33,2.80,0.49,0.0,0.0,C,50.00000000000001
-7,Cassava,starch_rich,724,Cassava,Thailand,0.9,0.9,0.0,16.85,0.3,3.06,0.83,0.0,0.0,C,50.00000000000001
+7,Cassava,starch_rich,723,Cassava,Thailand,0.97,0.97,0.0,27.01,0.33,2.80,0.49,0.0,0.0,C,50.0
+7,Cassava,starch_rich,724,Cassava,Thailand,0.9,0.9,0.0,16.85,0.3,3.06,0.83,0.0,0.0,C,50.0
 8,Cane Sugar,sugars,733,Sugar,Argentina,1.7,1.7,0.0,67.98,2.38,21.74,9.19,8.14,39.96,C,0.010967838510563344
 8,Cane Sugar,sugars,734,Sugar,Argentina,1.5,1.5,0.0,60.09,2.36,21.59,9.08,8.14,39.96,C,0.02412924472323936
 8,Cane Sugar,sugars,735,Sugar,Argentina,1.26,1.26,0.0,50.43,2.3,21.33,9.1,8.14,39.96,C,0.02412924472323936
@@ -421,7 +421,7 @@ Product id,Data S2 Name,Group,id,Product_details,Country,Land Use (m2*year),Arab
 8,Cane Sugar,sugars,746,Sugar,India,2.66,2.66,0.0,37.1,1.12,30.49,26.2,2519.72,34890.79,C,22.52613959906939
 8,Cane Sugar,sugars,747,Sugar,India,1.25,1.25,0.0,10.84,0.94,24.20,41.67,3567.12,13739.61,C,19.727861388004865
 8,Cane Sugar,sugars,749,Sugar,Japan,2.39,2.39,0.0,425.32,3.07,34.90,10.2,8.98,8.52,C,5.8682281708242705
-8,Cane Sugar,sugars,752,Sugar,Mauritius,3.37,3.37,0.0,0.0,0.78,5.46,2.48,680.83,528.93,C,0.6388590373005297
+8,Cane Sugar,sugars,752,Sugar,Mauritius,3.37,3.37,0.0,0.0,0.78,5.46,2.48,680.83,528.93,C,0.6388590373005296
 8,Cane Sugar,sugars,753,Sugar,Mexico,1.45,1.45,0.0,191.62,2.45,18.18,133.73,820.55,1453.7,C,0.0877338476443094
 8,Cane Sugar,sugars,754,Sugar,Mexico,1.3,1.3,0.0,172.71,2.08,16.74,13.81,623.96,1141.63,C,0.12282738670203318
 8,Cane Sugar,sugars,755,Sugar,Mexico,1.65,1.65,0.0,209.02,2.56,16.11,8.98,994.22,6530.32,C,0.22810800387520447
@@ -495,25 +495,25 @@ Product id,Data S2 Name,Group,id,Product_details,Country,Land Use (m2*year),Arab
 11,Peas,protein_rich,896,Peas,Sweden,4.33,4.33,0.0,2.53,1.14,3.47,6.14,0.0,0.0,C,1.5229713429488576
 11,Peas,protein_rich,897,Peas,Switzerland,2.77,2.77,0.0,21.93,1.25,5.99,9.96,0.0,0.0,C,0.7740272003247183
 11,Peas,protein_rich,898,Peas,Switzerland,3.63,3.63,0.0,28.76,1.51,16.41,24.64,0.0,0.0,O,0.19350680008117963
-12,Nuts,protein_rich,899,Almonds,Australia,7.41,7.41,0.0,32.62,2.95,52.34,40.04,9107.22,247325.18,C,1.4060661795891973
-12,Nuts,protein_rich,900,Cashew nuts,Brazil,14.73,14.73,0.0,214.07,10.87,95.06,29.93,7.23,25.9,C,2.7705449330978746
-12,Nuts,protein_rich,901,Cashew nuts,Brazil,46.01,46.01,0.0,668.73,23.68,19.86,16.18,22.59,202.99,C,2.7705449330978746
-12,Nuts,protein_rich,902,Almonds,China,6.99,6.99,0.0,57.88,1.68,22.96,9.52,1089.59,49610.27,C,2.206848958583766
-12,Nuts,protein_rich,903,Pistachios,Greece,9.48,9.48,0.0,394.81,3.57,18.65,7.13,4417.94,344554.83,C,0.08367467580390581
+12,Nuts,protein_rich,899,Almonds,Australia,7.41,7.41,0.0,32.62,2.95,52.34,40.04,9107.22,247325.18,C,1.4060661795891976
+12,Nuts,protein_rich,900,Cashew nuts,Brazil,14.73,14.73,0.0,214.07,10.87,95.06,29.93,7.23,25.9,C,2.7705449330978755
+12,Nuts,protein_rich,901,Cashew nuts,Brazil,46.01,46.01,0.0,668.73,23.68,19.86,16.18,22.59,202.99,C,2.7705449330978755
+12,Nuts,protein_rich,902,Almonds,China,6.99,6.99,0.0,57.88,1.68,22.96,9.52,1089.59,49610.27,C,2.206848958583767
+12,Nuts,protein_rich,903,Pistachios,Greece,9.48,9.48,0.0,394.81,3.57,18.65,7.13,4417.94,344554.83,C,0.08367467580390582
 12,Nuts,protein_rich,905,Hazelnuts,"Iran, Islamic Republic of",30.51,30.51,0.0,777.61,-8.09,37.49,90.74,8007.93,250115.65,C,1.156150462608445
-12,Nuts,protein_rich,906,Almonds,"Iran, Islamic Republic of",15.02,15.02,0.0,297.5,8.13,119.18,43.16,8609.89,645551.88,C,6.808441613138618
-12,Nuts,protein_rich,907,Hazelnuts,Italy,12.56,12.56,0.0,496.04,3.05,40.52,47.17,1717.32,43497.29,C,0.7363371470743711
-12,Nuts,protein_rich,908,Chestnuts,Portugal,29.36,29.36,0.0,1519.68,3.52,11.52,5.34,0.0,0.0,C,0.08367467580390581
-12,Nuts,protein_rich,909,Chestnuts,Portugal,24.7,24.7,0.0,1278.42,2.1,10.93,6.27,0.0,0.0,C,0.08367467580390581
+12,Nuts,protein_rich,906,Almonds,"Iran, Islamic Republic of",15.02,15.02,0.0,297.5,8.13,119.18,43.16,8609.89,645551.88,C,6.808441613138619
+12,Nuts,protein_rich,907,Hazelnuts,Italy,12.56,12.56,0.0,496.04,3.05,40.52,47.17,1717.32,43497.29,C,0.7363371470743713
+12,Nuts,protein_rich,908,Chestnuts,Portugal,29.36,29.36,0.0,1519.68,3.52,11.52,5.34,0.0,0.0,C,0.08367467580390582
+12,Nuts,protein_rich,909,Chestnuts,Portugal,24.7,24.7,0.0,1278.42,2.1,10.93,6.27,0.0,0.0,C,0.08367467580390582
 12,Nuts,protein_rich,913,Almonds,United States,6.81,6.81,0.0,53.34,-2.91,34.91,13.61,6745.79,396604.25,C,13.038393488412071
-12,Nuts,protein_rich,914,Walnuts,United States,3.78,3.78,0.0,29.6,-0.22,-,7.84,1664.28,97847.79,C,5.0644999500443575
+12,Nuts,protein_rich,914,Walnuts,United States,3.78,3.78,0.0,29.6,-0.22,-,7.84,1664.28,97847.79,C,5.064499950044358
 12,Nuts,protein_rich,915,Pistachios,United States,6.25,6.25,0.0,48.92,-4.09,-,10.74,3200.18,188147.92,C,8.297159492625862
 12,Nuts,protein_rich,916,Almonds,United States,4.49,4.49,0.0,266.27,-1.38,28.37,23.18,1823.32,129364.29,C,13.038393488412071
 12,Nuts,protein_rich,917,Almonds,United States,5.6,5.6,0.0,34.3,3.74,33.71,11.16,8280.95,302154.13,C,13.038393488412071
 12,Nuts,protein_rich,918,Almonds,United States,8.73,8.73,0.0,518.18,-1.96,66.42,17.56,9106.93,646134.54,C,13.038393488412071
 12,Nuts,protein_rich,919,Almonds,United States,10.91,10.91,0.0,647.71,-1.24,40.12,12.23,11383.53,807659.27,O,8.728180764970064
-12,Nuts,protein_rich,920,Walnuts,United States,4.15,4.15,0.0,62.69,-0.32,20.38,7.81,1069.8,5517.33,C,5.0644999500443575
-12,Nuts,protein_rich,921,Walnuts,United States,20.76,20.76,0.0,313.46,-2.07,34.79,16.25,10697.94,55173.02,O,2.586127634065204
+12,Nuts,protein_rich,920,Walnuts,United States,4.15,4.15,0.0,62.69,-0.32,20.38,7.81,1069.8,5517.33,C,5.064499950044358
+12,Nuts,protein_rich,921,Walnuts,United States,20.76,20.76,0.0,313.46,-2.07,34.79,16.25,10697.94,55173.02,O,2.5861276340652046
 13,Groundnuts,protein_rich,922,Peanuts,Argentina,7.03,7.03,0.0,46.76,6.18,10.70,8.17,748.49,15394.46,C,10.972534969100744
 13,Groundnuts,protein_rich,924,Peanuts,Australia,6.1,6.1,0.0,63.67,1.89,11.71,6.47,0.0,0.0,C,0.005663550098409616
 13,Groundnuts,protein_rich,927,Peanuts,China,5.65,5.65,0.0,35.1,1.31,10.10,5.75,831.71,37868.44,C,23.87770345969069
@@ -641,7 +641,7 @@ Product id,Data S2 Name,Group,id,Product_details,Country,Land Use (m2*year),Arab
 19,Rapeseed Oil,oils,1345,Canola,"Iran, Islamic Republic of",18.42,18.42,0.0,290.41,7.09,89.65,34.01,1.49,61.29,C,3.0985950464257668
 19,Rapeseed Oil,oils,1346,Canola,"Iran, Islamic Republic of",14.61,14.61,0.0,230.25,4.87,40.17,16.12,309.43,28768.17,C,2.5821625386881393
 19,Rapeseed Oil,oils,1347,Canola,"Iran, Islamic Republic of",6.18,6.18,0.0,97.37,2.42,42.95,17.04,682.48,63545.15,C,2.5821625386881393
-19,Rapeseed Oil,oils,1354,Rapeseed,Poland,6.99,6.99,0.0,14.07,3.92,30.39,8.64,1.43,2.78,C,3.058425728104482
+19,Rapeseed Oil,oils,1354,Rapeseed,Poland,6.99,6.99,0.0,14.07,3.92,30.39,8.64,1.43,2.78,C,3.058425728104483
 19,Rapeseed Oil,oils,1365,Canola,Turkey,6.55,6.55,0.0,14.73,4.21,41.87,17.49,1.49,30.9,C,4.647892569638651
 20,Olive Oil,oils,1373,Extra virgin olive oil,Greece,14.78,14.78,0.0,823.06,3.35,33.92,37.45,390.1,31082.73,C,10.868150432226479
 20,Olive Oil,oils,1374,Extra virgin olive oil,Greece,18.39,18.39,0.0,1024.02,5.35,45.81,39.86,317.87,24395.66,C,10.868150432226479
@@ -729,31 +729,31 @@ Product id,Data S2 Name,Group,id,Product_details,Country,Land Use (m2*year),Arab
 24,Brassicas,vegetables,1566,Broccoli,United States,2.3,2.3,0.0,46.12,0.73,5.67,1.94,641.65,60922.85,C,19.900990099009903
 24,Brassicas,vegetables,1567,Broccoli,United States,2.36,2.36,0.0,47.18,0.8,2.98,1.21,656.46,62328.7,O,0.19801980198019803
 25,Other Vegetables,vegetables,1572,Cucumber,China,0.19,0.19,0.0,0.89,0.4,3.44,1.78,83.05,2939.44,C,94.21417723871785
-25,Other Vegetables,vegetables,1575,Hokkaido pumpkins,Germany,0.8,0.8,0.0,1.01,0.14,1.46,0.8,0.41,0.38,C,0.11030513098015816
-25,Other Vegetables,vegetables,1576,Hokkaido pumpkins,Germany,1.73,1.73,0.0,2.19,0.25,2.40,1.2,0.71,0.66,O,0.022061026196031633
-25,Other Vegetables,vegetables,1577,Hokkaido pumpkins,Germany,0.55,0.55,0.0,0.84,0.09,2.37,0.63,9.57,8.9,C,0.11030513098015816
-25,Other Vegetables,vegetables,1578,Cucumber,"Iran, Islamic Republic of",0.08,0.08,0.0,0.15,0.53,3.91,0.92,16.31,248.84,C,0.06671636774173116
-25,Other Vegetables,vegetables,1579,Cucumber,"Iran, Islamic Republic of",0.09,0.09,0.0,1.75,0.71,2.31,0.28,335.41,27373.85,C,0.06671636774173116
-25,Other Vegetables,vegetables,1580,Cucumber,"Iran, Islamic Republic of",0.11,0.11,0.0,0.45,1.55,9.48,2.48,127.11,6590.89,C,0.06671636774173116
-25,Other Vegetables,vegetables,1581,Cucumber,"Iran, Islamic Republic of",0.1,0.1,0.0,0.42,1.55,10.19,2.68,128.95,6686.33,C,0.06671636774173116
-25,Other Vegetables,vegetables,1582,Cucumber,"Iran, Islamic Republic of",0.11,0.11,0.0,0.44,1.45,9.40,2.47,115.94,6012.02,C,0.06671636774173116
-25,Other Vegetables,vegetables,1583,Pumpkins,United States,1.07,1.07,0.0,10.3,0.4,3.64,4.92,74.91,899.6,C,0.2776750393690466
-25,Other Vegetables,vegetables,1586,Lettuce,Australia,0.32,0.32,0.0,3.61,0.56,3.34,1.29,69.55,427.92,C,0.2109498149258243
-25,Other Vegetables,vegetables,1587,Lettuce,Australia,0.37,0.37,0.0,4.25,0.62,3.78,1.48,171.43,1054.68,C,0.2109498149258243
+25,Other Vegetables,vegetables,1575,Hokkaido pumpkins,Germany,0.8,0.8,0.0,1.01,0.14,1.46,0.8,0.41,0.38,C,0.11030513098015819
+25,Other Vegetables,vegetables,1576,Hokkaido pumpkins,Germany,1.73,1.73,0.0,2.19,0.25,2.40,1.2,0.71,0.66,O,0.02206102619603164
+25,Other Vegetables,vegetables,1577,Hokkaido pumpkins,Germany,0.55,0.55,0.0,0.84,0.09,2.37,0.63,9.57,8.9,C,0.11030513098015819
+25,Other Vegetables,vegetables,1578,Cucumber,"Iran, Islamic Republic of",0.08,0.08,0.0,0.15,0.53,3.91,0.92,16.31,248.84,C,0.06671636774173118
+25,Other Vegetables,vegetables,1579,Cucumber,"Iran, Islamic Republic of",0.09,0.09,0.0,1.75,0.71,2.31,0.28,335.41,27373.85,C,0.06671636774173118
+25,Other Vegetables,vegetables,1580,Cucumber,"Iran, Islamic Republic of",0.11,0.11,0.0,0.45,1.55,9.48,2.48,127.11,6590.89,C,0.06671636774173118
+25,Other Vegetables,vegetables,1581,Cucumber,"Iran, Islamic Republic of",0.1,0.1,0.0,0.42,1.55,10.19,2.68,128.95,6686.33,C,0.06671636774173118
+25,Other Vegetables,vegetables,1582,Cucumber,"Iran, Islamic Republic of",0.11,0.11,0.0,0.44,1.45,9.40,2.47,115.94,6012.02,C,0.06671636774173118
+25,Other Vegetables,vegetables,1583,Pumpkins,United States,1.07,1.07,0.0,10.3,0.4,3.64,4.92,74.91,899.6,C,0.27767503936904664
+25,Other Vegetables,vegetables,1586,Lettuce,Australia,0.32,0.32,0.0,3.61,0.56,3.34,1.29,69.55,427.92,C,0.21094981492582432
+25,Other Vegetables,vegetables,1587,Lettuce,Australia,0.37,0.37,0.0,4.25,0.62,3.78,1.48,171.43,1054.68,C,0.21094981492582432
 25,Other Vegetables,vegetables,1611,Lettuce,Thailand,0.64,0.64,0.0,21.86,1.09,-,7.23,1435.82,11169.61,C,2.1434558873951155
-25,Other Vegetables,vegetables,1612,Lettuce,Thailand,0.28,0.28,0.0,9.66,0.51,4.52,1.96,746.71,5808.85,O,0.7144852957983716
-25,Other Vegetables,vegetables,1614,Lettuce,United Kingdom,0.15,0.15,0.0,0.21,1.1,2.06,0.54,34.47,158.86,C,0.009202628869937775
-25,Other Vegetables,vegetables,1615,Lettuce,United Kingdom,0.53,0.53,0.0,0.78,0.57,4.34,1.17,52.91,243.83,C,0.013803943304906665
-25,Other Vegetables,vegetables,1616,Lettuce,United Kingdom,0.34,0.34,0.0,0.5,0.41,2.18,0.77,61.93,285.38,C,0.013803943304906665
-25,Other Vegetables,vegetables,1617,Lettuce,United Kingdom,0.57,0.57,0.0,0.84,0.46,3.96,1.31,209.67,966.17,C,0.013803943304906665
-25,Other Vegetables,vegetables,1618,Lettuce,United Kingdom,0.09,0.09,0.0,0.14,6.78,8.58,1.38,123.61,569.62,C,0.009202628869937775
-25,Other Vegetables,vegetables,1619,Lettuce,United Kingdom,0.1,0.1,0.0,0.14,2.87,3.47,0.53,15.67,72.2,C,0.009202628869937775
-25,Other Vegetables,vegetables,1620,Lettuce,United States,0.45,0.45,0.0,3.29,1.0,3.28,0.88,247.47,14549.73,C,0.498391096303417
-25,Other Vegetables,vegetables,1621,Lettuce,United States,0.48,0.48,0.0,3.88,1.13,-,1.22,390.48,11097.2,C,0.498391096303417
-25,Other Vegetables,vegetables,1622,Iceberg lettuce,United States,1.05,1.05,0.0,21.09,0.64,4.45,1.23,146.68,13926.58,C,0.498391096303417
-25,Other Vegetables,vegetables,1623,Lettuce,United States,1.8,1.8,0.0,35.99,0.77,3.65,1.15,283.71,26937.11,O,0.01423974560866906
-25,Other Vegetables,vegetables,1632,Runner beans,United Kingdom,1.61,1.61,0.0,2.35,1.15,6.62,2.47,105.33,485.38,C,0.0368105154797511
-25,Other Vegetables,vegetables,1633,Runner beans,United Kingdom,1.6,1.6,0.0,2.34,0.89,6.39,2.37,49.37,227.5,C,0.0368105154797511
+25,Other Vegetables,vegetables,1612,Lettuce,Thailand,0.28,0.28,0.0,9.66,0.51,4.52,1.96,746.71,5808.85,O,0.7144852957983718
+25,Other Vegetables,vegetables,1614,Lettuce,United Kingdom,0.15,0.15,0.0,0.21,1.1,2.06,0.54,34.47,158.86,C,0.009202628869937777
+25,Other Vegetables,vegetables,1615,Lettuce,United Kingdom,0.53,0.53,0.0,0.78,0.57,4.34,1.17,52.91,243.83,C,0.013803943304906667
+25,Other Vegetables,vegetables,1616,Lettuce,United Kingdom,0.34,0.34,0.0,0.5,0.41,2.18,0.77,61.93,285.38,C,0.013803943304906667
+25,Other Vegetables,vegetables,1617,Lettuce,United Kingdom,0.57,0.57,0.0,0.84,0.46,3.96,1.31,209.67,966.17,C,0.013803943304906667
+25,Other Vegetables,vegetables,1618,Lettuce,United Kingdom,0.09,0.09,0.0,0.14,6.78,8.58,1.38,123.61,569.62,C,0.009202628869937777
+25,Other Vegetables,vegetables,1619,Lettuce,United Kingdom,0.1,0.1,0.0,0.14,2.87,3.47,0.53,15.67,72.2,C,0.009202628869937777
+25,Other Vegetables,vegetables,1620,Lettuce,United States,0.45,0.45,0.0,3.29,1.0,3.28,0.88,247.47,14549.73,C,0.4983910963034171
+25,Other Vegetables,vegetables,1621,Lettuce,United States,0.48,0.48,0.0,3.88,1.13,-,1.22,390.48,11097.2,C,0.4983910963034171
+25,Other Vegetables,vegetables,1622,Iceberg lettuce,United States,1.05,1.05,0.0,21.09,0.64,4.45,1.23,146.68,13926.58,C,0.4983910963034171
+25,Other Vegetables,vegetables,1623,Lettuce,United States,1.8,1.8,0.0,35.99,0.77,3.65,1.15,283.71,26937.11,O,0.014239745608669061
+25,Other Vegetables,vegetables,1632,Runner beans,United Kingdom,1.61,1.61,0.0,2.35,1.15,6.62,2.47,105.33,485.38,C,0.03681051547975111
+25,Other Vegetables,vegetables,1633,Runner beans,United Kingdom,1.6,1.6,0.0,2.34,0.89,6.39,2.37,49.37,227.5,C,0.03681051547975111
 26,Citrus Fruit,fruit,1634,Oranges,Brazil,1.02,1.02,0.0,16.6,0.33,2.00,0.25,0.0,0.0,O,0.7539701289584414
 26,Citrus Fruit,fruit,1635,Oranges,Brazil,0.81,0.81,0.0,13.28,0.38,2.29,0.28,41.42,25.25,O,0.5277790902709091
 26,Citrus Fruit,fruit,1636,Oranges,Brazil,0.93,0.93,0.0,15.09,0.38,2.85,0.35,0.0,0.0,C,11.347250440824544
@@ -834,13 +834,13 @@ Product id,Data S2 Name,Group,id,Product_details,Country,Land Use (m2*year),Arab
 28,Apples,fruit,1750,Apples,United States,0.91,0.91,0.0,14.02,0.56,3.91,1.16,347.98,1794.65,O,0.2316040577132056
 28,Apples,fruit,1751,Apples,United States,0.31,0.31,0.0,18.57,0.35,3.12,0.68,256.87,18225.18,C,6.7165176736829615
 28,Apples,fruit,1752,Apples,United States,0.85,0.85,0.0,40.83,0.44,3.48,1.14,232.93,22115.68,O,0.2316040577132056
-29,Berries & Grapes,fruit,1758,Strawberries,"Iran, Islamic Republic of",6.86,6.86,0.0,154.59,1.6,6.83,0.79,403.46,12264.55,C,58.84665305816881
-29,Berries & Grapes,fruit,1759,Strawberries,"Iran, Islamic Republic of",0.23,0.23,0.0,5.12,1.69,6.70,0.97,765.52,23270.86,C,24.837203830155318
-29,Berries & Grapes,fruit,1763,Raspberries,Spain,1.59,1.59,0.0,66.92,8.3,11.64,5.69,108.93,8619.34,C,0.9648541527824958
-29,Berries & Grapes,fruit,1765,Strawberries,Spain,0.36,0.36,0.0,5.37,1.04,8.14,17.42,157.29,13440.59,C,12.367675958393807
-29,Berries & Grapes,fruit,1768,Strawberries,United Kingdom,0.73,0.73,0.0,1.0,1.79,2.84,0.56,172.04,792.75,C,0.6630251112221274
-29,Berries & Grapes,fruit,1769,Raspberries,United Kingdom,1.52,1.52,0.0,3.55,8.41,3.71,4.56,10.95,50.46,C,1.6575627780553188
-29,Berries & Grapes,fruit,1770,Strawberries,United Kingdom,0.71,0.71,0.0,0.97,1.21,8.55,3.07,145.21,669.12,C,0.6630251112221274
+29,Berries & Grapes,fruit,1758,Strawberries,"Iran, Islamic Republic of",6.86,6.86,0.0,154.59,1.6,6.83,0.79,403.46,12264.55,C,58.8941176368532
+29,Berries & Grapes,fruit,1759,Strawberries,"Iran, Islamic Republic of",0.23,0.23,0.0,5.12,1.69,6.70,0.97,765.52,23270.86,C,24.857237041123685
+29,Berries & Grapes,fruit,1763,Raspberries,Spain,1.59,1.59,0.0,66.92,8.3,11.64,5.69,108.93,8619.34,C,0.9607527094099249
+29,Berries & Grapes,fruit,1765,Strawberries,Spain,0.36,0.36,0.0,5.37,1.04,8.14,17.42,157.29,13440.59,C,12.315102911527218
+29,Berries & Grapes,fruit,1768,Strawberries,United Kingdom,0.73,0.73,0.0,1.0,1.79,2.84,0.56,172.04,792.75,C,0.6606199335746615
+29,Berries & Grapes,fruit,1769,Raspberries,United Kingdom,1.52,1.52,0.0,3.55,8.41,3.71,4.56,10.95,50.46,C,1.651549833936654
+29,Berries & Grapes,fruit,1770,Strawberries,United Kingdom,0.71,0.71,0.0,0.97,1.21,8.55,3.07,145.21,669.12,C,0.6606199335746615
 30,Wine,alcohols,1793,Wine,Canada,3.03,3.03,0.0,9.19,3.11,35.68,10.06,1.67,4.37,C,0.5711388462524888
 30,Wine,alcohols,1794,Wine grapes,France,1.85,1.85,0.0,76.53,1.51,10.73,5.19,2.92,38.17,O,5.584335397780819
 30,Wine,alcohols,1795,Wine grapes,France,2.41,2.41,0.0,6.94,1.99,14.40,5.77,4.97,7.23,O,2.7921676988904096
@@ -886,46 +886,46 @@ Product id,Data S2 Name,Group,id,Product_details,Country,Land Use (m2*year),Arab
 30,Wine,alcohols,1845,White wine,Switzerland,1.45,1.45,0.0,4.21,1.27,5.61,3.53,1.63,1.34,C,0.07157977986407625
 30,Wine,alcohols,1846,Red wine,Switzerland,2.03,2.03,0.0,5.92,1.58,7.98,5.56,1.63,1.34,C,0.07157977986407625
 30,Wine,alcohols,1847,White wine,Switzerland,1.53,1.53,0.0,4.44,1.49,7.62,4.81,1.63,1.34,C,0.07157977986407625
-30,Wine,alcohols,1848,Wine grapes,United States,1.26,1.26,0.0,18.82,1.14,10.78,3.48,336.19,1741.11,C,13.241738623276799
+30,Wine,alcohols,1848,Wine grapes,United States,1.26,1.26,0.0,18.82,1.14,10.78,3.48,336.19,1741.11,C,13.241738623276797
 30,Wine,alcohols,1849,Wine grapes,United States,1.26,1.26,0.0,18.82,1.08,11.24,3.7,336.19,1741.11,O,0.7660509947350214
-30,Wine,alcohols,1850,Wine grapes,United States,1.31,1.31,0.0,19.64,1.01,8.91,3.61,311.32,1612.86,C,13.241738623276799
+30,Wine,alcohols,1850,Wine grapes,United States,1.31,1.31,0.0,19.64,1.01,8.91,3.61,311.32,1612.86,C,13.241738623276797
 30,Wine,alcohols,1851,Wine grapes,United States,1.51,1.51,0.0,22.58,0.97,10.78,3.74,249.0,1291.44,O,0.7660509947350214
-31,Other Fruit,fruit,1853,Chinese pear,China,0.43,0.43,0.0,3.17,0.03,-,3.12,700.98,19158.11,O,7.620781998046323
-31,Other Fruit,fruit,1855,Chinese pear,China,0.86,0.86,0.0,7.93,2.22,-,10.04,797.64,76055.45,O,7.620781998046323
-31,Other Fruit,fruit,1856,Chinese pear,China,0.72,0.72,0.0,6.61,0.06,-,4.54,797.6,76052.08,O,7.620781998046323
-31,Other Fruit,fruit,1858,Pears,Italy,0.48,0.48,0.0,2.75,0.8,6.84,1.8,117.77,340.06,O,0.03000275527619974
-31,Other Fruit,fruit,1862,Peach / Nectarine,France,1.07,1.07,0.0,10.46,0.62,4.62,3.1,189.1,1567.4,O,0.04151966630936281
-31,Other Fruit,fruit,1863,Peach / Nectarine,France,0.63,0.63,0.0,6.16,0.58,4.22,2.11,110.27,913.98,C,0.415196663093628
-31,Other Fruit,fruit,1866,Peaches,Greece,0.42,0.42,0.0,1.79,0.59,5.34,1.44,260.6,1328.74,C,0.01696990567071792
-31,Other Fruit,fruit,1867,Peaches,Greece,0.44,0.44,0.0,19.03,0.57,5.70,1.77,301.23,27675.72,C,0.06787962268287168
-31,Other Fruit,fruit,1868,Peaches,Greece,1.53,1.53,0.0,66.06,0.72,7.22,1.99,260.65,1328.99,O,0.06787962268287168
-31,Other Fruit,fruit,1869,Nectarines,"Iran, Islamic Republic of",0.68,0.68,0.0,25.11,0.25,6.06,1.89,274.26,23872.76,C,2.069484363152681
-31,Other Fruit,fruit,1870,Peaches,Italy,1.03,1.03,0.0,5.98,0.7,7.64,2.69,46.72,459.9,C,0.21001928693339822
-31,Other Fruit,fruit,1871,Peaches,Italy,0.8,0.8,0.0,44.02,1.18,6.15,2.79,1540.24,142268.55,C,0.21001928693339822
-31,Other Fruit,fruit,1873,Peaches,South Africa,1.14,1.14,0.0,72.86,0.6,4.57,2.1,442.69,16869.23,C,1.6295455098142746
-31,Other Fruit,fruit,1874,Peaches,Spain,0.4,0.4,0.0,19.79,0.56,3.12,0.67,296.68,26699.93,C,0.040828453320672996
-31,Other Fruit,fruit,1875,Avocado,Australia,1.17,1.17,0.0,22.86,0.94,8.85,5.2,757.11,4657.98,C,3.6123301522702302
-31,Other Fruit,fruit,1885,Kiwi,Greece,0.58,0.58,0.0,27.41,1.3,6.40,14.71,590.35,3010.12,C,0.05090971701215376
-31,Other Fruit,fruit,1886,Kiwi,"Iran, Islamic Republic of",1.39,1.39,0.0,51.16,0.51,17.18,18.95,1028.87,32135.13,C,0.12173437430309887
-31,Other Fruit,fruit,1887,Kiwi,"Iran, Islamic Republic of",1.38,1.38,0.0,50.87,0.48,16.94,18.9,1028.93,32137.18,C,0.12173437430309887
-31,Other Fruit,fruit,1888,Kiwi,"Iran, Islamic Republic of",1.31,1.31,0.0,48.41,0.71,18.35,20.09,1028.88,32135.38,C,0.12173437430309887
-31,Other Fruit,fruit,1900,Canary melon,Brazil,1.06,1.06,0.0,29.43,2.94,5.62,2.16,0.34,3.62,C,9.179702826648453
-31,Other Fruit,fruit,1901,Watermelon,"Iran, Islamic Republic of",0.55,0.55,0.0,0.98,0.85,5.23,1.22,325.97,4973.68,C,19.59923426279892
-31,Other Fruit,fruit,1902,Watermelon,"Iran, Islamic Republic of",1.24,1.24,0.0,27.99,0.73,5.79,2.08,0.0,0.0,C,19.59923426279892
-31,Other Fruit,fruit,1903,Watermelon,"Iran, Islamic Republic of",1.37,1.37,0.0,30.99,1.0,8.66,4.32,85.61,2602.4,C,19.59923426279892
-31,Other Fruit,fruit,1904,Melon,Spain,0.21,0.21,0.0,3.69,0.55,4.19,1.01,181.0,18050.02,C,0.33246026275405155
-32,Coffee,stimulants,1905,Coffee beans,Brazil,8.4,8.4,0.0,276.64,4.73,52.73,41.13,10.41,19.56,C,14.363660265193703
-32,Coffee,stimulants,1906,Coffee beans,Brazil,11.88,11.88,0.0,391.33,7.37,69.97,45.55,34.55,78.78,C,14.363660265193703
-32,Coffee,stimulants,1914,Coffee beans,Costa Rica,22.07,22.07,0.0,2194.46,6.1,33.35,192.39,10.41,5.08,O,0.7393699865595025
-32,Coffee,stimulants,1915,Coffee beans,Costa Rica,16.05,16.05,0.0,1595.97,7.13,127.11,177.96,10.41,5.08,O,0.7393699865595025
-32,Coffee,stimulants,1916,Coffee beans,Costa Rica,15.13,15.13,0.0,1504.77,8.63,58.55,143.17,10.41,5.08,C,0.7393699865595025
-32,Coffee,stimulants,1917,Coffee beans,Costa Rica,10.7,10.7,0.0,1063.98,9.73,73.79,112.48,10.41,5.08,C,0.7393699865595025
-32,Coffee,stimulants,1918,Coffee beans,Indonesia,40.05,40.05,0.0,12196.61,84.59,105.05,268.8,38.28,811.17,C,31.09513811091308
-32,Coffee,stimulants,1923,Coffee beans,Nicaragua,22.53,22.53,0.0,6503.75,37.93,46.40,22.74,10.41,27.83,O,0.9570759064040182
-32,Coffee,stimulants,1924,Coffee beans,Nicaragua,16.55,16.55,0.0,4776.19,31.38,181.56,59.91,10.41,27.83,O,0.9570759064040182
-32,Coffee,stimulants,1925,Coffee beans,Nicaragua,19.26,19.26,0.0,5557.75,34.39,37.77,15.58,10.41,27.83,C,0.9570759064040182
-32,Coffee,stimulants,1926,Coffee beans,Nicaragua,14.92,14.92,0.0,4305.3,29.13,53.35,20.33,10.41,27.83,C,0.9570759064040182
-32,Coffee,stimulants,1932,Coffee beans,Vietnam,9.58,9.58,0.0,436.83,6.51,87.64,50.0,33.28,501.22,C,33.39175778684546
+31,Other Fruit,fruit,1853,Chinese pear,China,0.43,0.43,0.0,3.17,0.03,-,3.12,700.98,19158.11,O,7.654881256779767
+31,Other Fruit,fruit,1855,Chinese pear,China,0.86,0.86,0.0,7.93,2.22,-,10.04,797.64,76055.45,O,7.654881256779767
+31,Other Fruit,fruit,1856,Chinese pear,China,0.72,0.72,0.0,6.61,0.06,-,4.54,797.6,76052.08,O,7.654881256779767
+31,Other Fruit,fruit,1858,Pears,Italy,0.48,0.48,0.0,2.75,0.8,6.84,1.8,117.77,340.06,O,0.03012463077141601
+31,Other Fruit,fruit,1862,Peach / Nectarine,France,1.07,1.07,0.0,10.46,0.62,4.62,3.1,189.1,1567.4,O,0.041657355522159406
+31,Other Fruit,fruit,1863,Peach / Nectarine,France,0.63,0.63,0.0,6.16,0.58,4.22,2.11,110.27,913.98,C,0.416573555221594
+31,Other Fruit,fruit,1866,Peaches,Greece,0.42,0.42,0.0,1.79,0.59,5.34,1.44,260.6,1328.74,C,0.017043107958640332
+31,Other Fruit,fruit,1867,Peaches,Greece,0.44,0.44,0.0,19.03,0.57,5.70,1.77,301.23,27675.72,C,0.06817243183456133
+31,Other Fruit,fruit,1868,Peaches,Greece,1.53,1.53,0.0,66.06,0.72,7.22,1.99,260.65,1328.99,O,0.06817243183456133
+31,Other Fruit,fruit,1869,Nectarines,"Iran, Islamic Republic of",0.68,0.68,0.0,25.11,0.25,6.06,1.89,274.26,23872.76,C,2.068784501929938
+31,Other Fruit,fruit,1870,Peaches,Italy,1.03,1.03,0.0,5.98,0.7,7.64,2.69,46.72,459.9,C,0.21087241539991208
+31,Other Fruit,fruit,1871,Peaches,Italy,0.8,0.8,0.0,44.02,1.18,6.15,2.79,1540.24,142268.55,C,0.21087241539991208
+31,Other Fruit,fruit,1873,Peaches,South Africa,1.14,1.14,0.0,72.86,0.6,4.57,2.1,442.69,16869.23,C,1.5932855456295267
+31,Other Fruit,fruit,1874,Peaches,Spain,0.4,0.4,0.0,19.79,0.56,3.12,0.67,296.68,26699.93,C,0.04110841787645671
+31,Other Fruit,fruit,1875,Avocado,Australia,1.17,1.17,0.0,22.86,0.94,8.85,5.2,757.11,4657.98,C,3.6355326609797762
+31,Other Fruit,fruit,1885,Kiwi,Greece,0.58,0.58,0.0,27.41,1.3,6.40,14.71,590.35,3010.12,C,0.051129323875921
+31,Other Fruit,fruit,1886,Kiwi,"Iran, Islamic Republic of",1.39,1.39,0.0,51.16,0.51,17.18,18.95,1028.87,32135.13,C,0.12169320599587868
+31,Other Fruit,fruit,1887,Kiwi,"Iran, Islamic Republic of",1.38,1.38,0.0,50.87,0.48,16.94,18.9,1028.93,32137.18,C,0.12169320599587868
+31,Other Fruit,fruit,1888,Kiwi,"Iran, Islamic Republic of",1.31,1.31,0.0,48.41,0.71,18.35,20.09,1028.88,32135.38,C,0.12169320599587868
+31,Other Fruit,fruit,1900,Canary melon,Brazil,1.06,1.06,0.0,29.43,2.94,5.62,2.16,0.34,3.62,C,9.104389347292427
+31,Other Fruit,fruit,1901,Watermelon,"Iran, Islamic Republic of",0.55,0.55,0.0,0.98,0.85,5.23,1.22,325.97,4973.68,C,19.59260616533647
+31,Other Fruit,fruit,1902,Watermelon,"Iran, Islamic Republic of",1.24,1.24,0.0,27.99,0.73,5.79,2.08,0.0,0.0,C,19.59260616533647
+31,Other Fruit,fruit,1903,Watermelon,"Iran, Islamic Republic of",1.37,1.37,0.0,30.99,1.0,8.66,4.32,85.61,2602.4,C,19.59260616533647
+31,Other Fruit,fruit,1904,Melon,Spain,0.21,0.21,0.0,3.69,0.55,4.19,1.01,181.0,18050.02,C,0.3347399741368618
+32,Coffee,stimulants,1905,Coffee beans,Brazil,8.4,8.4,0.0,276.64,4.73,52.73,41.13,10.41,19.56,C,14.3636602651937
+32,Coffee,stimulants,1906,Coffee beans,Brazil,11.88,11.88,0.0,391.33,7.37,69.97,45.55,34.55,78.78,C,14.3636602651937
+32,Coffee,stimulants,1914,Coffee beans,Costa Rica,22.07,22.07,0.0,2194.46,6.1,33.35,192.39,10.41,5.08,O,0.7393699865595024
+32,Coffee,stimulants,1915,Coffee beans,Costa Rica,16.05,16.05,0.0,1595.97,7.13,127.11,177.96,10.41,5.08,O,0.7393699865595024
+32,Coffee,stimulants,1916,Coffee beans,Costa Rica,15.13,15.13,0.0,1504.77,8.63,58.55,143.17,10.41,5.08,C,0.7393699865595024
+32,Coffee,stimulants,1917,Coffee beans,Costa Rica,10.7,10.7,0.0,1063.98,9.73,73.79,112.48,10.41,5.08,C,0.7393699865595024
+32,Coffee,stimulants,1918,Coffee beans,Indonesia,40.05,40.05,0.0,12196.61,84.59,105.05,268.8,38.28,811.17,C,31.095138110913076
+32,Coffee,stimulants,1923,Coffee beans,Nicaragua,22.53,22.53,0.0,6503.75,37.93,46.40,22.74,10.41,27.83,O,0.957075906404018
+32,Coffee,stimulants,1924,Coffee beans,Nicaragua,16.55,16.55,0.0,4776.19,31.38,181.56,59.91,10.41,27.83,O,0.957075906404018
+32,Coffee,stimulants,1925,Coffee beans,Nicaragua,19.26,19.26,0.0,5557.75,34.39,37.77,15.58,10.41,27.83,C,0.957075906404018
+32,Coffee,stimulants,1926,Coffee beans,Nicaragua,14.92,14.92,0.0,4305.3,29.13,53.35,20.33,10.41,27.83,C,0.957075906404018
+32,Coffee,stimulants,1932,Coffee beans,Vietnam,9.58,9.58,0.0,436.83,6.51,87.64,50.0,33.28,501.22,C,33.39175778684545
 33,Dark Chocolate,stimulants,1935,Chocolate,Ghana,130.2,130.2,0.0,2264.42,-3.66,27.46,4.46,24.94,542.74,C,3.1772967870599067
 33,Dark Chocolate,stimulants,1936,Cocoa,Brazil,103.72,103.72,0.0,3929.73,10.74,123.35,40.11,132.41,320.94,C,67.1581786439759
 33,Dark Chocolate,stimulants,1941,Cocoa,Ivory Coast,53.8,53.8,0.0,1212.09,4.88,59.24,67.21,31.16,220.56,C,15.09533726704314
@@ -986,10 +986,10 @@ Product id,Data S2 Name,Group,id,Product_details,Country,Land Use (m2*year),Arab
 37,Pig Meat,protein_rich,2158,Pork,France,24.31,24.31,0.0,156.93,13.94,89.26,59.37,3209.2,84170.98,O,0.07140226920090931
 37,Pig Meat,protein_rich,2159,Pork,France,265.85,16.38,249.46,2638.27,15.19,124.44,122.49,3590.19,48510.63,C,0.07140226920090931
 37,Pig Meat,protein_rich,2160,Pork,France,286.68,20.63,266.05,2825.08,13.07,97.71,125.11,6318.16,69851.46,C,0.07140226920090931
-37,Pig Meat,protein_rich,2167,Pork,Germany,12.84,12.84,0.0,178.23,9.58,78.96,36.66,1597.8,45965.62,C,3.2986903623488963
-37,Pig Meat,protein_rich,2168,Pork,Germany,13.03,13.03,0.0,180.98,9.26,77.14,34.42,1962.89,64450.35,C,3.2986903623488963
-37,Pig Meat,protein_rich,2169,Pork,Germany,12.92,12.92,0.0,179.41,9.23,77.14,34.25,1932.23,62819.26,C,3.2986903623488963
-37,Pig Meat,protein_rich,2170,Pork,Germany,12.38,12.38,0.0,171.93,8.6,71.69,30.2,1281.95,32366.0,C,3.2986903623488963
+37,Pig Meat,protein_rich,2167,Pork,Germany,12.84,12.84,0.0,178.23,9.58,78.96,36.66,1597.8,45965.62,C,3.2986903623488972
+37,Pig Meat,protein_rich,2168,Pork,Germany,13.03,13.03,0.0,180.98,9.26,77.14,34.42,1962.89,64450.35,C,3.2986903623488972
+37,Pig Meat,protein_rich,2169,Pork,Germany,12.92,12.92,0.0,179.41,9.23,77.14,34.25,1932.23,62819.26,C,3.2986903623488972
+37,Pig Meat,protein_rich,2170,Pork,Germany,12.38,12.38,0.0,171.93,8.6,71.69,30.2,1281.95,32366.0,C,3.2986903623488972
 37,Pig Meat,protein_rich,2178,Pork,Mexico,16.64,16.64,0.0,61.42,18.13,154.17,50.87,2064.09,74705.15,C,1.3968379833826399
 37,Pig Meat,protein_rich,2179,Pork,Mexico,17.96,17.96,0.0,66.3,13.05,129.35,47.6,2256.54,81693.68,C,1.3968379833826399
 37,Pig Meat,protein_rich,2181,Pork,Netherlands,34.35,34.35,0.0,496.54,22.42,123.20,134.14,4542.57,190374.69,C,5.978428376243091
@@ -1037,11 +1037,11 @@ Product id,Data S2 Name,Group,id,Product_details,Country,Land Use (m2*year),Arab
 39,Milk,milks,2275,Cow's milk,Brazil,3.53,2.85,0.67,84.53,5.67,27.26,15.36,128.96,307.76,P,14.318049423349269
 39,Milk,milks,2276,Cow's milk,Canada,4.84,4.84,0.0,23.27,3.36,20.09,5.96,142.45,4469.2,I,2.1290653790639604
 39,Milk,milks,2277,Cow's milk,Canada,4.97,3.6,1.36,5.55,2.86,17.78,5.72,286.21,11925.4,P,2.1290653790639604
-39,Milk,milks,2304,Cow's milk,Denmark,2.38,1.19,1.19,5.58,2.68,22.69,9.8,231.75,2841.08,P,0.3386857982864582
-39,Milk,milks,2305,Cow's milk,Denmark,2.24,1.2,1.04,8.33,2.28,21.00,8.73,301.15,7270.48,P,0.3386857982864582
-39,Milk,milks,2306,Cow's milk,Denmark,1.76,1.4,0.36,6.1,2.96,25.92,12.16,435.84,7321.41,P,1.86277189057552
-39,Milk,milks,2307,Cow's milk,Denmark,1.41,0.86,0.55,4.93,2.45,22.04,9.81,452.2,7774.83,P,1.86277189057552
-39,Milk,milks,2308,Cow's milk,Denmark,2.26,2.26,0.0,20.07,3.1,26.66,10.46,527.75,20133.57,I,1.86277189057552
+39,Milk,milks,2304,Cow's milk,Denmark,2.38,1.19,1.19,5.58,2.68,22.69,9.8,231.75,2841.08,P,0.33868579828645823
+39,Milk,milks,2305,Cow's milk,Denmark,2.24,1.2,1.04,8.33,2.28,21.00,8.73,301.15,7270.48,P,0.33868579828645823
+39,Milk,milks,2306,Cow's milk,Denmark,1.76,1.4,0.36,6.1,2.96,25.92,12.16,435.84,7321.41,P,1.8627718905755202
+39,Milk,milks,2307,Cow's milk,Denmark,1.41,0.86,0.55,4.93,2.45,22.04,9.81,452.2,7774.83,P,1.8627718905755202
+39,Milk,milks,2308,Cow's milk,Denmark,2.26,2.26,0.0,20.07,3.1,26.66,10.46,527.75,20133.57,I,1.8627718905755202
 39,Milk,milks,2312,Cow's milk,France,1.73,0.92,0.81,3.42,2.42,16.25,6.0,223.8,6221.33,P,3.2739902417940434
 39,Milk,milks,2313,Cow's milk,France,1.78,0.95,0.84,3.52,2.44,16.20,6.0,204.98,5624.54,P,3.2739902417940434
 39,Milk,milks,2314,Cow's milk,France,1.63,1.03,0.61,4.32,2.37,14.04,6.25,328.2,11829.14,P,3.2739902417940434
@@ -1050,8 +1050,8 @@ Product id,Data S2 Name,Group,id,Product_details,Country,Land Use (m2*year),Arab
 39,Milk,milks,2317,Cow's milk,France,1.55,1.15,0.4,6.83,2.19,13.78,6.4,215.33,6597.39,P,3.2739902417940434
 39,Milk,milks,2321,Cow's milk,Germany,1.36,1.36,0.0,10.44,2.32,21.62,8.83,458.51,18961.17,I,6.229387810005511
 39,Milk,milks,2322,Cow's milk,Germany,1.83,0.12,1.71,2.26,1.45,10.55,5.7,54.15,1529.68,P,6.229387810005511
-39,Milk,milks,2326,Cow's milk,Ireland,0.8,0.33,0.48,1.8,1.7,9.70,4.24,28.23,728.96,P,0.7885095234154759
-39,Milk,milks,2327,Cow's milk,Ireland,1.21,1.17,0.03,10.6,1.9,15.01,5.52,222.54,8868.32,P,0.7885095234154759
+39,Milk,milks,2326,Cow's milk,Ireland,0.8,0.33,0.48,1.8,1.7,9.70,4.24,28.23,728.96,P,0.788509523415476
+39,Milk,milks,2327,Cow's milk,Ireland,1.21,1.17,0.03,10.6,1.9,15.01,5.52,222.54,8868.32,P,0.788509523415476
 39,Milk,milks,2331,Cow's milk,Italy,1.19,1.17,0.02,14.9,2.36,-,18.91,252.27,9151.09,P,0.8915021878864
 39,Milk,milks,2336,Cow's milk,Italy,1.93,1.93,0.0,24.58,2.5,22.76,8.96,514.13,23828.59,I,0.8915021878864
 39,Milk,milks,2337,Cow's milk,Italy,1.43,1.43,0.0,18.08,3.33,33.48,14.12,275.37,12827.76,I,0.8915021878864
@@ -1136,12 +1136,12 @@ Product id,Data S2 Name,Group,id,Product_details,Country,Land Use (m2*year),Arab
 42,Fish (farmed),protein_rich,2640,Pangasius,Vietnam,0.27,0.27,0.0,4.59,12.95,76.16,129.2,3344.9,121059.23,C,4.0252558405261505
 42,Fish (farmed),protein_rich,2641,Pangasius,Vietnam,0.33,0.33,0.0,5.57,13.58,80.55,132.52,3321.64,127755.52,C,3.7179844023180473
 42,Fish (farmed),protein_rich,2642,Pangasius,Vietnam,0.3,0.3,0.0,5.02,12.04,72.04,114.46,2940.07,113381.2,C,2.212354355098342
-43,Crustaceans (farmed),protein_rich,2644,Giant river prawn,Bangladesh,2.41,2.41,0.0,40.34,82.75,393.49,900.4,34806.78,1308548.04,C,1.828882980442501
-43,Crustaceans (farmed),protein_rich,2645,Giant river prawn,Bangladesh,2.31,2.31,0.0,38.8,94.58,487.80,1147.46,28834.32,980850.54,C,1.313044191086924
+43,Crustaceans (farmed),protein_rich,2644,Giant river prawn,Bangladesh,2.41,2.41,0.0,40.34,82.75,393.49,900.4,34806.78,1308548.04,C,1.8288829804425009
+43,Crustaceans (farmed),protein_rich,2645,Giant river prawn,Bangladesh,2.31,2.31,0.0,38.8,94.58,487.80,1147.46,28834.32,980850.54,C,1.3130441910869237
 43,Crustaceans (farmed),protein_rich,2646,Tiger prawn,Bangladesh,0.26,0.26,0.0,4.43,17.51,105.78,132.12,5337.93,67788.09,C,0.8909942725232698
-43,Crustaceans (farmed),protein_rich,2647,Tiger prawn,Bangladesh,0.08,0.08,0.0,1.27,48.11,166.35,250.87,13549.98,547706.89,C,0.5158387893555774
-43,Crustaceans (farmed),protein_rich,2648,Tiger prawn,Bangladesh,1.35,1.35,0.0,22.66,30.88,218.16,493.95,2998.44,91349.07,C,0.09378887079192313
-43,Crustaceans (farmed),protein_rich,2649,Giant river prawn,Bangladesh,1.93,1.93,0.0,32.33,43.6,307.15,703.81,4320.62,133713.47,C,2.3447217697980784
+43,Crustaceans (farmed),protein_rich,2647,Tiger prawn,Bangladesh,0.08,0.08,0.0,1.27,48.11,166.35,250.87,13549.98,547706.89,C,0.5158387893555773
+43,Crustaceans (farmed),protein_rich,2648,Tiger prawn,Bangladesh,1.35,1.35,0.0,22.66,30.88,218.16,493.95,2998.44,91349.07,C,0.09378887079192312
+43,Crustaceans (farmed),protein_rich,2649,Giant river prawn,Bangladesh,1.93,1.93,0.0,32.33,43.6,307.15,703.81,4320.62,133713.47,C,2.344721769798078
 43,Crustaceans (farmed),protein_rich,2650,Amazon river prawn,Brazil,24.6,24.6,0.0,754.99,87.75,281.92,628.27,10474.68,12574.03,C,3.0471727868457092
 43,Crustaceans (farmed),protein_rich,2651,Amazon river prawn,Brazil,25.13,25.13,0.0,775.73,69.55,285.99,123.52,10474.68,12574.03,C,1.5235863934228546
 43,Crustaceans (farmed),protein_rich,2652,Giant giver prawn,Brazil,14.25,14.25,0.0,446.36,48.54,168.53,407.22,6634.04,7888.25,C,3.0471727868457092

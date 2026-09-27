@@ -721,43 +721,43 @@ Product id,Data S2 Name,Group,id,Product_details,Country,Weight,Land Use (m2*yea
 28,Apples,fruit,1750,Apples,United States,0.19065776930409917,0.91,0.91,0.0,14.02,0.56,3.91,1.16,347.98,1794.65,O
 28,Apples,fruit,1751,Apples,United States,5.529075309818875,0.31,0.31,0.0,18.57,0.35,3.12,0.68,256.87,18225.18,C
 28,Apples,fruit,1752,Apples,United States,0.19065776930409917,0.85,0.85,0.0,40.83,0.44,3.48,1.14,232.93,22115.68,O
-29,Berries & Grapes,fruit,1758,Strawberries,"Iran, Islamic Republic of",57.10000000000001,6.86,6.86,0.0,154.59,1.6,6.83,0.79,403.46,12264.55,C
-29,Berries & Grapes,fruit,1759,Strawberries,"Iran, Islamic Republic of",24.100000000000005,0.23,0.23,0.0,5.12,1.69,6.70,0.97,765.52,23270.86,C
-29,Berries & Grapes,fruit,1763,Raspberries,Spain,1.1000000000000003,1.59,1.59,0.0,66.92,8.3,11.64,5.69,108.93,8619.34,C
-29,Berries & Grapes,fruit,1765,Strawberries,Spain,14.100000000000001,0.36,0.36,0.0,5.37,1.04,8.14,17.42,157.29,13440.59,C
-29,Berries & Grapes,fruit,1768,Strawberries,United Kingdom,0.8,0.73,0.73,0.0,1.0,1.79,2.84,0.56,172.04,792.75,C
-29,Berries & Grapes,fruit,1769,Raspberries,United Kingdom,2.0000000000000004,1.52,1.52,0.0,3.55,8.41,3.71,4.56,10.95,50.46,C
-29,Berries & Grapes,fruit,1770,Strawberries,United Kingdom,0.8,0.71,0.71,0.0,0.97,1.21,8.55,3.07,145.21,669.12,C
+29,Berries & Grapes,fruit,1758,Strawberries,"Iran, Islamic Republic of",57.100000000000016,6.86,6.86,0.0,154.59,1.6,6.83,0.79,403.46,12264.55,C
+29,Berries & Grapes,fruit,1759,Strawberries,"Iran, Islamic Republic of",24.10000000000001,0.23,0.23,0.0,5.12,1.69,6.70,0.97,765.52,23270.86,C
+29,Berries & Grapes,fruit,1763,Raspberries,Spain,1.1000000000000005,1.59,1.59,0.0,66.92,8.3,11.64,5.69,108.93,8619.34,C
+29,Berries & Grapes,fruit,1765,Strawberries,Spain,14.100000000000003,0.36,0.36,0.0,5.37,1.04,8.14,17.42,157.29,13440.59,C
+29,Berries & Grapes,fruit,1768,Strawberries,United Kingdom,0.8000000000000002,0.73,0.73,0.0,1.0,1.79,2.84,0.56,172.04,792.75,C
+29,Berries & Grapes,fruit,1769,Raspberries,United Kingdom,2.000000000000001,1.52,1.52,0.0,3.55,8.41,3.71,4.56,10.95,50.46,C
+29,Berries & Grapes,fruit,1770,Strawberries,United Kingdom,0.8000000000000002,0.71,0.71,0.0,0.97,1.21,8.55,3.07,145.21,669.12,C
 30,Wine,alcohols,1793,Wine,Canada,2.661596958174905,3.03,3.03,0.0,9.19,3.11,35.68,10.06,1.67,4.37,C
 30,Wine,alcohols,1848,Wine grapes,United States,46.00760456273764,1.26,1.26,0.0,18.82,1.14,10.78,3.48,336.19,1741.11,C
 30,Wine,alcohols,1849,Wine grapes,United States,2.661596958174905,1.26,1.26,0.0,18.82,1.08,11.24,3.7,336.19,1741.11,O
 30,Wine,alcohols,1850,Wine grapes,United States,46.00760456273764,1.31,1.31,0.0,19.64,1.01,8.91,3.61,311.32,1612.86,C
 30,Wine,alcohols,1851,Wine grapes,United States,2.661596958174905,1.51,1.51,0.0,22.58,0.97,10.78,3.74,249.0,1291.44,O
-31,Other Fruit,fruit,1853,Chinese pear,China,0.002402548988628914,0.43,0.43,0.0,3.17,0.03,-,3.12,700.98,19158.11,O
-31,Other Fruit,fruit,1855,Chinese pear,China,0.002402548988628914,0.86,0.86,0.0,7.93,2.22,-,10.04,797.64,76055.45,O
-31,Other Fruit,fruit,1856,Chinese pear,China,0.002402548988628914,0.72,0.72,0.0,6.61,0.06,-,4.54,797.6,76052.08,O
-31,Other Fruit,fruit,1858,Pears,Italy,0.02074942888591221,0.48,0.48,0.0,2.75,0.8,6.84,1.8,117.77,340.06,O
-31,Other Fruit,fruit,1869,Nectarines,"Iran, Islamic Republic of",0.04084333280669154,0.68,0.68,0.0,25.11,0.25,6.06,1.89,274.26,23872.76,C
-31,Other Fruit,fruit,1870,Peaches,Italy,0.14524600220138548,1.03,1.03,0.0,5.98,0.7,7.64,2.69,46.72,459.9,C
-31,Other Fruit,fruit,1871,Peaches,Italy,0.14524600220138548,0.8,0.8,0.0,44.02,1.18,6.15,2.79,1540.24,142268.55,C
-31,Other Fruit,fruit,1886,Kiwi,"Iran, Islamic Republic of",0.002402548988628914,1.39,1.39,0.0,51.16,0.51,17.18,18.95,1028.87,32135.13,C
-31,Other Fruit,fruit,1887,Kiwi,"Iran, Islamic Republic of",0.002402548988628914,1.38,1.38,0.0,50.87,0.48,16.94,18.9,1028.93,32137.18,C
-31,Other Fruit,fruit,1888,Kiwi,"Iran, Islamic Republic of",0.002402548988628914,1.31,1.31,0.0,48.41,0.71,18.35,20.09,1028.88,32135.38,C
-31,Other Fruit,fruit,1900,Canary melon,Brazil,98.4730687784651,1.06,1.06,0.0,29.43,2.94,5.62,2.16,0.34,3.62,C
-31,Other Fruit,fruit,1901,Watermelon,"Iran, Islamic Republic of",0.3868103871692552,0.55,0.55,0.0,0.98,0.85,5.23,1.22,325.97,4973.68,C
-31,Other Fruit,fruit,1902,Watermelon,"Iran, Islamic Republic of",0.3868103871692552,1.24,1.24,0.0,27.99,0.73,5.79,2.08,0.0,0.0,C
-31,Other Fruit,fruit,1903,Watermelon,"Iran, Islamic Republic of",0.3868103871692552,1.37,1.37,0.0,30.99,1.0,8.66,4.32,85.61,2602.4,C
+31,Other Fruit,fruit,1853,Chinese pear,China,0.0024017721029874015,0.43,0.43,0.0,3.17,0.03,-,3.12,700.98,19158.11,O
+31,Other Fruit,fruit,1855,Chinese pear,China,0.0024017721029874015,0.86,0.86,0.0,7.93,2.22,-,10.04,797.64,76055.45,O
+31,Other Fruit,fruit,1856,Chinese pear,China,0.0024017721029874015,0.72,0.72,0.0,6.61,0.06,-,4.54,797.6,76052.08,O
+31,Other Fruit,fruit,1858,Pears,Italy,0.020742167515464874,0.48,0.48,0.0,2.75,0.8,6.84,1.8,117.77,340.06,O
+31,Other Fruit,fruit,1869,Nectarines,"Iran, Islamic Republic of",0.040830125750785824,0.68,0.68,0.0,25.11,0.25,6.06,1.89,274.26,23872.76,C
+31,Other Fruit,fruit,1870,Peaches,Italy,0.14519517260825415,1.03,1.03,0.0,5.98,0.7,7.64,2.69,46.72,459.9,C
+31,Other Fruit,fruit,1871,Peaches,Italy,0.14519517260825415,0.8,0.8,0.0,44.02,1.18,6.15,2.79,1540.24,142268.55,C
+31,Other Fruit,fruit,1886,Kiwi,"Iran, Islamic Republic of",0.0024017721029874015,1.39,1.39,0.0,51.16,0.51,17.18,18.95,1028.87,32135.13,C
+31,Other Fruit,fruit,1887,Kiwi,"Iran, Islamic Republic of",0.0024017721029874015,1.38,1.38,0.0,50.87,0.48,16.94,18.9,1028.93,32137.18,C
+31,Other Fruit,fruit,1888,Kiwi,"Iran, Islamic Republic of",0.0024017721029874015,1.31,1.31,0.0,48.41,0.71,18.35,20.09,1028.88,32135.38,C
+31,Other Fruit,fruit,1900,Canary melon,Brazil,98.47357080315639,1.06,1.06,0.0,29.43,2.94,5.62,2.16,0.34,3.62,C
+31,Other Fruit,fruit,1901,Watermelon,"Iran, Islamic Republic of",0.3866853085809716,0.55,0.55,0.0,0.98,0.85,5.23,1.22,325.97,4973.68,C
+31,Other Fruit,fruit,1902,Watermelon,"Iran, Islamic Republic of",0.3866853085809716,1.24,1.24,0.0,27.99,0.73,5.79,2.08,0.0,0.0,C
+31,Other Fruit,fruit,1903,Watermelon,"Iran, Islamic Republic of",0.3866853085809716,1.37,1.37,0.0,30.99,1.0,8.66,4.32,85.61,2602.4,C
 32,Coffee,stimulants,1905,Coffee beans,Brazil,46.721869509570006,8.4,8.4,0.0,276.64,4.73,52.73,41.13,10.41,19.56,C
 32,Coffee,stimulants,1906,Coffee beans,Brazil,46.721869509570006,11.88,11.88,0.0,391.33,7.37,69.97,45.55,34.55,78.78,C
 32,Coffee,stimulants,1914,Coffee beans,Costa Rica,0.04681491778633363,22.07,22.07,0.0,2194.46,6.1,33.35,192.39,10.41,5.08,O
 32,Coffee,stimulants,1915,Coffee beans,Costa Rica,0.04681491778633363,16.05,16.05,0.0,1595.97,7.13,127.11,177.96,10.41,5.08,O
 32,Coffee,stimulants,1916,Coffee beans,Costa Rica,0.04681491778633363,15.13,15.13,0.0,1504.77,8.63,58.55,143.17,10.41,5.08,C
 32,Coffee,stimulants,1917,Coffee beans,Costa Rica,0.04681491778633363,10.7,10.7,0.0,1063.98,9.73,73.79,112.48,10.41,5.08,C
-32,Coffee,stimulants,1918,Coffee beans,Indonesia,1.015784298112691,40.05,40.05,0.0,12196.61,84.59,105.05,268.8,38.28,811.17,C
-32,Coffee,stimulants,1923,Coffee beans,Nicaragua,0.05617790134360035,22.53,22.53,0.0,6503.75,37.93,46.40,22.74,10.41,27.83,O
-32,Coffee,stimulants,1924,Coffee beans,Nicaragua,0.05617790134360035,16.55,16.55,0.0,4776.19,31.38,181.56,59.91,10.41,27.83,O
-32,Coffee,stimulants,1925,Coffee beans,Nicaragua,0.05617790134360035,19.26,19.26,0.0,5557.75,34.39,37.77,15.58,10.41,27.83,C
-32,Coffee,stimulants,1926,Coffee beans,Nicaragua,0.05617790134360035,14.92,14.92,0.0,4305.3,29.13,53.35,20.33,10.41,27.83,C
+32,Coffee,stimulants,1918,Coffee beans,Indonesia,1.0157842981126908,40.05,40.05,0.0,12196.61,84.59,105.05,268.8,38.28,811.17,C
+32,Coffee,stimulants,1923,Coffee beans,Nicaragua,0.056177901343600345,22.53,22.53,0.0,6503.75,37.93,46.40,22.74,10.41,27.83,O
+32,Coffee,stimulants,1924,Coffee beans,Nicaragua,0.056177901343600345,16.55,16.55,0.0,4776.19,31.38,181.56,59.91,10.41,27.83,O
+32,Coffee,stimulants,1925,Coffee beans,Nicaragua,0.056177901343600345,19.26,19.26,0.0,5557.75,34.39,37.77,15.58,10.41,27.83,C
+32,Coffee,stimulants,1926,Coffee beans,Nicaragua,0.056177901343600345,14.92,14.92,0.0,4305.3,29.13,53.35,20.33,10.41,27.83,C
 32,Coffee,stimulants,1932,Coffee beans,Vietnam,5.128505406227549,9.58,9.58,0.0,436.83,6.51,87.64,50.0,33.28,501.22,C
 33,Dark Chocolate,stimulants,1935,Chocolate,Ghana,0.12491604741075304,130.2,130.2,0.0,2264.42,-3.66,27.46,4.46,24.94,542.74,C
 33,Dark Chocolate,stimulants,1936,Cocoa,Brazil,99.37541976294624,103.72,103.72,0.0,3929.73,10.74,123.35,40.11,132.41,320.94,C

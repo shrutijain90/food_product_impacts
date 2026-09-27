@@ -111,13 +111,13 @@ Product id,Data S2 Name,Group,id,Product_details,Country,Land Use (m2*year),Arab
 3,Barley (Beer),alcohols,503,Spring barley,United Kingdom,0.36,0.36,0.0,0.48,1.03,5.57,1.4,6.96,21.8,C,2.08569057656032
 3,Barley (Beer),alcohols,504,Spring barley,United Kingdom,0.94,0.94,0.0,1.27,1.05,5.37,2.2,6.96,21.8,O,0.06225942019583045
 4,Oatmeal,starch_rich,510,Oats,Canada,3.0,3.0,0.0,2.04,0.88,7.93,9.83,2.16,20.88,C,79.7766651277067
-4,Oatmeal,starch_rich,511,Oats,Finland,2.65,2.65,0.0,1.15,1.09,8.45,25.38,1.9,3.27,C,3.739667729196916
+4,Oatmeal,starch_rich,511,Oats,Finland,2.65,2.65,0.0,1.15,1.09,8.45,25.38,1.9,3.27,C,3.7396677291969156
 4,Oatmeal,starch_rich,515,Oats,Norway,3.64,3.64,0.0,1.67,2.78,9.06,7.4,0.0,0.0,C,0.6542587308431456
 4,Oatmeal,starch_rich,516,Oats,Norway,2.82,2.82,0.0,1.2,2.03,9.33,5.24,0.0,0.0,C,0.6542587308431456
 4,Oatmeal,starch_rich,517,Oats,Portugal,9.58,9.58,0.0,151.23,1.81,16.82,5.85,1278.08,44509.01,C,8.405409229330697
 4,Oatmeal,starch_rich,518,Oats,Sweden,3.08,3.08,0.0,4.39,1.35,4.77,6.8,0.0,0.0,C,0.7172688045916802
 4,Oatmeal,starch_rich,519,Oats,Sweden,5.45,5.45,0.0,3.41,1.87,5.12,7.99,0.0,0.0,C,2.1939986963980798
-4,Oatmeal,starch_rich,520,Oats,Sweden,3.33,3.33,0.0,2.08,1.41,5.01,3.4,0.0,0.0,C,2.0252295659059203
+4,Oatmeal,starch_rich,520,Oats,Sweden,3.33,3.33,0.0,2.08,1.41,5.01,3.4,0.0,0.0,C,2.02522956590592
 4,Oatmeal,starch_rich,524,Oats,United States,7.21,7.21,0.0,49.83,4.26,18.28,11.12,1791.1,105303.87,C,1.8332433851837207
 5,Rice,starch_rich,528,Rice,China,1.2,1.2,0.0,5.61,2.05,-,5.34,1879.09,75662.22,C,0.022637317481668223
 5,Rice,starch_rich,530,Rice,China,1.46,1.46,0.0,6.82,5.04,71.86,26.44,998.37,169.78,C,0.022637317481668223
@@ -138,7 +138,7 @@ Product id,Data S2 Name,Group,id,Product_details,Country,Land Use (m2*year),Arab
 5,Rice,starch_rich,562,Long grain rice,Italy,2.16,2.16,0.0,7.1,1.13,8.56,7.52,6577.48,18992.74,C,0.03420446291625776
 5,Rice,starch_rich,563,Rice,Italy,2.82,2.82,0.0,9.25,4.43,10.32,8.35,5757.14,16623.98,C,0.03420446291625776
 5,Rice,starch_rich,564,Rice,Italy,3.86,3.86,0.0,12.67,5.04,12.15,7.52,5814.71,16790.22,O,0.01710223145812888
-5,Rice,starch_rich,588,Rice,United States,2.16,2.16,0.0,38.43,2.63,5.86,2.09,2711.87,192406.59,C,99.25775814904723
+5,Rice,starch_rich,588,Rice,United States,2.16,2.16,0.0,38.43,2.63,5.86,2.09,2711.87,192406.59,C,99.25775814904722
 6,Potatoes,starch_rich,594,Potatoes,Chile,2.53,2.53,0.0,13.34,0.26,-,0.81,0.0,0.0,C,4.646901274598772
 6,Potatoes,starch_rich,595,Potatoes,Chile,1.45,1.45,0.0,31.45,0.38,-,1.31,246.12,21307.65,C,4.646901274598772
 6,Potatoes,starch_rich,596,Potatoes,Chile,1.52,1.52,0.0,33.02,0.46,-,1.73,328.09,28404.47,C,4.646901274598772
@@ -500,13 +500,13 @@ Product id,Data S2 Name,Group,id,Product_details,Country,Land Use (m2*year),Arab
 28,Apples,fruit,1750,Apples,United States,0.91,0.91,0.0,14.02,0.56,3.91,1.16,347.98,1794.65,O,0.14924719295955372
 28,Apples,fruit,1751,Apples,United States,0.31,0.31,0.0,18.57,0.35,3.12,0.68,256.87,18225.18,C,4.328168595827057
 28,Apples,fruit,1752,Apples,United States,0.85,0.85,0.0,40.83,0.44,3.48,1.14,232.93,22115.68,O,0.14924719295955372
-29,Berries & Grapes,fruit,1758,Strawberries,"Iran, Islamic Republic of",6.86,6.86,0.0,154.59,1.6,6.83,0.79,403.46,12264.55,C,56.83351918523479
-29,Berries & Grapes,fruit,1759,Strawberries,"Iran, Islamic Republic of",0.23,0.23,0.0,5.12,1.69,6.70,0.97,765.52,23270.86,C,23.987527361894198
-29,Berries & Grapes,fruit,1763,Raspberries,Spain,1.59,1.59,0.0,66.92,8.3,11.64,5.69,108.93,8619.34,C,1.1286401170629776
-29,Berries & Grapes,fruit,1765,Strawberries,Spain,0.36,0.36,0.0,5.37,1.04,8.14,17.42,157.29,13440.59,C,14.467114227807256
-29,Berries & Grapes,fruit,1768,Strawberries,United Kingdom,0.73,0.73,0.0,1.0,1.79,2.84,0.56,172.04,792.75,C,0.7962664684446206
-29,Berries & Grapes,fruit,1769,Raspberries,United Kingdom,1.52,1.52,0.0,3.55,8.41,3.71,4.56,10.95,50.46,C,1.9906661711115516
-29,Berries & Grapes,fruit,1770,Strawberries,United Kingdom,0.71,0.71,0.0,0.97,1.21,8.55,3.07,145.21,669.12,C,0.7962664684446206
+29,Berries & Grapes,fruit,1758,Strawberries,"Iran, Islamic Republic of",6.86,6.86,0.0,154.59,1.6,6.83,0.79,403.46,12264.55,C,56.81240165465475
+29,Berries & Grapes,fruit,1759,Strawberries,"Iran, Islamic Republic of",0.23,0.23,0.0,5.12,1.69,6.70,0.97,765.52,23270.86,C,23.978614358619605
+29,Berries & Grapes,fruit,1763,Raspberries,Spain,1.59,1.59,0.0,66.92,8.3,11.64,5.69,108.93,8619.34,C,1.131549430265475
+29,Berries & Grapes,fruit,1765,Strawberries,Spain,0.36,0.36,0.0,5.37,1.04,8.14,17.42,157.29,13440.59,C,14.504406333402905
+29,Berries & Grapes,fruit,1768,Strawberries,United Kingdom,0.73,0.73,0.0,1.0,1.79,2.84,0.56,172.04,792.75,C,0.7940062717905072
+29,Berries & Grapes,fruit,1769,Raspberries,United Kingdom,1.52,1.52,0.0,3.55,8.41,3.71,4.56,10.95,50.46,C,1.9850156794762683
+29,Berries & Grapes,fruit,1770,Strawberries,United Kingdom,0.71,0.71,0.0,0.97,1.21,8.55,3.07,145.21,669.12,C,0.7940062717905072
 30,Wine,alcohols,1793,Wine,Canada,3.03,3.03,0.0,9.19,3.11,35.68,10.06,1.67,4.37,C,0.5724619107268663
 30,Wine,alcohols,1794,Wine grapes,France,1.85,1.85,0.0,76.53,1.51,10.73,5.19,2.92,38.17,O,0.3061701970221429
 30,Wine,alcohols,1795,Wine grapes,France,2.41,2.41,0.0,6.94,1.99,14.40,5.77,4.97,7.23,O,0.15308509851107144
@@ -521,7 +521,7 @@ Product id,Data S2 Name,Group,id,Product_details,Country,Land Use (m2*year),Arab
 30,Wine,alcohols,1811,Wine,Italy,1.9,1.9,0.0,101.2,1.63,10.33,2.78,6.16,435.45,C,0.9872946505886333
 30,Wine,alcohols,1812,White wine,Italy,1.69,1.69,0.0,89.89,1.75,14.57,1.8,220.25,21483.57,C,0.5440195013447573
 30,Wine,alcohols,1813,Red wine,Italy,2.29,2.29,0.0,96.11,1.21,12.66,4.15,1.63,28.99,O,0.22163757462193812
-30,Wine,alcohols,1814,White wine,Portugal,1.64,1.64,0.0,7.86,4.7,24.01,12.43,3.63,115.17,C,0.44202532647934095
+30,Wine,alcohols,1814,White wine,Portugal,1.64,1.64,0.0,7.86,4.7,24.01,12.43,3.63,115.17,C,0.442025326479341
 30,Wine,alcohols,1818,Red wine,Spain,3.48,3.48,0.0,145.33,1.65,11.11,0.45,15.24,1486.14,C,13.699124763677501
 30,Wine,alcohols,1819,Wine,Spain,2.2,2.2,0.0,10.61,4.67,32.35,10.3,14.97,413.87,C,13.699124763677501
 30,Wine,alcohols,1820,Wine,Spain,1.37,1.37,0.0,6.6,1.81,13.21,4.16,4.53,60.4,C,13.699124763677501
@@ -702,11 +702,11 @@ Product id,Data S2 Name,Group,id,Product_details,Country,Land Use (m2*year),Arab
 40,Cheese,protein_rich,2439,Cow's milk,Brazil,31.43,25.42,6.01,746.8,46.59,228.43,137.84,1140.0,2725.52,P,32.14874518796381
 40,Cheese,protein_rich,2440,Cow's milk,Canada,44.88,44.88,0.0,222.74,27.34,172.03,55.95,1311.89,41450.89,I,0.28701066906749706
 40,Cheese,protein_rich,2441,Cow's milk,Canada,46.09,33.45,12.64,53.14,22.73,150.58,53.68,2646.11,110650.09,P,0.28701066906749706
-40,Cheese,protein_rich,2468,Cow's milk,Denmark,21.24,10.63,10.6,49.14,20.18,188.56,88.14,2054.83,25257.23,P,0.04509413031077357
-40,Cheese,protein_rich,2469,Cow's milk,Denmark,19.95,10.7,9.25,73.46,16.61,173.46,78.58,2672.83,64701.76,P,0.04509413031077357
-40,Cheese,protein_rich,2470,Cow's milk,Denmark,15.71,12.5,3.21,53.74,22.73,217.30,109.13,3872.27,65155.36,P,0.24801771670925463
-40,Cheese,protein_rich,2471,Cow's milk,Denmark,12.55,7.69,4.87,43.48,18.16,182.80,88.23,4017.99,69193.14,P,0.24801771670925463
-40,Cheese,protein_rich,2472,Cow's milk,Denmark,20.11,20.11,0.0,176.88,23.94,223.88,94.01,4690.82,179249.85,I,0.24801771670925463
+40,Cheese,protein_rich,2468,Cow's milk,Denmark,21.24,10.63,10.6,49.14,20.18,188.56,88.14,2054.83,25257.23,P,0.04509413031077356
+40,Cheese,protein_rich,2469,Cow's milk,Denmark,19.95,10.7,9.25,73.46,16.61,173.46,78.58,2672.83,64701.76,P,0.04509413031077356
+40,Cheese,protein_rich,2470,Cow's milk,Denmark,15.71,12.5,3.21,53.74,22.73,217.30,109.13,3872.27,65155.36,P,0.2480177167092546
+40,Cheese,protein_rich,2471,Cow's milk,Denmark,12.55,7.69,4.87,43.48,18.16,182.80,88.23,4017.99,69193.14,P,0.2480177167092546
+40,Cheese,protein_rich,2472,Cow's milk,Denmark,20.11,20.11,0.0,176.88,23.94,223.88,94.01,4690.82,179249.85,I,0.2480177167092546
 40,Cheese,protein_rich,2475,Cow's milk,France,15.58,8.3,7.27,30.98,18.11,132.87,54.9,2010.63,56131.59,P,0.6998108250484114
 40,Cheese,protein_rich,2476,Cow's milk,France,16.09,8.53,7.56,31.88,18.33,132.40,54.9,1840.85,50745.03,P,0.6998108250484114
 40,Cheese,protein_rich,2477,Cow's milk,France,14.73,9.26,5.47,39.15,17.65,112.93,57.18,2953.02,106747.19,P,0.6998108250484114

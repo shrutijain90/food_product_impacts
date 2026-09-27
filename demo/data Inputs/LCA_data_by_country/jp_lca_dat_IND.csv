@@ -180,10 +180,10 @@ Product id,Data S2 Name,Group,id,Product_details,Country,Land Use (m2*year),Arab
 6,Potatoes,starch_rich,675,Potatoes,United Kingdom,0.72,0.72,0.0,1.06,0.31,2.45,1.54,5.13,23.65,O,0.09523809523809523
 7,Cassava,starch_rich,723,Cassava,Thailand,0.97,0.97,0.0,27.01,0.33,2.80,0.49,0.0,0.0,C,50.0
 7,Cassava,starch_rich,724,Cassava,Thailand,0.9,0.9,0.0,16.85,0.3,3.06,0.83,0.0,0.0,C,50.0
-8,Cane Sugar,sugars,743,Sugar,Brazil,1.53,1.53,0.0,107.92,0.55,7.88,4.03,8.14,15.3,C,1.1037383053471805
+8,Cane Sugar,sugars,743,Sugar,Brazil,1.53,1.53,0.0,107.92,0.55,7.88,4.03,8.14,15.3,C,1.1037383053471808
 8,Cane Sugar,sugars,746,Sugar,India,2.66,2.66,0.0,37.1,1.12,30.49,26.2,2519.72,34890.79,C,34.07294175344878
 8,Cane Sugar,sugars,747,Sugar,India,1.25,1.25,0.0,10.84,0.94,24.20,41.67,3567.12,13739.61,C,29.840278181591785
-8,Cane Sugar,sugars,774,Sugar cane,Brazil,2.12,2.12,0.0,136.76,5.19,18.49,8.92,8.14,15.3,C,0.9101000061634646
+8,Cane Sugar,sugars,774,Sugar cane,Brazil,2.12,2.12,0.0,136.76,5.19,18.49,8.92,8.14,15.3,C,0.9101000061634649
 8,Cane Sugar,sugars,776,Sugar cane,India,2.72,2.72,0.0,37.98,1.9,21.50,15.11,1073.31,14899.65,C,34.07294175344878
 9,Beet Sugar,sugars,787,Sugar,Germany,1.26,1.26,0.0,1.96,1.61,9.89,3.69,12.1,15.02,C,4.615286304310932
 9,Beet Sugar,sugars,788,Sugar,Germany,1.46,1.46,0.0,2.27,1.66,12.32,4.81,12.1,15.02,C,4.615286304310932
@@ -193,7 +193,7 @@ Product id,Data S2 Name,Group,id,Product_details,Country,Land Use (m2*year),Arab
 9,Beet Sugar,sugars,796,Sugar beet,France,1.77,1.77,0.0,7.04,2.13,11.65,4.76,12.1,28.0,C,36.86259177059693
 9,Beet Sugar,sugars,797,Sugar beet,"Iran, Islamic Republic of",1.28,1.28,0.0,11.58,1.97,20.56,16.58,1703.43,78703.27,C,0.6808954206418633
 9,Beet Sugar,sugars,798,Sugar beet,"Iran, Islamic Republic of",1.35,1.35,0.0,20.84,2.71,17.35,5.04,1900.06,87128.55,C,0.6808954206418633
-9,Beet Sugar,sugars,801,Sugar beet,Japan,4.5,4.5,0.0,32.62,3.46,68.59,8.43,12.36,11.72,C,0.23433845344047696
+9,Beet Sugar,sugars,801,Sugar beet,Japan,4.5,4.5,0.0,32.62,3.46,68.59,8.43,12.36,11.72,C,0.2343384534404769
 9,Beet Sugar,sugars,804,Sugar beet,Switzerland,1.18,1.18,0.0,10.96,1.77,13.56,6.48,12.1,9.93,C,0.34115897071205276
 9,Beet Sugar,sugars,805,Sugar beet,United Kingdom,1.72,1.72,0.0,2.34,1.77,-,6.03,12.1,37.9,C,1.5000413290101615
 9,Beet Sugar,sugars,806,Sugar beet,United Kingdom,3.53,3.53,0.0,4.8,1.72,-,6.34,12.1,37.9,O,0.2142916184300231
@@ -565,16 +565,16 @@ Product id,Data S2 Name,Group,id,Product_details,Country,Land Use (m2*year),Arab
 28,Apples,fruit,1717,Apples,Italy,0.53,0.53,0.0,3.29,0.35,2.73,0.67,107.29,309.82,O,0.11994960688741599
 28,Apples,fruit,1718,Apples,Italy,0.39,0.39,0.0,14.92,0.29,2.00,0.37,0.67,32.36,C,0.19991601147902663
 28,Apples,fruit,1719,Apples,Italy,0.28,0.28,0.0,1.73,0.3,3.06,0.9,354.87,1024.7,C,0.19991601147902663
-28,Apples,fruit,1720,Apples,New Zealand,0.22,0.22,0.0,5.6,0.36,1.61,0.49,23.59,14.34,C,0.10886279332806606
-28,Apples,fruit,1721,Apples,New Zealand,0.19,0.19,0.0,4.9,0.35,1.70,0.48,89.4,54.34,C,0.10886279332806606
-28,Apples,fruit,1722,Apples,New Zealand,0.2,0.2,0.0,8.37,0.38,1.73,0.49,155.65,49.57,C,0.10886279332806606
-28,Apples,fruit,1723,Apples,New Zealand,0.27,0.27,0.0,7.0,0.47,2.16,0.68,140.1,148.55,C,0.10886279332806606
-28,Apples,fruit,1724,Apples,New Zealand,0.27,0.27,0.0,11.16,0.47,2.12,0.67,140.1,94.39,C,0.10886279332806606
-28,Apples,fruit,1725,Apples,New Zealand,0.23,0.23,0.0,5.95,0.44,1.80,0.52,214.01,130.08,O,0.05443139666403303
-28,Apples,fruit,1726,Apples,New Zealand,0.31,0.31,0.0,12.83,0.44,1.89,0.66,335.3,225.89,O,0.05443139666403303
-28,Apples,fruit,1727,Apples,New Zealand,0.28,0.28,0.0,7.35,0.42,1.73,0.6,170.62,180.9,O,0.05443139666403303
-28,Apples,fruit,1728,Apples,New Zealand,0.28,0.28,0.0,11.72,0.42,1.68,0.58,170.62,114.95,O,0.05443139666403303
-28,Apples,fruit,1730,Apples,New Zealand,0.23,0.23,0.0,6.84,1.2,-,4.24,113.37,1378.08,C,0.10886279332806606
+28,Apples,fruit,1720,Apples,New Zealand,0.22,0.22,0.0,5.6,0.36,1.61,0.49,23.59,14.34,C,0.10886279332806603
+28,Apples,fruit,1721,Apples,New Zealand,0.19,0.19,0.0,4.9,0.35,1.70,0.48,89.4,54.34,C,0.10886279332806603
+28,Apples,fruit,1722,Apples,New Zealand,0.2,0.2,0.0,8.37,0.38,1.73,0.49,155.65,49.57,C,0.10886279332806603
+28,Apples,fruit,1723,Apples,New Zealand,0.27,0.27,0.0,7.0,0.47,2.16,0.68,140.1,148.55,C,0.10886279332806603
+28,Apples,fruit,1724,Apples,New Zealand,0.27,0.27,0.0,11.16,0.47,2.12,0.67,140.1,94.39,C,0.10886279332806603
+28,Apples,fruit,1725,Apples,New Zealand,0.23,0.23,0.0,5.95,0.44,1.80,0.52,214.01,130.08,O,0.054431396664033016
+28,Apples,fruit,1726,Apples,New Zealand,0.31,0.31,0.0,12.83,0.44,1.89,0.66,335.3,225.89,O,0.054431396664033016
+28,Apples,fruit,1727,Apples,New Zealand,0.28,0.28,0.0,7.35,0.42,1.73,0.6,170.62,180.9,O,0.054431396664033016
+28,Apples,fruit,1728,Apples,New Zealand,0.28,0.28,0.0,11.72,0.42,1.68,0.58,170.62,114.95,O,0.054431396664033016
+28,Apples,fruit,1730,Apples,New Zealand,0.23,0.23,0.0,6.84,1.2,-,4.24,113.37,1378.08,C,0.10886279332806603
 28,Apples,fruit,1735,Apples,Spain,0.62,0.62,0.0,31.26,0.43,3.17,0.73,185.94,16734.28,C,0.0417583682711827
 28,Apples,fruit,1736,Apples,Spain,0.84,0.84,0.0,42.28,0.48,5.24,1.23,185.94,16733.69,O,0.0037962152973802453
 28,Apples,fruit,1737,Apples,Switzerland,0.52,0.52,0.0,1.54,0.38,2.57,0.6,1.99,1.85,C,0.0063270254956337415
@@ -644,16 +644,16 @@ Product id,Data S2 Name,Group,id,Product_details,Country,Land Use (m2*year),Arab
 30,Wine,alcohols,1849,Wine grapes,United States,1.26,1.26,0.0,18.82,1.08,11.24,3.7,336.19,1741.11,O,0.7644992485760816
 30,Wine,alcohols,1850,Wine grapes,United States,1.31,1.31,0.0,19.64,1.01,8.91,3.61,311.32,1612.86,C,13.214915582529411
 30,Wine,alcohols,1851,Wine grapes,United States,1.51,1.51,0.0,22.58,0.97,10.78,3.74,249.0,1291.44,O,0.7644992485760816
-31,Other Fruit,fruit,1853,Chinese pear,China,0.43,0.43,0.0,3.17,0.03,-,3.12,700.98,19158.11,O,0.0005305107853022299
-31,Other Fruit,fruit,1855,Chinese pear,China,0.86,0.86,0.0,7.93,2.22,-,10.04,797.64,76055.45,O,0.0005305107853022299
-31,Other Fruit,fruit,1856,Chinese pear,China,0.72,0.72,0.0,6.61,0.06,-,4.54,797.6,76052.08,O,0.0005305107853022299
-31,Other Fruit,fruit,1869,Nectarines,"Iran, Islamic Republic of",0.68,0.68,0.0,25.11,0.25,6.06,1.89,274.26,23872.76,C,3.3796678806162026
-31,Other Fruit,fruit,1886,Kiwi,"Iran, Islamic Republic of",1.39,1.39,0.0,51.16,0.51,17.18,18.95,1028.87,32135.13,C,0.19880399297742363
-31,Other Fruit,fruit,1887,Kiwi,"Iran, Islamic Republic of",1.38,1.38,0.0,50.87,0.48,16.94,18.9,1028.93,32137.18,C,0.19880399297742363
-31,Other Fruit,fruit,1888,Kiwi,"Iran, Islamic Republic of",1.31,1.31,0.0,48.41,0.71,18.35,20.09,1028.88,32135.38,C,0.19880399297742363
-31,Other Fruit,fruit,1901,Watermelon,"Iran, Islamic Republic of",0.55,0.55,0.0,0.98,0.85,5.23,1.22,325.97,4973.68,C,32.00744286936521
-31,Other Fruit,fruit,1902,Watermelon,"Iran, Islamic Republic of",1.24,1.24,0.0,27.99,0.73,5.79,2.08,0.0,0.0,C,32.00744286936521
-31,Other Fruit,fruit,1903,Watermelon,"Iran, Islamic Republic of",1.37,1.37,0.0,30.99,1.0,8.66,4.32,85.61,2602.4,C,32.00744286936521
+31,Other Fruit,fruit,1853,Chinese pear,China,0.43,0.43,0.0,3.17,0.03,-,3.12,700.98,19158.11,O,0.0005281965228829144
+31,Other Fruit,fruit,1855,Chinese pear,China,0.86,0.86,0.0,7.93,2.22,-,10.04,797.64,76055.45,O,0.0005281965228829144
+31,Other Fruit,fruit,1856,Chinese pear,China,0.72,0.72,0.0,6.61,0.06,-,4.54,797.6,76052.08,O,0.0005281965228829144
+31,Other Fruit,fruit,1869,Nectarines,"Iran, Islamic Republic of",0.68,0.68,0.0,25.11,0.25,6.06,1.89,274.26,23872.76,C,3.3796681152630876
+31,Other Fruit,fruit,1886,Kiwi,"Iran, Islamic Republic of",1.39,1.39,0.0,51.16,0.51,17.18,18.95,1028.87,32135.13,C,0.1988040067801816
+31,Other Fruit,fruit,1887,Kiwi,"Iran, Islamic Republic of",1.38,1.38,0.0,50.87,0.48,16.94,18.9,1028.93,32137.18,C,0.1988040067801816
+31,Other Fruit,fruit,1888,Kiwi,"Iran, Islamic Republic of",1.31,1.31,0.0,48.41,0.71,18.35,20.09,1028.88,32135.38,C,0.1988040067801816
+31,Other Fruit,fruit,1901,Watermelon,"Iran, Islamic Republic of",0.55,0.55,0.0,0.98,0.85,5.23,1.22,325.97,4973.68,C,32.007445091609235
+31,Other Fruit,fruit,1902,Watermelon,"Iran, Islamic Republic of",1.24,1.24,0.0,27.99,0.73,5.79,2.08,0.0,0.0,C,32.007445091609235
+31,Other Fruit,fruit,1903,Watermelon,"Iran, Islamic Republic of",1.37,1.37,0.0,30.99,1.0,8.66,4.32,85.61,2602.4,C,32.007445091609235
 32,Coffee,stimulants,1905,Coffee beans,Brazil,8.4,8.4,0.0,276.64,4.73,52.73,41.13,10.41,19.56,C,1.2910187493585015
 32,Coffee,stimulants,1906,Coffee beans,Brazil,11.88,11.88,0.0,391.33,7.37,69.97,45.55,34.55,78.78,C,1.2910187493585015
 32,Coffee,stimulants,1914,Coffee beans,Costa Rica,22.07,22.07,0.0,2194.46,6.1,33.35,192.39,10.41,5.08,O,0.05063961978072439

@@ -91,12 +91,12 @@ Product id,Data S2 Name,Group,id,Product_details,Country,Land Use (m2*year),Arab
 5,Rice,starch_rich,562,Long grain rice,Italy,2.16,2.16,0.0,7.1,1.13,8.56,7.52,6577.48,18992.74,C,0.028980858676180322
 5,Rice,starch_rich,563,Rice,Italy,2.82,2.82,0.0,9.25,4.43,10.32,8.35,5757.14,16623.98,C,0.028980858676180322
 5,Rice,starch_rich,564,Rice,Italy,3.86,3.86,0.0,12.67,5.04,12.15,7.52,5814.71,16790.22,O,0.014490429338090161
-5,Rice,starch_rich,582,Jasmine rice,Thailand,3.14,3.14,0.0,78.84,9.33,61.72,138.45,7.73,60.15,C,2.3801992632127678
-5,Rice,starch_rich,583,Jasmine rice,Thailand,6.08,6.08,0.0,102.76,3.69,9.86,3.33,0.0,0.0,C,0.870804608492476
-5,Rice,starch_rich,584,Jasmine rice,Thailand,6.8,6.8,0.0,115.0,3.72,9.00,3.35,0.0,0.0,C,0.8417777882093935
-5,Rice,starch_rich,585,Jasmine rice,Thailand,7.46,7.46,0.0,126.05,7.67,71.70,137.75,0.25,1.58,C,1.683555576418787
-5,Rice,starch_rich,586,Jasmine rice,Thailand,6.75,6.75,0.0,114.04,13.53,71.70,137.75,657.0,4241.69,C,0.4644291245293206
-5,Rice,starch_rich,587,Jasmine rice,Thailand,8.09,8.09,0.0,136.82,14.39,88.87,172.1,6475.77,41808.19,C,0.2612413825477428
+5,Rice,starch_rich,582,Jasmine rice,Thailand,3.14,3.14,0.0,78.84,9.33,61.72,138.45,7.73,60.15,C,2.380199263212767
+5,Rice,starch_rich,583,Jasmine rice,Thailand,6.08,6.08,0.0,102.76,3.69,9.86,3.33,0.0,0.0,C,0.8708046084924758
+5,Rice,starch_rich,584,Jasmine rice,Thailand,6.8,6.8,0.0,115.0,3.72,9.00,3.35,0.0,0.0,C,0.8417777882093933
+5,Rice,starch_rich,585,Jasmine rice,Thailand,7.46,7.46,0.0,126.05,7.67,71.70,137.75,0.25,1.58,C,1.6835555764187866
+5,Rice,starch_rich,586,Jasmine rice,Thailand,6.75,6.75,0.0,114.04,13.53,71.70,137.75,657.0,4241.69,C,0.4644291245293205
+5,Rice,starch_rich,587,Jasmine rice,Thailand,8.09,8.09,0.0,136.82,14.39,88.87,172.1,6475.77,41808.19,C,0.26124138254774276
 5,Rice,starch_rich,588,Rice,United States,2.16,2.16,0.0,38.43,2.63,5.86,2.09,2711.87,192406.59,C,90.84112088678135
 5,Rice,starch_rich,589,Rice,Vietnam,1.0,1.0,0.0,29.4,4.2,11.21,3.45,707.58,4568.21,C,0.17439833046063824
 6,Potatoes,starch_rich,594,Potatoes,Chile,2.53,2.53,0.0,13.34,0.26,-,0.81,0.0,0.0,C,4.736658793755676
@@ -120,19 +120,19 @@ Product id,Data S2 Name,Group,id,Product_details,Country,Land Use (m2*year),Arab
 6,Potatoes,starch_rich,612,Potatoes,Chile,0.51,0.51,0.0,2.75,0.36,-,1.51,0.0,0.0,C,4.736658793755676
 6,Potatoes,starch_rich,613,Potatoes,Chile,0.3,0.3,0.0,2.1,0.24,2.55,2.12,39.53,27.47,C,4.736658793755676
 6,Potatoes,starch_rich,614,Potatoes,Chile,0.49,0.49,0.0,3.4,0.27,2.67,2.96,64.12,44.56,C,4.736658793755676
-6,Potatoes,starch_rich,627,Potatoes,France,0.47,0.47,0.0,2.18,0.33,3.57,1.14,22.34,185.19,C,0.04254255446442595
-6,Potatoes,starch_rich,628,Potatoes,France,0.55,0.55,0.0,2.56,0.35,3.73,1.31,28.19,233.69,C,0.04254255446442595
-6,Potatoes,starch_rich,629,Potatoes,France,0.34,0.34,0.0,1.58,0.34,2.85,0.96,0.0,0.0,C,0.04254255446442595
-6,Potatoes,starch_rich,630,Potatoes,Germany,0.43,0.43,0.0,0.83,0.45,4.01,3.67,5.18,8.35,C,0.06735904456867442
-6,Potatoes,starch_rich,631,Potatoes,Germany,0.35,0.35,0.0,0.6,0.42,2.86,0.81,0.0,0.0,C,0.06735904456867442
-6,Potatoes,starch_rich,632,Potatoes,Germany,0.63,0.63,0.0,1.09,0.23,4.30,1.55,0.0,0.0,O,0.007090425744070992
+6,Potatoes,starch_rich,627,Potatoes,France,0.47,0.47,0.0,2.18,0.33,3.57,1.14,22.34,185.19,C,0.04254255446442596
+6,Potatoes,starch_rich,628,Potatoes,France,0.55,0.55,0.0,2.56,0.35,3.73,1.31,28.19,233.69,C,0.04254255446442596
+6,Potatoes,starch_rich,629,Potatoes,France,0.34,0.34,0.0,1.58,0.34,2.85,0.96,0.0,0.0,C,0.04254255446442596
+6,Potatoes,starch_rich,630,Potatoes,Germany,0.43,0.43,0.0,0.83,0.45,4.01,3.67,5.18,8.35,C,0.06735904456867443
+6,Potatoes,starch_rich,631,Potatoes,Germany,0.35,0.35,0.0,0.6,0.42,2.86,0.81,0.0,0.0,C,0.06735904456867443
+6,Potatoes,starch_rich,632,Potatoes,Germany,0.63,0.63,0.0,1.09,0.23,4.30,1.55,0.0,0.0,O,0.007090425744070993
 6,Potatoes,starch_rich,647,Potatoes,Netherlands,0.4,0.4,0.0,0.74,0.6,4.73,4.18,12.34,18.62,C,0.2323674498798089
-6,Potatoes,starch_rich,662,Potatoes,Switzerland,0.42,0.42,0.0,4.06,0.32,3.09,2.81,1.28,2.27,C,0.007090425744070992
-6,Potatoes,starch_rich,663,Potatoes,Switzerland,0.68,0.68,0.0,6.53,0.39,5.96,12.06,0.0,0.0,C,0.003545212872035496
-6,Potatoes,starch_rich,664,Potatoes,Switzerland,0.42,0.42,0.0,4.08,0.39,4.60,4.95,0.0,0.0,C,0.007090425744070992
-6,Potatoes,starch_rich,665,Potatoes,Switzerland,0.51,0.51,0.0,4.92,0.42,5.35,6.88,0.0,0.0,C,0.003545212872035496
-6,Potatoes,starch_rich,666,Potatoes,Switzerland,0.72,0.72,0.0,6.95,0.42,5.44,8.14,0.0,0.0,O,0.003545212872035496
-6,Potatoes,starch_rich,667,Potatoes,Switzerland,0.66,0.66,0.0,6.41,0.41,5.56,7.99,0.0,0.0,O,0.003545212872035496
+6,Potatoes,starch_rich,662,Potatoes,Switzerland,0.42,0.42,0.0,4.06,0.32,3.09,2.81,1.28,2.27,C,0.007090425744070993
+6,Potatoes,starch_rich,663,Potatoes,Switzerland,0.68,0.68,0.0,6.53,0.39,5.96,12.06,0.0,0.0,C,0.0035452128720354966
+6,Potatoes,starch_rich,664,Potatoes,Switzerland,0.42,0.42,0.0,4.08,0.39,4.60,4.95,0.0,0.0,C,0.007090425744070993
+6,Potatoes,starch_rich,665,Potatoes,Switzerland,0.51,0.51,0.0,4.92,0.42,5.35,6.88,0.0,0.0,C,0.0035452128720354966
+6,Potatoes,starch_rich,666,Potatoes,Switzerland,0.72,0.72,0.0,6.95,0.42,5.44,8.14,0.0,0.0,O,0.0035452128720354966
+6,Potatoes,starch_rich,667,Potatoes,Switzerland,0.66,0.66,0.0,6.41,0.41,5.56,7.99,0.0,0.0,O,0.0035452128720354966
 7,Cassava,starch_rich,723,Cassava,Thailand,0.97,0.97,0.0,27.01,0.33,2.80,0.49,0.0,0.0,C,49.99999999999999
 7,Cassava,starch_rich,724,Cassava,Thailand,0.9,0.9,0.0,16.85,0.3,3.06,0.83,0.0,0.0,C,49.99999999999999
 8,Cane Sugar,sugars,733,Sugar,Argentina,1.7,1.7,0.0,67.98,2.38,21.74,9.19,8.14,39.96,C,0.0029257629590577613
@@ -190,7 +190,7 @@ Product id,Data S2 Name,Group,id,Product_details,Country,Land Use (m2*year),Arab
 11,Peas,protein_rich,896,Peas,Sweden,4.33,4.33,0.0,2.53,1.14,3.47,6.14,0.0,0.0,C,1.4563106796116503
 11,Peas,protein_rich,897,Peas,Switzerland,2.77,2.77,0.0,21.93,1.25,5.99,9.96,0.0,0.0,C,0.7766990291262134
 11,Peas,protein_rich,898,Peas,Switzerland,3.63,3.63,0.0,28.76,1.51,16.41,24.64,0.0,0.0,O,0.1941747572815534
-12,Nuts,protein_rich,899,Almonds,Australia,7.41,7.41,0.0,32.62,2.95,52.34,40.04,9107.22,247325.18,C,0.02397429103582565
+12,Nuts,protein_rich,899,Almonds,Australia,7.41,7.41,0.0,32.62,2.95,52.34,40.04,9107.22,247325.18,C,0.023974291035825646
 12,Nuts,protein_rich,900,Cashew nuts,Brazil,14.73,14.73,0.0,214.07,10.87,95.06,29.93,7.23,25.9,C,40.37367540142495
 12,Nuts,protein_rich,901,Cashew nuts,Brazil,46.01,46.01,0.0,668.73,23.68,19.86,16.18,22.59,202.99,C,40.37367540142495
 12,Nuts,protein_rich,902,Almonds,China,6.99,6.99,0.0,57.88,1.68,22.96,9.52,1089.59,49610.27,C,0.3922381686019461
@@ -200,12 +200,12 @@ Product id,Data S2 Name,Group,id,Product_details,Country,Land Use (m2*year),Arab
 12,Nuts,protein_rich,907,Hazelnuts,Italy,12.56,12.56,0.0,496.04,3.05,40.52,47.17,1717.32,43497.29,C,0.7269327999428921
 12,Nuts,protein_rich,908,Chestnuts,Portugal,29.36,29.36,0.0,1519.68,3.52,11.52,5.34,0.0,0.0,C,0.08260599999351047
 12,Nuts,protein_rich,909,Chestnuts,Portugal,24.7,24.7,0.0,1278.42,2.1,10.93,6.27,0.0,0.0,C,0.08260599999351047
-12,Nuts,protein_rich,913,Almonds,United States,6.81,6.81,0.0,53.34,-2.91,34.91,13.61,6745.79,396604.25,C,2.646354822884165
+12,Nuts,protein_rich,913,Almonds,United States,6.81,6.81,0.0,53.34,-2.91,34.91,13.61,6745.79,396604.25,C,2.6463548228841645
 12,Nuts,protein_rich,914,Walnuts,United States,3.78,3.78,0.0,29.6,-0.22,-,7.84,1664.28,97847.79,C,1.0279229477318654
 12,Nuts,protein_rich,915,Pistachios,United States,6.25,6.25,0.0,48.92,-4.09,-,10.74,3200.18,188147.92,C,1.6840439781990137
-12,Nuts,protein_rich,916,Almonds,United States,4.49,4.49,0.0,266.27,-1.38,28.37,23.18,1823.32,129364.29,C,2.646354822884165
-12,Nuts,protein_rich,917,Almonds,United States,5.6,5.6,0.0,34.3,3.74,33.71,11.16,8280.95,302154.13,C,2.646354822884165
-12,Nuts,protein_rich,918,Almonds,United States,8.73,8.73,0.0,518.18,-1.96,66.42,17.56,9106.93,646134.54,C,2.646354822884165
+12,Nuts,protein_rich,916,Almonds,United States,4.49,4.49,0.0,266.27,-1.38,28.37,23.18,1823.32,129364.29,C,2.6463548228841645
+12,Nuts,protein_rich,917,Almonds,United States,5.6,5.6,0.0,34.3,3.74,33.71,11.16,8280.95,302154.13,C,2.6463548228841645
+12,Nuts,protein_rich,918,Almonds,United States,8.73,8.73,0.0,518.18,-1.96,66.42,17.56,9106.93,646134.54,C,2.6463548228841645
 12,Nuts,protein_rich,919,Almonds,United States,10.91,10.91,0.0,647.71,-1.24,40.12,12.23,11383.53,807659.27,O,1.7715267822613003
 12,Nuts,protein_rich,920,Walnuts,United States,4.15,4.15,0.0,62.69,-0.32,20.38,7.81,1069.8,5517.33,C,1.0279229477318654
 12,Nuts,protein_rich,921,Walnuts,United States,20.76,20.76,0.0,313.46,-2.07,34.79,16.25,10697.94,55173.02,O,0.5248968243737185
@@ -261,17 +261,17 @@ Product id,Data S2 Name,Group,id,Product_details,Country,Land Use (m2*year),Arab
 15,Tofu,protein_rich,1131,Soybeans,United States,4.95,4.95,0.0,16.21,1.98,10.38,9.37,6.34,60.29,C,22.99750814551493
 15,Tofu,protein_rich,1132,Soybeans,United States,5.01,5.01,0.0,16.42,2.05,9.58,9.3,6.34,60.29,O,0.9199003258205973
 16,Soybean Oil,oils,1136,Soybean oil,Argentina,9.25,9.25,0.0,79.98,7.72,15.19,2.61,1.58,7.77,C,1.0698593202526483
-16,Soybean Oil,oils,1139,Soybean oil,Brazil,5.26,5.26,0.0,323.51,2.87,18.05,16.24,1.58,2.98,C,5.31658409379034
-16,Soybean Oil,oils,1140,Soybean oil,Brazil,11.76,11.76,0.0,723.04,21.31,15.03,20.25,1.58,2.98,C,0.6618154473597934
+16,Soybean Oil,oils,1139,Soybean oil,Brazil,5.26,5.26,0.0,323.51,2.87,18.05,16.24,1.58,2.98,C,5.316584093790341
+16,Soybean Oil,oils,1140,Soybean oil,Brazil,11.76,11.76,0.0,723.04,21.31,15.03,20.25,1.58,2.98,C,0.6618154473597935
 16,Soybean Oil,oils,1143,Soybean oil,United States,11.09,11.09,0.0,36.35,2.87,12.32,6.51,44.3,1575.31,C,0.4406999866491458
-16,Soybean Oil,oils,1155,Soybeans,Brazil,4.42,4.42,0.0,83.42,10.95,21.56,17.21,1.58,2.98,C,0.9706626561276968
-16,Soybean Oil,oils,1156,Soybeans,Brazil,4.87,4.87,0.0,61.48,10.53,15.70,17.53,1.58,2.98,C,0.794178536831752
-16,Soybean Oil,oils,1160,Soybeans,Brazil,5.5,5.5,0.0,338.32,10.83,12.10,17.07,1.58,2.98,C,0.26472617894391737
-16,Soybean Oil,oils,1161,Soybeans,Brazil,9.01,9.01,0.0,113.7,2.29,12.55,18.42,1.58,2.98,C,0.794178536831752
-16,Soybean Oil,oils,1162,Soybeans,Brazil,4.35,4.35,0.0,82.07,5.41,14.09,3.26,1.58,2.98,C,0.9265416263037105
-16,Soybean Oil,oils,1163,Soybeans,Brazil,7.04,7.04,0.0,132.86,12.83,13.80,11.89,1.58,2.98,C,1.3677519245435728
-16,Soybean Oil,oils,1164,Soybeans,Brazil,6.0,6.0,0.0,113.19,11.19,12.53,11.2,1.58,2.98,C,0.9706626561276968
-16,Soybean Oil,oils,1165,Soybeans,Brazil,4.52,4.52,0.0,85.28,8.86,12.08,10.9,1.58,2.98,C,0.9265416263037105
+16,Soybean Oil,oils,1155,Soybeans,Brazil,4.42,4.42,0.0,83.42,10.95,21.56,17.21,1.58,2.98,C,0.9706626561276969
+16,Soybean Oil,oils,1156,Soybeans,Brazil,4.87,4.87,0.0,61.48,10.53,15.70,17.53,1.58,2.98,C,0.7941785368317522
+16,Soybean Oil,oils,1160,Soybeans,Brazil,5.5,5.5,0.0,338.32,10.83,12.10,17.07,1.58,2.98,C,0.2647261789439174
+16,Soybean Oil,oils,1161,Soybeans,Brazil,9.01,9.01,0.0,113.7,2.29,12.55,18.42,1.58,2.98,C,0.7941785368317522
+16,Soybean Oil,oils,1162,Soybeans,Brazil,4.35,4.35,0.0,82.07,5.41,14.09,3.26,1.58,2.98,C,0.9265416263037106
+16,Soybean Oil,oils,1163,Soybeans,Brazil,7.04,7.04,0.0,132.86,12.83,13.80,11.89,1.58,2.98,C,1.367751924543573
+16,Soybean Oil,oils,1164,Soybeans,Brazil,6.0,6.0,0.0,113.19,11.19,12.53,11.2,1.58,2.98,C,0.9706626561276969
+16,Soybean Oil,oils,1165,Soybeans,Brazil,4.52,4.52,0.0,85.28,8.86,12.08,10.9,1.58,2.98,C,0.9265416263037106
 16,Soybean Oil,oils,1226,Soybeans,United States,11.1,11.1,0.0,36.38,3.01,15.25,14.35,1.52,14.44,C,44.51069865156372
 16,Soybean Oil,oils,1228,Soybeans,United States,14.28,14.28,0.0,46.79,2.97,16.41,21.46,1.52,14.44,C,40.10369878507226
 16,Soybean Oil,oils,1229,Soybeans,United States,14.46,14.46,0.0,47.4,3.17,14.09,21.25,1.52,14.44,O,0.8813999732982916
@@ -365,7 +365,7 @@ Product id,Data S2 Name,Group,id,Product_details,Country,Land Use (m2*year),Arab
 20,Olive Oil,oils,1377,Extra virgin olive oil,Italy,12.75,12.75,0.0,649.41,2.87,20.07,5.87,591.34,50637.01,C,5.676605296007954
 20,Olive Oil,oils,1378,Extra virgin olive oil,Italy,24.37,24.37,0.0,976.12,4.79,64.57,21.25,171.98,2833.17,C,5.021612377237806
 20,Olive Oil,oils,1380,"Extra virgin olive oil (""GranFruttato"")",Italy,9.24,9.24,0.0,470.76,2.18,11.39,3.21,6131.72,476013.48,C,5.676605296007954
-20,Olive Oil,oils,1382,Virgin olive oil,Portugal,30.4,30.4,0.0,1095.84,5.25,40.65,39.24,8.51,130.37,C,18.238425550951344
+20,Olive Oil,oils,1382,Virgin olive oil,Portugal,30.4,30.4,0.0,1095.84,5.25,40.65,39.24,8.51,130.37,C,18.238425550951348
 20,Olive Oil,oils,1383,Virgin olive oil,Portugal,36.32,36.32,0.0,1309.32,10.71,59.90,53.03,8.51,130.37,C,14.207834268973146
 20,Olive Oil,oils,1388,Olives,Greece,15.01,15.01,0.0,618.84,5.14,-,26.43,6589.34,532468.57,C,14.155572939439699
 20,Olive Oil,oils,1389,Olives,Italy,6.72,6.72,0.0,342.38,5.77,54.70,39.5,1132.3,97791.01,C,0.3274964593850744
@@ -429,9 +429,9 @@ Product id,Data S2 Name,Group,id,Product_details,Country,Land Use (m2*year),Arab
 26,Citrus Fruit,fruit,1634,Oranges,Brazil,1.02,1.02,0.0,16.6,0.33,2.00,0.25,0.0,0.0,O,5.949183883463193
 26,Citrus Fruit,fruit,1635,Oranges,Brazil,0.81,0.81,0.0,13.28,0.38,2.29,0.28,41.42,25.25,O,4.164428718424235
 26,Citrus Fruit,fruit,1636,Oranges,Brazil,0.93,0.93,0.0,15.09,0.38,2.85,0.35,0.0,0.0,C,89.53521744612105
-26,Citrus Fruit,fruit,1660,Oranges,United States,0.42,0.42,0.0,2.39,0.52,4.21,1.88,69.01,107.42,C,0.11705665066384248
-26,Citrus Fruit,fruit,1661,Oranges,United States,0.5,0.5,0.0,2.9,0.6,4.82,2.24,69.0,107.41,C,0.11705665066384248
-26,Citrus Fruit,fruit,1662,Oranges,United States,0.36,0.36,0.0,2.05,0.29,3.27,2.0,112.25,188.84,C,0.11705665066384248
+26,Citrus Fruit,fruit,1660,Oranges,United States,0.42,0.42,0.0,2.39,0.52,4.21,1.88,69.01,107.42,C,0.11705665066384247
+26,Citrus Fruit,fruit,1661,Oranges,United States,0.5,0.5,0.0,2.9,0.6,4.82,2.24,69.0,107.41,C,0.11705665066384247
+26,Citrus Fruit,fruit,1662,Oranges,United States,0.36,0.36,0.0,2.05,0.29,3.27,2.0,112.25,188.84,C,0.11705665066384247
 27,Bananas,fruit,1664,Bananas,Australia,0.26,0.26,0.0,3.44,0.86,5.85,2.52,159.96,219.14,C,1.4807502467917077
 27,Bananas,fruit,1666,Bananas,Colombia,17.64,17.64,0.0,1764.08,0.75,7.31,3.51,1.94,1.07,C,5.429417571569594
 27,Bananas,fruit,1668,Bananas,Costa Rica,0.41,0.41,0.0,46.94,0.86,-,6.77,51.52,38.21,C,3.5538005923000986
@@ -551,19 +551,19 @@ Product id,Data S2 Name,Group,id,Product_details,Country,Land Use (m2*year),Arab
 30,Wine,alcohols,1849,Wine grapes,United States,1.26,1.26,0.0,18.82,1.08,11.24,3.7,336.19,1741.11,O,1.6836773083294165
 30,Wine,alcohols,1850,Wine grapes,United States,1.31,1.31,0.0,19.64,1.01,8.91,3.61,311.32,1612.86,C,29.103564901122777
 30,Wine,alcohols,1851,Wine grapes,United States,1.51,1.51,0.0,22.58,0.97,10.78,3.74,249.0,1291.44,O,1.6836773083294165
-31,Other Fruit,fruit,1853,Chinese pear,China,0.43,0.43,0.0,3.17,0.03,-,3.12,700.98,19158.11,O,0.00021936345197530647
-31,Other Fruit,fruit,1855,Chinese pear,China,0.86,0.86,0.0,7.93,2.22,-,10.04,797.64,76055.45,O,0.00021936345197530647
-31,Other Fruit,fruit,1856,Chinese pear,China,0.72,0.72,0.0,6.61,0.06,-,4.54,797.6,76052.08,O,0.00021936345197530647
-31,Other Fruit,fruit,1869,Nectarines,"Iran, Islamic Republic of",0.68,0.68,0.0,25.11,0.25,6.06,1.89,274.26,23872.76,C,0.0037291786835802103
-31,Other Fruit,fruit,1874,Peaches,Spain,0.4,0.4,0.0,19.79,0.56,3.12,0.67,296.68,26699.93,C,0.011100894912721069
-31,Other Fruit,fruit,1886,Kiwi,"Iran, Islamic Republic of",1.39,1.39,0.0,51.16,0.51,17.18,18.95,1028.87,32135.13,C,0.00021936345197530647
-31,Other Fruit,fruit,1887,Kiwi,"Iran, Islamic Republic of",1.38,1.38,0.0,50.87,0.48,16.94,18.9,1028.93,32137.18,C,0.00021936345197530647
-31,Other Fruit,fruit,1888,Kiwi,"Iran, Islamic Republic of",1.31,1.31,0.0,48.41,0.71,18.35,20.09,1028.88,32135.38,C,0.00021936345197530647
-31,Other Fruit,fruit,1900,Canary melon,Brazil,1.06,1.06,0.0,29.43,2.94,5.62,2.16,0.34,3.62,C,99.78750819695563
-31,Other Fruit,fruit,1901,Watermelon,"Iran, Islamic Republic of",0.55,0.55,0.0,0.98,0.85,5.23,1.22,325.97,4973.68,C,0.035317515768024346
-31,Other Fruit,fruit,1902,Watermelon,"Iran, Islamic Republic of",1.24,1.24,0.0,27.99,0.73,5.79,2.08,0.0,0.0,C,0.035317515768024346
-31,Other Fruit,fruit,1903,Watermelon,"Iran, Islamic Republic of",1.37,1.37,0.0,30.99,1.0,8.66,4.32,85.61,2602.4,C,0.035317515768024346
-31,Other Fruit,fruit,1904,Melon,Spain,0.21,0.21,0.0,3.69,0.55,4.19,1.01,181.0,18050.02,C,0.09039300143215728
+31,Other Fruit,fruit,1853,Chinese pear,China,0.43,0.43,0.0,3.17,0.03,-,3.12,700.98,19158.11,O,0.00021810353712329239
+31,Other Fruit,fruit,1855,Chinese pear,China,0.86,0.86,0.0,7.93,2.22,-,10.04,797.64,76055.45,O,0.00021810353712329239
+31,Other Fruit,fruit,1856,Chinese pear,China,0.72,0.72,0.0,6.61,0.06,-,4.54,797.6,76052.08,O,0.00021810353712329239
+31,Other Fruit,fruit,1869,Nectarines,"Iran, Islamic Republic of",0.68,0.68,0.0,25.11,0.25,6.06,1.89,274.26,23872.76,C,0.0037077601310959705
+31,Other Fruit,fruit,1874,Peaches,Spain,0.4,0.4,0.0,19.79,0.56,3.12,0.67,296.68,26699.93,C,0.011049110813622063
+31,Other Fruit,fruit,1886,Kiwi,"Iran, Islamic Republic of",1.39,1.39,0.0,51.16,0.51,17.18,18.95,1028.87,32135.13,C,0.00021810353712329239
+31,Other Fruit,fruit,1887,Kiwi,"Iran, Islamic Republic of",1.38,1.38,0.0,50.87,0.48,16.94,18.9,1028.93,32137.18,C,0.00021810353712329239
+31,Other Fruit,fruit,1888,Kiwi,"Iran, Islamic Republic of",1.31,1.31,0.0,48.41,0.71,18.35,20.09,1028.88,32135.38,C,0.00021810353712329239
+31,Other Fruit,fruit,1900,Canary melon,Brazil,1.06,1.06,0.0,29.43,2.94,5.62,2.16,0.34,3.62,C,99.78861916849107
+31,Other Fruit,fruit,1901,Watermelon,"Iran, Islamic Republic of",0.55,0.55,0.0,0.98,0.85,5.23,1.22,325.97,4973.68,C,0.035114669476850074
+31,Other Fruit,fruit,1902,Watermelon,"Iran, Islamic Republic of",1.24,1.24,0.0,27.99,0.73,5.79,2.08,0.0,0.0,C,0.035114669476850074
+31,Other Fruit,fruit,1903,Watermelon,"Iran, Islamic Republic of",1.37,1.37,0.0,30.99,1.0,8.66,4.32,85.61,2602.4,C,0.035114669476850074
+31,Other Fruit,fruit,1904,Melon,Spain,0.21,0.21,0.0,3.69,0.55,4.19,1.01,181.0,18050.02,C,0.08997133091092252
 32,Coffee,stimulants,1905,Coffee beans,Brazil,8.4,8.4,0.0,276.64,4.73,52.73,41.13,10.41,19.56,C,10.108868527241517
 32,Coffee,stimulants,1906,Coffee beans,Brazil,11.88,11.88,0.0,391.33,7.37,69.97,45.55,34.55,78.78,C,10.108868527241517
 32,Coffee,stimulants,1914,Coffee beans,Costa Rica,22.07,22.07,0.0,2194.46,6.1,33.35,192.39,10.41,5.08,O,8.067412331609939
@@ -589,35 +589,35 @@ Product id,Data S2 Name,Group,id,Product_details,Country,Land Use (m2*year),Arab
 34,Bovine Meat (beef herd),protein_rich,1978,Beef,Brazil,881.83,0.0,881.83,9099.69,266.38,669.06,345.21,470.09,238.31,C,30.71400772591375
 34,Bovine Meat (beef herd),protein_rich,1979,Beef,Brazil,271.51,0.0,271.51,2801.75,145.31,430.79,181.6,367.32,195.78,C,9.502676423487127
 34,Bovine Meat (beef herd),protein_rich,1980,Beef,Brazil,131.33,0.0,131.33,1355.22,111.68,415.68,158.03,305.91,170.36,C,6.448244715937694
-34,Bovine Meat (beef herd),protein_rich,2004,Beef,France,64.89,18.18,46.72,223.1,43.97,235.48,132.45,230.25,1732.07,C,0.0013671187288288814
-34,Bovine Meat (beef herd),protein_rich,2005,Beef,France,63.72,17.85,45.87,224.07,43.9,239.79,132.45,245.39,1857.59,C,0.0013671187288288814
-34,Bovine Meat (beef herd),protein_rich,2006,Beef,France,62.54,16.22,46.32,146.69,43.56,232.61,125.28,176.13,1283.47,C,0.0013671187288288814
-34,Bovine Meat (beef herd),protein_rich,2007,Beef,France,62.8,17.05,45.75,144.19,42.02,239.79,132.45,205.38,1525.97,C,0.0013671187288288814
-34,Bovine Meat (beef herd),protein_rich,2008,Beef,France,70.17,21.37,48.81,232.55,47.86,250.41,128.58,228.74,1719.59,C,0.0013671187288288814
-34,Bovine Meat (beef herd),protein_rich,2009,Beef,France,63.29,20.51,42.78,219.31,48.17,248.97,128.29,228.74,1719.59,C,0.0013671187288288814
-34,Bovine Meat (beef herd),protein_rich,2010,Beef,France,71.14,19.89,51.25,244.12,48.14,253.14,142.22,228.74,1719.59,C,0.0013671187288288814
-34,Bovine Meat (beef herd),protein_rich,2011,Beef,France,63.88,21.82,42.06,227.77,47.12,244.81,137.33,276.13,2112.36,C,0.0013671187288288814
-34,Bovine Meat (beef herd),protein_rich,2012,Beef,France,69.32,20.8,48.52,227.17,47.96,250.27,141.5,239.13,1805.64,C,0.0013671187288288814
-34,Bovine Meat (beef herd),protein_rich,2013,Beef,France,63.36,20.58,42.78,215.8,45.15,233.04,132.02,213.7,1594.86,C,0.0013671187288288814
-34,Bovine Meat (beef herd),protein_rich,2014,Beef,France,70.38,21.0,49.38,170.35,48.71,254.29,142.65,228.74,1719.59,C,0.0013671187288288814
-34,Bovine Meat (beef herd),protein_rich,2015,Beef,France,70.2,21.39,48.81,177.28,48.3,251.99,142.5,234.38,1766.31,C,0.0013671187288288814
-34,Bovine Meat (beef herd),protein_rich,2016,Beef,France,69.85,21.18,48.66,204.44,46.63,258.59,153.13,171.11,1241.85,C,0.0013671187288288814
-34,Bovine Meat (beef herd),protein_rich,2017,Beef,France,56.85,19.1,37.75,147.08,51.52,222.42,103.74,228.33,1716.2,C,0.0013671187288288814
-34,Bovine Meat (beef herd),protein_rich,2035,Beef,Sweden,172.57,31.09,141.48,89.58,50.22,178.03,80.83,658.88,1857.17,O,0.0002485670416052512
+34,Bovine Meat (beef herd),protein_rich,2004,Beef,France,64.89,18.18,46.72,223.1,43.97,235.48,132.45,230.25,1732.07,C,0.0013671187288288812
+34,Bovine Meat (beef herd),protein_rich,2005,Beef,France,63.72,17.85,45.87,224.07,43.9,239.79,132.45,245.39,1857.59,C,0.0013671187288288812
+34,Bovine Meat (beef herd),protein_rich,2006,Beef,France,62.54,16.22,46.32,146.69,43.56,232.61,125.28,176.13,1283.47,C,0.0013671187288288812
+34,Bovine Meat (beef herd),protein_rich,2007,Beef,France,62.8,17.05,45.75,144.19,42.02,239.79,132.45,205.38,1525.97,C,0.0013671187288288812
+34,Bovine Meat (beef herd),protein_rich,2008,Beef,France,70.17,21.37,48.81,232.55,47.86,250.41,128.58,228.74,1719.59,C,0.0013671187288288812
+34,Bovine Meat (beef herd),protein_rich,2009,Beef,France,63.29,20.51,42.78,219.31,48.17,248.97,128.29,228.74,1719.59,C,0.0013671187288288812
+34,Bovine Meat (beef herd),protein_rich,2010,Beef,France,71.14,19.89,51.25,244.12,48.14,253.14,142.22,228.74,1719.59,C,0.0013671187288288812
+34,Bovine Meat (beef herd),protein_rich,2011,Beef,France,63.88,21.82,42.06,227.77,47.12,244.81,137.33,276.13,2112.36,C,0.0013671187288288812
+34,Bovine Meat (beef herd),protein_rich,2012,Beef,France,69.32,20.8,48.52,227.17,47.96,250.27,141.5,239.13,1805.64,C,0.0013671187288288812
+34,Bovine Meat (beef herd),protein_rich,2013,Beef,France,63.36,20.58,42.78,215.8,45.15,233.04,132.02,213.7,1594.86,C,0.0013671187288288812
+34,Bovine Meat (beef herd),protein_rich,2014,Beef,France,70.38,21.0,49.38,170.35,48.71,254.29,142.65,228.74,1719.59,C,0.0013671187288288812
+34,Bovine Meat (beef herd),protein_rich,2015,Beef,France,70.2,21.39,48.81,177.28,48.3,251.99,142.5,234.38,1766.31,C,0.0013671187288288812
+34,Bovine Meat (beef herd),protein_rich,2016,Beef,France,69.85,21.18,48.66,204.44,46.63,258.59,153.13,171.11,1241.85,C,0.0013671187288288812
+34,Bovine Meat (beef herd),protein_rich,2017,Beef,France,56.85,19.1,37.75,147.08,51.52,222.42,103.74,228.33,1716.2,C,0.0013671187288288812
+34,Bovine Meat (beef herd),protein_rich,2035,Beef,Sweden,172.57,31.09,141.48,89.58,50.22,178.03,80.83,658.88,1857.17,O,0.0002485670416052511
 34,Bovine Meat (beef herd),protein_rich,2044,Beef,United States,131.29,93.78,37.51,283.67,61.61,-,307.29,4898.91,177953.94,C,2.901150393990293
 34,Bovine Meat (beef herd),protein_rich,2045,Beef,United States,160.66,114.76,45.91,347.13,62.52,-,351.34,2490.91,90091.46,C,2.709021228825373
 34,Bovine Meat (beef herd),protein_rich,2046,Beef,United States,202.08,0.0,202.08,243.97,71.78,-,418.9,1848.57,66653.77,C,0.1921291651649201
-35,Bovine Meat (dairy herd),protein_rich,2073,Beef,France,65.31,34.91,30.41,143.9,73.92,533.18,204.03,3088.42,86399.99,C,0.014202044643912226
-35,Bovine Meat (dairy herd),protein_rich,2074,Beef,France,48.57,25.75,22.82,104.98,55.01,385.56,147.5,1984.28,54119.97,C,0.014202044643912226
-35,Bovine Meat (dairy herd),protein_rich,2075,Beef,France,44.43,27.85,16.57,126.38,53.19,328.37,154.88,3140.91,112868.45,C,0.014202044643912226
-35,Bovine Meat (dairy herd),protein_rich,2076,Beef,France,35.24,25.95,9.29,146.82,46.67,301.18,140.61,2055.71,60492.46,C,0.014202044643912226
-35,Bovine Meat (dairy herd),protein_rich,2077,Beef,France,45.78,29.46,16.32,122.2,51.81,324.36,157.03,3167.54,120025.98,C,0.014202044643912226
-35,Bovine Meat (dairy herd),protein_rich,2078,Beef,France,40.53,30.01,10.52,195.15,46.04,304.97,150.6,2141.83,65250.33,C,0.014202044643912226
+35,Bovine Meat (dairy herd),protein_rich,2073,Beef,France,65.31,34.91,30.41,143.9,73.92,533.18,204.03,3088.42,86399.99,C,0.014202044643912223
+35,Bovine Meat (dairy herd),protein_rich,2074,Beef,France,48.57,25.75,22.82,104.98,55.01,385.56,147.5,1984.28,54119.97,C,0.014202044643912223
+35,Bovine Meat (dairy herd),protein_rich,2075,Beef,France,44.43,27.85,16.57,126.38,53.19,328.37,154.88,3140.91,112868.45,C,0.014202044643912223
+35,Bovine Meat (dairy herd),protein_rich,2076,Beef,France,35.24,25.95,9.29,146.82,46.67,301.18,140.61,2055.71,60492.46,C,0.014202044643912223
+35,Bovine Meat (dairy herd),protein_rich,2077,Beef,France,45.78,29.46,16.32,122.2,51.81,324.36,157.03,3167.54,120025.98,C,0.014202044643912223
+35,Bovine Meat (dairy herd),protein_rich,2078,Beef,France,40.53,30.01,10.52,195.15,46.04,304.97,150.6,2141.83,65250.33,C,0.014202044643912223
 35,Bovine Meat (dairy herd),protein_rich,2080,Beef,Mexico,104.68,0.45,104.23,2700.26,26.79,464.59,1545.26,8340.28,168179.14,C,49.955090831801684
 35,Bovine Meat (dairy herd),protein_rich,2081,Beef,Mexico,353.4,0.5,352.89,9577.9,41.86,1155.19,2637.27,9328.98,43897.44,C,49.955090831801684
-35,Bovine Meat (dairy herd),protein_rich,2088,Beef,Sweden,47.68,47.68,0.0,62.09,38.22,138.07,87.16,4908.96,149060.98,C,0.001663302525863594
-35,Bovine Meat (dairy herd),protein_rich,2089,Beef,Sweden,47.2,47.2,0.0,23.12,36.95,136.28,90.88,5370.64,165880.7,C,0.001663302525863594
-35,Bovine Meat (dairy herd),protein_rich,2090,Beef,Sweden,64.0,36.71,27.3,33.95,38.13,322.44,148.07,2487.85,51125.07,O,0.0012794634814335339
+35,Bovine Meat (dairy herd),protein_rich,2088,Beef,Sweden,47.68,47.68,0.0,62.09,38.22,138.07,87.16,4908.96,149060.98,C,0.0016633025258635937
+35,Bovine Meat (dairy herd),protein_rich,2089,Beef,Sweden,47.2,47.2,0.0,23.12,36.95,136.28,90.88,5370.64,165880.7,C,0.0016633025258635937
+35,Bovine Meat (dairy herd),protein_rich,2090,Beef,Sweden,64.0,36.71,27.3,33.95,38.13,322.44,148.07,2487.85,51125.07,O,0.0012794634814335337
 36,Lamb & Mutton,protein_rich,2105,Mutton,Australia,43.66,43.66,0.0,558.23,31.97,140.50,23.53,86.27,995.28,C,50.00000000000001
 36,Lamb & Mutton,protein_rich,2106,Mutton,Australia,43.66,43.66,0.0,558.23,29.84,139.99,23.48,86.27,995.28,C,50.00000000000001
 37,Pig Meat,protein_rich,2178,Pork,Mexico,16.64,16.64,0.0,61.42,18.13,154.17,50.87,2064.09,74705.15,C,32.259231652309964
