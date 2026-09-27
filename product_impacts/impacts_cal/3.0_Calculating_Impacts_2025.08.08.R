@@ -550,7 +550,8 @@ stacked.dat.whole = stacked.dat
 countries = sort(unique(stacked.dat$country))
 
 # Mapping of country names to iso codes (to read region specific LCA files)
-country_groups <- read.csv(file.path(getwd(), '..', 'FAOSTAT', 'country_groups.csv'))
+### EDIT for the full pipeline: e.g. file.path(getwd(), '..', 'FAOSTAT', 'country_groups.csv')
+country_groups <- read.csv(file.path(getwd(), 'Data Inputs', 'country_groups.csv'))
 
 rep_length = 3000
 
@@ -722,7 +723,7 @@ for(c in (countries)) {
     product.chunks <- chunk_vector(split.product.list, chunk.size)
     
     # Save the list to an RDS file (to rerun a specific chunk/set of chunks)
-    # saveRDS(product.chunks, file = paste0(getwd(),"/Managed_Data/product_chunks_",c,".rds"))
+    saveRDS(product.chunks, file = paste0(getwd(),"/Managed_Data/product_chunks_",c,".rds"))
     product.chunks <- readRDS(paste0(getwd(),"/Managed_Data/product_chunks_",c,".rds"))
     
     # and running

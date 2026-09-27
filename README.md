@@ -18,12 +18,12 @@ This repository contains the code used to estimate the environmental impacts (gr
 
 ### Software dependencies
 
-**Python 3.12.9** (ML pipeline and trade data processing):
+**Python 3.11** (ML pipeline and trade data processing):
 - `pandas` 2.2.3, `numpy` 1.26.4, `scipy` 1.15.1
 - `scikit-learn` 1.6.1, `joblib` 1.4.2
 - `matplotlib` 3.10.0, `seaborn` 0.13.2
-- `tensorflow` 2.14.0, `sentence-transformers` 3.3.0
-- `jupyter` 1.1.1, `jupyterlab` 4.3.4 
+- `tensorflow` 2.14.0, `sentence-transformers` 6.1.0
+- `jupyter` 1.1.1, `jupyterlab` 4.3.4
 
 **R 4.4.2** (composition estimation and impact calculation):
 - `ggplot2`, `plotly`, `cowplot`, `tidyr`, `plyr`, `dplyr`, `readr`, `ggrepel`, `stringr`, `stringi`, `reshape2`, `matrixStats`, `dismo`, `parallel`
@@ -46,14 +46,14 @@ git clone https://github.com/shrutijain90/food_product_impacts.git
 cd food_product_impacts
 
 # Create and activate a conda environment
-conda create -n prod_imp python=3.12.9
+conda create -n prod_imp python=3.11
 conda activate prod_imp
 
 # Install dependencies
 conda install pandas=2.2.3 numpy=1.26.4 scipy=1.15.1 scikit-learn=1.6.1 joblib=1.4.2 matplotlib=3.10.0 seaborn=0.13.2 jupyterlab=4.3.4
 
 # Install pip packages
-pip install tensorflow==2.14.0 sentence-transformers==3.3.0
+pip install tensorflow==2.14.0 sentence-transformers==6.1.0
 ```
 
 ### R environment
@@ -77,10 +77,10 @@ The `demo/` folder provides data at each stage of the pipeline for a sample of 5
 | File/Folder | Description |
 |-------------|-------------|
 | `demo/products.csv` | Uncategorised product data (sample from Open Food Facts) |
-| `demo/product_categorized.csv` | Products after ML classification |
+| `demo/Products_dat/products_categories.csv` | Products after ML classification |
 | `demo/trained_models/` | Pre-trained Neural Network classifier models (one per food group) |
-| `demo/data_inputs/` | Lookup files required by the R scripts (search word lists, LCA data, country groupings) |
-| `demo/product_impacts.csv` | Expected output of Step 2, provided for reference |
+| `demo/Data Inputs/` | Lookup files required by the R scripts (search word lists, LCA data, country groupings) |
+| `demo/products_impacts.csv` | Expected output of Step 2, provided for reference |
 
 ### Running the demo
 
@@ -88,21 +88,34 @@ The two steps can be run independently using the provided input files. Before ru
 
 **Step 1 — Classify products (Python):**
 
-Takes `demo/products.csv` and models in `demo/trained_models/` as input.
+Takes `demo/products.csv` and models in `demo/trained_models/` as input. Uses the Python environment set up above:
 ```bash
-python -m product_impacts.ml_pipeline.generate_embeddings
-python -m product_impacts.ml_pipeline.make_predictions
+conda activate prod_imp
+jupyter lab demo/classify_products_demo.ipynb
 ```
-Expected output: a CSV with categorised products. Expected run time: ~5 minutes.
+Run all cells in the notebook - it generates embeddings and classifies products.
+
+Expected output: `demo/products_categorized_output.csv`, a CSV with categorised products (compare against the reference `demo/Products_dat/products_categories.csv`; expect close but not identical labels. 
+Expected run time: ~5 minutes.
 
 **Step 2 — Estimate composition and calculate impacts (R):**
 
-Takes `demo/product_categorized.csv` and lookup files in `demo/data_inputs/` as input. Use the provided `product_categorized.csv` directly (rather than the output of Step 1) to ensure variable names match.
+Takes `demo/Products_dat/products_categories.csv` and lookup files in `demo/Data Inputs/` as input. Use the provided file directly (rather than the output of Step 1) to ensure variable names match.
+
+Before running, edit two lines in **each** script to point at the repository's `demo/` folder:
+
+- `1.0_Estimating_Composition_2025.07.27.R`:
+  - line 18: `setwd('/full/path/to/food_product_impacts/demo')`
+  - line 29: `source('/full/path/to/food_product_impacts/product_impacts/impacts_cal/0.0_Functions_Estimating_Composition_2024.07.23.R')`
+- `3.0_Calculating_Impacts_2025.08.08.R`:
+  - line 30: `setwd('/full/path/to/food_product_impacts/demo')`
+  - line 34: `source('/full/path/to/food_product_impacts/product_impacts/impacts_cal/0.0_Functions_Estimating_Impacts_2025.08.08.R')`
+
 ```r
 source("product_impacts/impacts_cal/1.0_Estimating_Composition_2025.07.27.R")
 source("product_impacts/impacts_cal/3.0_Calculating_Impacts_2025.08.08.R")
 ```
-Expected output: a CSV with estimated environmental impacts per 100 g (see `demo/product_impacts.csv` for reference). Expected run time: ~10 minutes.
+Expected output: a CSV with estimated environmental impacts per 100 g (see `demo/products_impacts.csv` for reference). Expected run time: ~10 minutes.
 
 ---
 
