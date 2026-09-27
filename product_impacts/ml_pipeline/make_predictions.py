@@ -8,10 +8,19 @@ import pickle
 import joblib
 from sklearn.preprocessing import LabelEncoder
 import tensorflow as tf
-from product_impacts.ml_pipeline.train_models import get_labels
 
 ### enter path here
 data_dir = '../../SFS/openfoodfacts/all/'
+
+def get_ndns_cats(): 
+    ndns = pd.read_csv('../../SFS/NDNS UK/ndns_edited.csv', encoding='unicode_escape')
+    ndns.loc[ndns['subfoodgroupdesc_edited'].notnull(), 
+             'subfoodgroupdesc'] = ndns[ndns['subfoodgroupdesc_edited'].notnull()]['subfoodgroupdesc_edited']
+    ndns = ndns.drop(['subfoodgroupdesc_edited'], axis=1)
+    ndns = ndns[['parentcategory', 'mainfoodgroupdesc', 'subfoodgroupdesc']].drop_duplicates()
+    ndns = ndns[ndns['subfoodgroupdesc']!='Tap water only']
+    ndns = ndns.rename(columns={'mainfoodgroupdesc': 'mainfoodgroup', 'subfoodgroupdesc': 'subfoodgroup'})
+    return ndns
 
 def get_pred_data(data_dir, prefix):
     
@@ -27,6 +36,10 @@ def get_pred_data(data_dir, prefix):
         pred_product_ids = np.load(f'{data_dir}embeddings/{prefix}ids_{i}.npy')
 
         pred_features = pd.DataFrame(data=pred_emb)
+        
+        if i == 0:
+            X_cols = pred_features.columns.tolist()
+
         # pred_features[['tsne_0', 'tsne_1']] = pred_tsne
         pred_features['product_id'] = pd.Series(pred_product_ids, index=pred_features.index)
         pred_df_list.append(pred_features)
@@ -34,7 +47,7 @@ def get_pred_data(data_dir, prefix):
     pred_features = pd.concat(pred_df_list, axis=0, ignore_index=True)
     pred_features = pred.merge(pred_features)
     
-    return pred_features
+    return pred_features, X_cols
 
 def get_predictions(stored_model, X, model_type):
     
@@ -63,7 +76,7 @@ def lev_0_model(pred, X_cols, model_type):
     return pred
 
 
-def lev_2_model(train, pred, X_cols, model_type, category):
+def lev_2_model(ndns, pred, X_cols, model_type, category):
 
     stored_model = joblib.load(f'../../SFS/NDNS UK/trained_models/{model_type}_{category}.joblib')
     X_pred = pred[X_cols].to_numpy()
@@ -71,7 +84,7 @@ def lev_2_model(train, pred, X_cols, model_type, category):
     y_pred2, y_pred2_probabilities = get_predictions(stored_model, X_pred, model_type)
     
     y_pred1 = pd.DataFrame(y_pred2, columns=['subfoodgroup']).merge(
-        train[['mainfoodgroup', 'subfoodgroup']].drop_duplicates(), how='left')['mainfoodgroup'].values
+        ndns[['mainfoodgroup', 'subfoodgroup']].drop_duplicates(), how='left')['mainfoodgroup'].values
     pred['mainfoodgroup'] = pd.Series(y_pred1, index = pred.index)
     pred['subfoodgroup'] = pd.Series(y_pred2, index = pred.index)
     pred['subfoodgroup_prob'] = pd.Series(y_pred2_probabilities, index = pred.index)
@@ -84,15 +97,15 @@ if __name__ == '__main__':
     model_type = 'nn' ### enter model type here
     prefix = 'non_eng/' ### enter this if embeddings are split into folders, else blank string
     
-    train, X_cols = get_labels()
-    pred = get_pred_data(data_dir, prefix)
+    ndns = get_ndns_cats()
+    pred, X_cols = get_pred_data(data_dir, prefix)
 
     print('Level 0')
     pred = lev_0_model(pred, X_cols, model_type)
     
     df_list = []
     
-    for category in train['parentcategory'].unique().tolist():
+    for category in ndns['parentcategory'].unique().tolist():
         
         print(category)
         
@@ -103,7 +116,7 @@ if __name__ == '__main__':
             pred_df['mainfoodgroup'] = pred_df['parentcategory']
             pred_df['subfoodgroup'] = pred_df['parentcategory']
         else:
-            pred_df = lev_2_model(train, pred_df, X_cols, model_type, category)
+            pred_df = lev_2_model(ndns, pred_df, X_cols, model_type, category)
         
         df_list.append(pred_df)
         

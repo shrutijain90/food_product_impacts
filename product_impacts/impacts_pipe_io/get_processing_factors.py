@@ -157,7 +157,7 @@ if __name__ == '__main__':
                                                                             'Losses', 'Other uses (non-food)', 'Processing', 'Residuals', 
                                                                             'Seed', 'Tourist consumption']].reset_index()
 
-    oil_sugar.to_csv('../../OPSIS/Data/FAOSTAT/processing_factors.csv', index=False)
+    oil_sugar.to_csv('../../SFS/FAOSTAT/processing_factors.csv', index=False)
 
 
     
