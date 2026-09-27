@@ -173,9 +173,9 @@ if __name__ == '__main__':
         'Citrus Fruit': ['oranges', 'lemons', 'other_citrus'], 
         'Bananas': ['bananas'],
         'Apples': ['apples'], 
-        'Berries & Grapes': ['strawberries', 'raspberries', 'other_berries', 'grapes'], #### added other_berries (which was earlier included in other_fruit 
+        'Berries & Grapes': ['strawberries', 'raspberries', 'other_berries', 'grapes'], 
         'Wine': ['wine'], 
-        'Other Fruit': ['pears', 'peach', 'avacado', 'melon', 'kiwi', 'other_fruit', 'olives'], #####
+        'Other Fruit': ['pears', 'peach', 'avacado', 'melon', 'kiwi', 'other_fruit', 'olives'], 
         'Coffee': ['coffee'],
         'Dark Chocolate': ['chocolate'], 
         'Bovine Meat (beef herd)': ['beef'],
@@ -184,7 +184,7 @@ if __name__ == '__main__':
         'Pig Meat': ['pork'],
         'Poultry Meat': ['chicken', 'turkey', 'other_poultry'], 
         'Milk': ['milk'], 
-        'Cheese': ['cheese'], ### changed, it was milk earlier
+        'Cheese': ['cheese'], 
         'Eggs': ['eggs'], 
         'Fish (farmed)': ['fish'],
         'Crustaceans (farmed)': ['crustaceans']
