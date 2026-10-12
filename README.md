@@ -160,6 +160,12 @@ impacts_pipe_io/impacts_pipeline_results.ipynb                  # figures and su
 
 ---
 
+## Data availability
+
+The resulting dataset (estimated ingredient composition and environmental impacts for 373,849 supermarket food products from 74 countries, sourced from Open Food Facts) is archived on Zenodo: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20435656.svg)](https://doi.org/10.5281/zenodo.20435656)
+
+---
+
 ## License
 
 This code is released under the [MIT License](LICENSE) and is fully open source — available for use, reuse, repurposing, and dissemination.
